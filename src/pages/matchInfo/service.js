@@ -1,5 +1,5 @@
 import request from '../../utils/request';
 
 export async function queryMatchDetail(params) {
-  return request('/api/v1/match?league=seri')
+  return request(`/api/v1/match?league=${params.league}`)
 }

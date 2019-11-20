@@ -6,8 +6,8 @@ const Model = {
     matchDetail: [],
   },
   effects: {
-    *fetchMatchDetail({}, { call, put }) {
-      const response = yield call(queryMatchDetail, {})
+    *fetchMatchDetail({ payload }, { call, put }) {
+      const response = yield call(queryMatchDetail, { ...payload })
       if (response && response.data) {
         yield put({
           type: 'save',
