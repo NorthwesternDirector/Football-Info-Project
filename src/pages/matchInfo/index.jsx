@@ -6,14 +6,18 @@ import TeamLoName from '../../components/TeamCard/TeamLogoName'
 
 
 const MatchInfo = props => {
-  const { dispatch, matchDetail } = props
-
+  const { dispatch, matchDetail, loading } = props
   const [league, setLeague] = useState('')
+
   console.log(matchDetail)
+
   useEffect(() => {
     dispatch({
       type: 'matchInfo/fetchMatchDetail',
       payload: { league },
+    })
+    return () => dispatch({
+      type: 'matchInfo/clear',
     })
   }, [league])
 
@@ -40,7 +44,7 @@ const MatchInfo = props => {
         {
           leagueList.map(item =>
             <Tabs.TabPane tab={item.tab} key={item.key}>
-              <TeamLoName matchDetail={matchDetail}></TeamLoName>
+              <TeamLoName matchDetail={matchDetail} loading={loading}></TeamLoName>
             </Tabs.TabPane>,
           )
         }
@@ -49,4 +53,4 @@ const MatchInfo = props => {
   )
 }
 
-export default connect(({ matchInfo }) => ({ matchDetail: matchInfo.matchDetail }))(MatchInfo)
+export default connect(({ matchInfo, loading }) => ({ matchDetail: matchInfo.matchDetail, loading: loading.effects['matchInfo/fetchMatchDetail'] }))(MatchInfo)

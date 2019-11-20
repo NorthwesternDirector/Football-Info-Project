@@ -1,10 +1,10 @@
 import React from 'react'
 import { Card, Avatar, Row, Col, Tag } from 'antd'
 
-const TeamLoName = ({ matchDetail }) =>
+const TeamLoName = ({ matchDetail, loading }) =>
     <Row gutter={24}>
       {matchDetail.map(val =>
-        <Col span={12} style={{ marginBottom: '8px' }}>
+        <Col span={12} style={{ marginBottom: '8px' }} key={Math.random()}>
           <Card title={val.match } description={val.status} extra={<a href={val.rateProgress.type[0].href} target="_blank">比赛战报</a>}>
             <Row gutter={24}>
               <Col span={8} style={{ textAlign: 'center' }}>

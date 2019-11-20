@@ -22,6 +22,11 @@ const Model = {
     save(state, { payload }) {
       return { ...state, ...payload }
     },
+    clear() {
+      return {
+        matchDetail: [],
+      }
+    },
   },
 }
 
