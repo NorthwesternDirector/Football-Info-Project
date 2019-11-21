@@ -114,6 +114,12 @@ export default {
               component: './matchInfo',
             },
             {
+              path: '/pointsInfo',
+              name: 'pointsInfo',
+              icon: 'smile',
+              component: './pointsInfo',
+            },
+            {
               path: '/admin',
               name: 'admin',
               icon: 'crown',
@@ -183,6 +189,10 @@ export default {
       changeOrigin: true,
       // pathRewrite: { '^/server': '' },
     },
+    '/data/':{
+      target:'https://www.dongqiudi.com/sport-data/soccer/biz',
+      changeOrigin: true,
+    }
   },
   
 };

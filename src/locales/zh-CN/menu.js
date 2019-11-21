@@ -50,4 +50,5 @@ export default {
   'menu.editor.koni': '拓扑编辑器',
   // 自定义
   'menu.matchInfo': '比赛信息',
+  'menu.pointsInfo': '积分情况',
 };
