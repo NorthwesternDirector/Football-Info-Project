@@ -6,7 +6,7 @@ const Model = {
     pointsInfoPage: [],
   },
   effects: {
-    *fetchMatchDetail({ payload }, { call, put }) {
+    *fetchPointInfo({ payload }, { call, put }) {
       const response = yield call(queryPointInfo, { ...payload })
       console.log(response.content.rounds[0].content)
       if (response && response.content) {

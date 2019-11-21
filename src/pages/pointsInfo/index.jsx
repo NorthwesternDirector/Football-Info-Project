@@ -8,6 +8,15 @@ const MatchInfo = props => {
   const { dispatch, pointsInfoPage, loading } = props
   const [league, setLeague] = useState('France')
 
+  const leagueList = [
+    { tab: '中超', key: '14225' },
+    { tab: '法甲', key: '15045' },
+    { tab: '德甲', key: '15014' },
+    { tab: '意甲', key: '15385' },
+    { tab: '西甲', key: '15013' },
+    { tab: '英超', key: '14931' },
+  ]
+
   const params = {
     season_id: '14225',
     app: 'dqd',
@@ -15,10 +24,9 @@ const MatchInfo = props => {
     platform: 'web',
   }
 
-
   useEffect(() => {
     dispatch({
-      type: 'pointsInfo/fetchMatchDetail',
+      type: 'pointsInfo/fetchPointInfo',
       payload: params,
     })
     return () => dispatch({
@@ -29,6 +37,17 @@ const MatchInfo = props => {
   function callback(key) {
     setLeague(key)
   }
+
+  const data = pointsInfoPage && pointsInfoPage.data ? pointsInfoPage.data.map(item => ({
+    key: item.team_name,
+    球队: item.team_name,
+    赛: item.matches_total,
+    胜: item.matches_won,
+    平: item.matches_draw,
+    负: item.matches_lost,
+    '进/失': `${item.goals_pro}/${item.goals_against}`,
+    积分: item.points }),
+  ) : []
 
   const columns = [
     {
@@ -68,15 +87,6 @@ const MatchInfo = props => {
     },
   ]
 
-  const leagueList = [
-    { tab: '中超', key: '14225' },
-    { tab: '法甲', key: '15045' },
-    { tab: '德甲', key: '15014' },
-    { tab: '意甲', key: '15385' },
-    { tab: '西甲', key: '15013' },
-    { tab: '英超', key: '14931' },
-  ]
-
 
   return (
     <>
@@ -84,7 +94,7 @@ const MatchInfo = props => {
         {
           leagueList.map(item =>
             <Tabs.TabPane tab={item.tab} key={item.key}>
-              <Table columns={columns}></Table>
+              <Table columns={columns} dataSource={data}></Table>
             </Tabs.TabPane>,
           )
         }
