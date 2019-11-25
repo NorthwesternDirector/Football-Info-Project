@@ -110,13 +110,13 @@ export default {
             {
               path: '/matchInfo',
               name: 'matchInfo',
-              icon: 'smile',
+              icon: 'file-text',
               component: './matchInfo',
             },
             {
               path: '/pointsInfo',
               name: 'pointsInfo',
-              icon: 'smile',
+              icon: 'trophy',
               component: './pointsInfo',
             },
             {

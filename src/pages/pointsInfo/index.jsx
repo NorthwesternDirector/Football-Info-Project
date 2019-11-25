@@ -114,11 +114,11 @@ const MatchInfo = props => {
 
   return (
     <>
-      <Tabs defaultActiveKey="France" onChange={callback}>
+      <Tabs defaultActiveKey="14225" onChange={callback} animated={false}>
         {
           leagueList.map(item =>
             <Tabs.TabPane tab={item.tab} key={item.key}>
-              <Table columns={columns} dataSource={data}></Table>
+              <Table columns={columns} dataSource={data} loading={loading} size="middle" pagination={{ pageSize: 9 }}></Table>
             </Tabs.TabPane>,
           )
         }
@@ -127,4 +127,7 @@ const MatchInfo = props => {
   )
 }
 
-export default connect(({ pointsInfo, loading }) => ({ pointsInfoPage: pointsInfo.pointsInfoPage, loading: loading.effects['matchInfo/fetchMatchDetail'] }))(MatchInfo)
+export default connect(({ pointsInfo, loading }) => ({
+  pointsInfoPage: pointsInfo.pointsInfoPage,
+  loading: loading.effects['pointsInfo/fetchPointInfo'],
+}))(MatchInfo)

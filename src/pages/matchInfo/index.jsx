@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Tabs } from 'antd'
+import { Tabs, Skeleton } from 'antd'
 import { connect } from 'dva'
 import TeamLoName from '../../components/TeamCard/TeamLogoName'
 
@@ -8,8 +8,6 @@ import TeamLoName from '../../components/TeamCard/TeamLogoName'
 const MatchInfo = props => {
   const { dispatch, matchDetail, loading } = props
   const [league, setLeague] = useState('')
-
-  console.log(matchDetail)
 
   useEffect(() => {
     dispatch({
@@ -40,17 +38,20 @@ const MatchInfo = props => {
 
   return (
     <>
-      <Tabs defaultActiveKey="" onChange={callback}>
-        {
-          leagueList.map(item =>
-            <Tabs.TabPane tab={item.tab} key={item.key}>
+       <Tabs defaultActiveKey="" onChange={callback}>
+          {
+            leagueList.map(item =>
+              <Tabs.TabPane tab={item.tab} key={item.key}>
               <TeamLoName matchDetail={matchDetail} loading={loading}></TeamLoName>
-            </Tabs.TabPane>,
-          )
-        }
+              </Tabs.TabPane>,
+            )
+          }
       </Tabs>
     </>
   )
 }
 
-export default connect(({ matchInfo, loading }) => ({ matchDetail: matchInfo.matchDetail, loading: loading.effects['matchInfo/fetchMatchDetail'] }))(MatchInfo)
+export default connect(({ matchInfo, loading }) => ({
+  matchDetail: matchInfo.matchDetail,
+  loading: loading.effects['matchInfo/fetchMatchDetail'],
+}))(MatchInfo)
