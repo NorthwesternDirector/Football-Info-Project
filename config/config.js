@@ -120,6 +120,12 @@ export default {
               component: './pointsInfo',
             },
             {
+              path: '/scheduleDetail',
+              name: 'scheduleDetail',
+              icon: 'bar-chart',
+              component: './scheduleDetail',
+            },
+            {
               path: '/admin',
               name: 'admin',
               icon: 'crown',
@@ -191,6 +197,10 @@ export default {
     },
     '/data/':{
       target:'https://www.dongqiudi.com/sport-data/soccer/biz',
+      changeOrigin: true,
+    },
+    '/schedule/':{
+      target:'https://soccer.hupu.com/',
       changeOrigin: true,
     }
   },

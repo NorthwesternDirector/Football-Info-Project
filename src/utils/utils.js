@@ -33,3 +33,12 @@ export const getAuthorityFromRouter = (router = [], pathname) => {
   if (authority) return authority;
   return undefined;
 };
+
+export function mockData(data) {
+  return {
+    userName: 'fs',
+    status: 200,
+    msg: 'ok',
+    data,
+  }
+}

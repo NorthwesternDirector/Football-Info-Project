@@ -51,4 +51,5 @@ export default {
   // 自定义
   'menu.matchInfo': '比赛信息',
   'menu.pointsInfo': '积分情况',
+  'menu.scheduleDetail': '积分详情',
 };
