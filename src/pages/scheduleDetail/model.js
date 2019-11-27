@@ -6,7 +6,7 @@ const Model = {
     schedule: [],
   },
   effects: {
-    *fetchScheduleDetail({}, { call, put }) {
+    *fetchScheduleDetail(_, { call, put }) {
       const response = yield call(queryscheduleDetail)
       if (response) {
         yield put({
