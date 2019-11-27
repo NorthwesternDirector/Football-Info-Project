@@ -43,7 +43,7 @@ const ScheduleInfo = props => {
         },
       },
       legend: {
-        data: data.name,
+        data: data.map(item => item.team),
         top: 50,
         x: 'right',
         orient: 'vertical',
@@ -70,13 +70,13 @@ const ScheduleInfo = props => {
         type: 'value',
         boundaryGap: [0, 0.01],
       },
-      series: [
-        {
-          type: 'line',
-          data: data.map(item => ([item.data.slice(0, 10), item.totalScore])),
-          smooth: true,
-        },
-      ],
+      series: data.map(item => ({
+        name: item.team,
+        type: 'line',
+        smooth: true,
+        data: item.list.map(subitem => ([subitem.data.slice(0, 10), subitem.totalScore])),
+      })),
+
     }
     return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
@@ -84,19 +84,22 @@ const ScheduleInfo = props => {
   const { data } = schedule
 
   const selectDate = useMemo(() => {
-    const selectArr = data ? data.timeRange.split(',') : ['2019-08-17', '2019-11-23']
+    const selectArr = data ? data[0].timeRange.split(',') : ['2019-08-17', '2019-11-24']
     const arrayLength = moment(selectArr[1]).diff(moment(selectArr[0]), 'days')
 
     return new Array(arrayLength).fill(1).map((val, index, array) =>
-      moment().subtract(array.length - index, 'days').format('YYYY-MM-DD'),
+      moment(selectArr[1]).subtract(array.length - index, 'days').format('YYYY-MM-DD'),
     )
   }, [data])
+  selectDate.push('2019-11-24')
 
   return (
     <>
-      {data ? <Card title={data.team} loading={loading}>
-        <Avatar shape="square" size="large" src={data.logo}></Avatar>
-        <Line title="西甲积分情况" data={data.list} category={selectDate} chartHeight={400}></Line>
+      {data ? <Card title="西班牙甲级联赛" loading={loading}>
+        {data.map(item =>
+          <Avatar shape="square" size="large" src={item.logo} key={item.team}></Avatar>,
+        )}
+        <Line title="积分情况" data={data} category={selectDate} chartHeight={400}></Line>
       </Card> : null}
 
 
