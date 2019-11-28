@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo } from 'react'
 import moment from 'moment'
 
-import { Avatar, Card } from 'antd'
+import { Avatar, Card, Row, Col } from 'antd'
 import { connect } from 'dva'
 import Line from '../../components/Charts/Line'
-
+import Pie from '../../components/Charts/Pie'
+import '../../components/Charts/echartsTheme'
 
 const ScheduleInfo = props => {
   const { dispatch, schedule, loading } = props
@@ -30,14 +31,20 @@ const ScheduleInfo = props => {
 
   return (
     <>
-      {data ? <Card title="西班牙甲级联赛" loading={loading}>
-        {data.map(item =>
-          <Avatar shape="square" size="large" src={item.logo} key={item.team}></Avatar>,
-        )}
-        <Line title="积分情况" data={data} category={selectDate} chartHeight={400}></Line>
-
-      </Card> : null}
-
+      <Row gutter={24}>
+      {data ?
+        <Col span={24}>
+          <Card title="西班牙甲级联赛" loading={loading}>
+            {data.map(item =>
+              <Avatar shape="square" size="large" src={item.logo} key={item.team}></Avatar>,
+            )}
+            <Line title="积分情况-趋势" data={data} category={selectDate} chartHeight={400}></Line>
+          </Card>
+          <Card title="西班牙甲级联赛" loading={loading}>
+            <Pie title="积分情况-占比" data={data} category={selectDate} chartHeight={400}></Pie>
+          </Card>
+        </Col> : null}
+      </Row>
 
     </>
   )
