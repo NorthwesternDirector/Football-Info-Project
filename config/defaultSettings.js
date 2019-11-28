@@ -10,7 +10,7 @@ export default {
   menu: {
     locale: true,
   },
-  title: 'ND的快乐足球',
+  title: 'ND的快乐学习之旅',
   pwa: false,
   iconfontUrl: '',
 };
