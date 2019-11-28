@@ -126,6 +126,12 @@ export default {
               component: './scheduleDetail',
             },
             {
+              path: '/learningContent',
+              name: 'learningContent',
+              icon: 'snippets',
+              component: './learningContent',
+            },
+            {
               path: '/admin',
               name: 'admin',
               icon: 'crown',
