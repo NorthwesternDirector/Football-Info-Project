@@ -6,6 +6,7 @@ const Pie = ({
   title,
   chartHeight = 300,
   radius = '70%',
+  center = ['50%', '52%'],
 }) => {
   const option = {
     title: {
@@ -24,7 +25,7 @@ const Pie = ({
     },
     series: [{
       name: title,
-      center: ['50%', '52%'],
+      center,
       type: 'pie',
       radius,
       data: data.map(itemss => ({ name: itemss.team, value: itemss.tmpScore })),

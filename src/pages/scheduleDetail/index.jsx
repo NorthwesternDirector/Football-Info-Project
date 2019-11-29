@@ -33,17 +33,19 @@ const ScheduleInfo = props => {
     <>
       <Row gutter={24}>
       {data ?
-        <Col span={24}>
-          <Card title="西班牙甲级联赛" loading={loading}>
+        <><Col span={12}>
+          <Card title="西班牙甲级联赛-积分曲线" loading={loading}>
             {data.map(item =>
               <Avatar shape="square" size="large" src={item.logo} key={item.team}></Avatar>,
             )}
-            <Line title="积分情况-趋势" data={data} category={selectDate} chartHeight={400}></Line>
+            <Line data={data} category={selectDate} chartHeight={400}></Line>
           </Card>
-          <Card title="西班牙甲级联赛" loading={loading}>
-            <Pie title="积分情况-占比" data={data} category={selectDate} chartHeight={400}></Pie>
+          </Col>
+          <Col span={12}>
+          <Card title="西班牙甲级联赛-积分占比" loading={loading}>
+            <Pie data={data} category={selectDate} chartHeight={440} radius = "66%" center = {['50%', '42%']}></Pie>
           </Card>
-        </Col> : null}
+        </Col></> : null}
       </Row>
 
     </>
