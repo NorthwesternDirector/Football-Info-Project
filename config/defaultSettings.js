@@ -1,8 +1,8 @@
 export default {
   navTheme: 'dark',
   primaryColor: '#1890FF',
-  layout: 'sidemenu',
-  contentWidth: 'Fluid',
+  layout: 'topmenu',
+  contentWidth: 'Fixed',
   fixedHeader: true,
   autoHideHeader: false,
   fixSiderbar: true,
@@ -10,7 +10,8 @@ export default {
   menu: {
     locale: true,
   },
-  title: 'ND的快乐学习之旅',
+  title: '快乐学习之旅',
   pwa: false,
   iconfontUrl: '',
+  language: "zh",
 };
