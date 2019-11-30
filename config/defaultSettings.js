@@ -1,11 +1,11 @@
 export default {
-  navTheme: 'dark',
+  navTheme: 'light',
   primaryColor: '#1890FF',
   layout: 'topmenu',
   contentWidth: 'Fixed',
   fixedHeader: true,
   autoHideHeader: false,
-  fixSiderbar: true,
+  fixSiderbar: false,
   colorWeak: false,
   menu: {
     locale: true,
@@ -15,3 +15,6 @@ export default {
   iconfontUrl: '',
   language: "zh",
 };
+
+
+
