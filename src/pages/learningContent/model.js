@@ -1,10 +1,11 @@
-import { queryLearningContent, queryLearningWords } from './service'
+import { queryLearningContent, queryLearningWords, queryLearningTimes } from './service'
 
 const Model = {
   namespace: 'learningContent',
   state: {
     learnInfo: [],
     learnWords: [],
+    learnTimes: [],
   },
   effects: {
     *fetchLearningContent(_, { put, call }) {
@@ -29,6 +30,17 @@ const Model = {
         })
       }
     },
+    *fetchLearningTimes(_, { put, call }) {
+      const response = yield call(queryLearningTimes)
+      if (response) {
+        yield put({
+          type: 'save',
+          payload: {
+            learnTimes: response,
+          },
+        })
+      }
+    },
   },
   reducers: {
     save(state, { payload }) {
@@ -38,6 +50,7 @@ const Model = {
       return {
         learnInfo: [],
         learnWords: [],
+        learnTimes: [],
       }
     },
   },

@@ -9,3 +9,7 @@ export async function queryLearningWords() {
   const url = '/api/learningWords'
   return request(url)
 }
+export async function queryLearningTimes() {
+  const url = '/api/learningTimes'
+  return request(url)
+}
