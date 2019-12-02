@@ -6,7 +6,7 @@ import styles from './welcome.less'
 
 export default () => {
   const IconFont = Icon.createFromIconfontCN({ // iconfront 字体导入
-    scriptUrl: '//at.alicdn.com/t/font_1538571_hi4e0viilxc.js',
+    scriptUrl: '//at.alicdn.com/t/font_1538571_s85tihku19j.js',
   })
   return (
   <PageHeaderWrapper title="ND学习时间" subTitle="我又不是个薯憨憨，当然会选择做前端">
@@ -30,7 +30,10 @@ export default () => {
               <IconFont type="icon-xiaomi" /> &nbsp;大数据部-技术平台部-web技术组实习生
             </Col>
             <Col style={{ margin: '3px 0' }}>
-              <IconFont type="icon-daxue" /> &nbsp;中国海洋大学-信息学院-测绘工程专业
+              <IconFont type="icon-daxue" /> &nbsp;中国海洋大学--测绘工程-硕士
+            </Col>
+            <Col style={{ margin: '3px 0' }}>
+              <IconFont type="icon-daxue-copy" /> &nbsp;中国地质大学(武汉)-地理信息科学-本科
             </Col>
             <Col style={{ margin: '3px 0' }}>
               <IconFont type="icon-icon-test-copy" /> &nbsp;中国 山东·青岛
@@ -57,7 +60,7 @@ export default () => {
       </Col>
       <Col span={8}>
         <Card bodyStyle={{ padding: '10px 0' }}>
-          <Collapse bordered={false} style={{ border: 0 }} className={styles.customCollapse}>
+          <Collapse bordered={false} style={{ border: 0 }} className={styles.customCollapse} >
             <Collapse.Panel header="2013 中国地质大学（武汉）地理信息科学" key="1" style={{ border: 0 }}>
               <Timeline style={{ marginLeft: '25px' }} className={ styles.customTimeline }>
               <Timeline.Item dot={<IconFont type="icon-aixin" />}> 脱离单生狗 2015-04-25</Timeline.Item>
@@ -67,8 +70,8 @@ export default () => {
               </Timeline>
             </Collapse.Panel>
           </Collapse>
-          <Collapse bordered={false} style={{ border: 0 }}>
-            <Collapse.Panel header="2017 中国海洋大学 测绘工程" key="2" style={{ border: 0 }}>
+          <Collapse bordered={false} style={{ border: 0 }} defaultActiveKey="1">
+            <Collapse.Panel header="2017 中国海洋大学 测绘工程" key="1" style={{ border: 0 }}>
               <Timeline style={{ marginLeft: '25px' }} className={ styles.customTimeline }>
               <Timeline.Item dot={<IconFont type="icon-zuqiu-copy" />}> 17-18海大“校庆杯”足球赛冠军</Timeline.Item>
                 <Timeline.Item dot={<IconFont type="icon-gongzuo" />}> 植物物候观测系统web地图模块开发</Timeline.Item>
@@ -83,6 +86,8 @@ export default () => {
             </Collapse.Panel>
           </Collapse>
         </Card>
+      </Col>
+      <Col>
       </Col>
     </Row>
 
