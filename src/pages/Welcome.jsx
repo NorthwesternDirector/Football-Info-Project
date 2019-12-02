@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Icon, Row, Col, Divider, Tag, Timeline, Collapse } from 'antd';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import logo from '../assets/welcome.JPG';
+import styles from './welcome.less'
 
 export default () => {
   const IconFont = Icon.createFromIconfontCN({ // iconfront 字体导入
@@ -56,9 +57,9 @@ export default () => {
       </Col>
       <Col span={8}>
         <Card bodyStyle={{ padding: '10px 0' }}>
-          <Collapse bordered={false} style={{ border: 0 }}>
+          <Collapse bordered={false} style={{ border: 0 }} className={styles.customCollapse}>
             <Collapse.Panel header="2013 中国地质大学（武汉）地理信息科学" key="1" style={{ border: 0 }}>
-              <Timeline style={{ marginLeft: '25px' }}>
+              <Timeline style={{ marginLeft: '25px' }} className={ styles.customTimeline }>
               <Timeline.Item dot={<IconFont type="icon-aixin" />}> 脱离单生狗 2015-04-25</Timeline.Item>
                 <Timeline.Item dot={<IconFont type="icon-xuesheng" />}> 院足球队队长 2015-09-01</Timeline.Item>
                 <Timeline.Item dot={<IconFont type="icon-xuesheng" />}> 团学联副主席 2016-09-01</Timeline.Item>
@@ -68,7 +69,7 @@ export default () => {
           </Collapse>
           <Collapse bordered={false} style={{ border: 0 }}>
             <Collapse.Panel header="2017 中国海洋大学 测绘工程" key="2" style={{ border: 0 }}>
-              <Timeline style={{ marginLeft: '25px' }}>
+              <Timeline style={{ marginLeft: '25px' }} className={ styles.customTimeline }>
               <Timeline.Item dot={<IconFont type="icon-zuqiu-copy" />}> 17-18海大“校庆杯”足球赛冠军</Timeline.Item>
                 <Timeline.Item dot={<IconFont type="icon-gongzuo" />}> 植物物候观测系统web地图模块开发</Timeline.Item>
                 <Timeline.Item dot={<IconFont type="icon-xuesheng" />}> 校足球队队长 2018-07-01</Timeline.Item>
