@@ -7,7 +7,6 @@ import Sunburst from '../../components/Charts/Sunburst'
 import WordCloud from '../../components/Charts/WordCloud'
 
 const LearningContent = ({
-  loading,
   learnInfo,
   learnWords,
   learnTimes,
@@ -35,10 +34,10 @@ const LearningContent = ({
       moment('2019-11-29 01:00').subtract(array.length - index, 'minute').format('HH:mm'),
     ), [])
 
-  const inRangeminute = useMemo(() =>
-  new Array(20).fill(1).map((val, index, array) =>
-    moment('2019-11-28 09:10').subtract(array.length - index, 'minute').format('HH:mm'),
-  ), [])
+  // const inRangeminute = useMemo(() =>
+  // new Array(20).fill(1).map((val, index, array) =>
+  //   moment('2019-11-28 09:10').subtract(array.length - index, 'minute').format('HH:mm'),
+  // ), [])
 
   const Bar = ({
     data,
@@ -48,6 +47,7 @@ const LearningContent = ({
     const option = {
       tooltip: {
         trigger: 'axis',
+        formatter: '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 16px;padding-bottom: 3px;margin-bottom: 3px">{b0}</div><span style="color:#9400D3;">●</span> {a0}: {c0}<br /><span style="color:#0000CD;">●</span> {a1}: {c1}<br /><span style="color:#B0E0E6;">●</span> {a2}: {c2}h<br /><span style="color:#006400;">●</span> {a3}: {c3}<br /><span style="color:#006699;">●</span> {a4}: {c4}h<br /><span style="color:#FFD700;">●</span> {a5}: {c5}h',
         backgroundColor: 'rgba(245, 245, 245, 0.8)',
         borderWidth: 1,
         borderColor: '#ccc',
@@ -71,13 +71,14 @@ const LearningContent = ({
       }, {
         type: 'value',
         scale: true,
-        name: '工作时长/h',
+        name: '时长/h',
         max: 12,
         min: 0,
       }],
       series: [{
         name: '上班时间',
-        data: data && data[0].list.map(item => ({ name: item.date, value: item.time[0].slice(0, 5) })),
+        data: data && data[0].list.map(
+          item => ({ name: item.date, value: item.time[0].slice(0, 5) })),
         type: 'line',
         smooth: true,
         color: '#9400D3',
@@ -89,7 +90,8 @@ const LearningContent = ({
         },
       }, {
         name: '下班时间',
-        data: data && data[0].list.map(item => ({ name: item.date, value: item.time[1].slice(0, 5) })),
+        data: data && data[0].list.map(
+          item => ({ name: item.date, value: item.time[1].slice(0, 5) })),
         type: 'line',
         smooth: true,
         color: '#0000CD',
