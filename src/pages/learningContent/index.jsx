@@ -56,6 +56,43 @@ const LearningContent = ({
             color: '#000',
         },
       },
+      toolbox: {
+        show: true,
+        feature: {
+          dataView: { readOnly: true },
+          saveAsImage: {},
+          restore: {},
+        },
+      },
+      dataZoom: [
+        {
+          type: 'slider',
+          show: true,
+          xAxisIndex: [0],
+          start: 40,
+          end: 100,
+        },
+        {
+          type: 'slider',
+          show: true,
+          yAxisIndex: [0],
+          left: '93%',
+          start: 0,
+          end: 100,
+        },
+        {
+          type: 'inside',
+          xAxisIndex: [0],
+          start: 40,
+          end: 100,
+        },
+        {
+          type: 'inside',
+          yAxisIndex: [0],
+          start: 0,
+          end: 100,
+        },
+      ],
       legend: {
         data: ['上班时间', '下班时间', '入睡时间', '工作时长', '睡眠时长', '深睡时长'],
       },
