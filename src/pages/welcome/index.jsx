@@ -149,18 +149,23 @@ const Welcome = props => {
               <p style={{ margin: 0 }}><b>项目描述：</b>该demo APP主要以实践vue代码为主，设计编写了旅行游记、图片分享、留言评论、闲置物品、购物车五个功能模块。</p>
               <p style={{ margin: 0 }}><b>负责内容：</b>利用webpack手动构建vue项目，使用.vue组件模板文件创建子功能模块，结合vue-router实现页面路由匹配跳转、vuex实现多组件间共享购物车数据，结合Mint-UI优化界面显示效果，并利用git进行代码版本管理。</p>
               <p style={{ margin: 0 }}><b>项目技术：</b><Tag>vue</Tag><Tag>webpack</Tag><Tag>git</Tag><Tag>Mint-UI</Tag></p>
+              <p style={{ margin: 0 }}><b>项目地址：</b><a href="https://github.com/NorthwesternDirector/vue-demo-Project" target="_blank" rel="noopener noreferrer">vue-demo-Project</a></p>
             </span>
             <p className={styles.thirdTitle}>2018.08-2019.03 海大校园公共服务系统</p>
             <span>
               <p style={{ margin: 0 }}><b>项目描述：</b>该项目采用了ASP.NET Core框架与前后端分离的MVC开发模式，后端利用C#语言开发、SQL Server数据库进行数据存储，结合前端开源地图类库，将地图影像与建筑、管线、维修、基建信息相结合，实现了对数据展示、定位、查询、编辑、统计与分析的功能。</p>
               <p style={{ margin: 0 }}><b>负责内容：</b>在本项目中负责项目的启动、分析、实施、部署及测试，完成了项目五大模块的开发并进行着持续维护迭代。</p>
               <p style={{ margin: 0 }}><b>项目技术：</b><Tag>C#</Tag><Tag>JavaScript</Tag><Tag>JQuery</Tag><Tag>OpenLayers</Tag><Tag>SQL Server</Tag></p>
+              <p style={{ margin: 0 }}><b>项目地址：</b><a href="https://github.com/NorthwesternDirector/campus-Project" target="_blank" rel="noopener noreferrer">campus-Project</a></p>
+
             </span>
             <p className={styles.thirdTitle}>2017.11-2018.03 植物物候观测系统</p>
             <span>
               <p style={{ margin: 0 }}><b>项目描述：</b>该项目利用分布在全国多个观测站点采集到的植物物候数据，分析全国范围内环境变量对植物生长的影响程度。</p>
               <p style={{ margin: 0 }}><b>负责内容：</b>在本项目中负责前端站点模块、个人足迹模块的设计与开发，实现了Web端仿iOS地图相册功能，与后端数据接口对接后完成了对近50年来全国44个观测站点的近50种植物物候数据的可视化。</p>
               <p style={{ margin: 0 }}><b>项目技术：</b><Tag>C#</Tag><Tag>JavaScript</Tag><Tag>Bootstrap</Tag><Tag>高德地图JS API</Tag><Tag>ECharts</Tag></p>
+              <p style={{ margin: 0 }}><b>项目地址：</b><a href="https://github.com/NorthwesternDirector/plantCamera-Project" target="_blank" rel="noopener noreferrer">plantCamera-Project</a></p>
+
             </span>
           </Card>
           <Card bordered={false}>
