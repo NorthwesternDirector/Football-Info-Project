@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import { Card, Icon, Row, Col, Divider, Tag, Timeline, Collapse, Avatar, Carousel } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Card, Icon, Row, Col, Divider, Tag, Timeline, Collapse, Avatar, Carousel, Button } from 'antd';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
-import ReactEcharts from 'echarts-for-react'
 import { connect } from 'dva'
-import logo from '../../assets/welcome.JPG';
 import styles from './welcome.less'
+import Banner from '../../components/AnimationControls/Banner'
 
 const Welcome = props => {
   const { iconInfo, dispatch } = props
   const IconFont = Icon.createFromIconfontCN({ // iconfront 字体导入
-    scriptUrl: '//at.alicdn.com/t/font_1538571_bx04y9eb236.js',
+    scriptUrl: '//at.alicdn.com/t/font_1538571_tvezw8urqh.js',
   })
+  const [flag, setFlag] = useState(false)
 
   useEffect(() => {
     dispatch({
@@ -18,10 +18,28 @@ const Welcome = props => {
     })
   }, [])
 
-
   return (
   <PageHeaderWrapper title="ND学习时间" subTitle="我又不是个薯憨憨，当然会选择做前端">
     {/* <img alt="welcome" width={1150} src={logo} className={styles.imgBlur} /> */}
+    <Button type="primary" shape="circle" onClick={() => setFlag(!flag)}>
+      GO
+    </Button>
+    <Banner flag={flag}></Banner>
+    <Row style={{ height: 500 }}>
+      <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={140}>
+        <IconFont type="icon-zhizhuxia" className={styles.customAnticon}/>
+      </div>
+      <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={340}>
+        <IconFont type="icon-fuchouzhelianmeng-meiguoduichang" className={styles.customAnticon}/>
+      </div>
+      <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={540}>
+        <IconFont type="icon-fuchouzhelianmeng-gangtiexia" className={styles.customAnticon}/>
+      </div>
+      <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={740}>
+        <IconFont type="icon-qiyiboshi" className={styles.customAnticon}/>
+      </div>
+
+    </Row>
     <Card >
       <Row gutter={24}>
         <Col span={8} >
@@ -125,9 +143,9 @@ const Welcome = props => {
               <Icon type="thunderbolt" theme="twoTone" style={{ marginRight: 4 }}/>教育背景
             </p>
             <p className={styles.thirdTitle}>2013.09-2017.06 中国地质大学(武汉) 地理信息科学</p>
-            <span>主修C++、地理信息系统原理、地图可视化、WebGIS、地理信息工程等相关课程，通过英语四六级考试，无挂科记录。</span>
+            <p>主修C++、地理信息系统原理、地图可视化、WebGIS、地理信息工程等相关课程，通过英语四六级考试，无挂科记录。</p>
             <p className={styles.thirdTitle}>2017.09-至今 中国海洋大学 测绘工程</p>
-            <span>主要研究方向为WebGIS与出租车轨迹数据信息提取，在中国海洋大学学报自然科学版发表题为《基于聚类算法的出租车载客点时空分布特征探究》一文</span>
+            <p>主要研究方向为WebGIS与出租车轨迹数据信息提取，在中国海洋大学学报自然科学版发表题为《基于聚类算法的出租车载客点时空分布特征探究》一文</p>
           </Card>
           <Card bordered={false}>
             <p className={styles.secondTitle}>
