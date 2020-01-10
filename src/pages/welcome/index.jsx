@@ -4,6 +4,7 @@ import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import { connect } from 'dva'
 import styles from './welcome.less'
 import Banner from '../../components/AnimationControls/Banner'
+import img from '../../assets/logoImg.png'
 
 const Welcome = props => {
   const { iconInfo, dispatch } = props
@@ -21,9 +22,7 @@ const Welcome = props => {
   return (
   <PageHeaderWrapper title="ND学习时间" subTitle="我又不是个薯憨憨，当然会选择做前端">
     {/* <img alt="welcome" width={1150} src={logo} className={styles.imgBlur} /> */}
-    <Button type="primary" shape="circle" onClick={() => setFlag(!flag)}>
-      GO
-    </Button>
+    <Avatar size="large" src={img} className={styles.customAvatar} onClick={() => setFlag(!flag)}/>
     <Banner flag={flag}></Banner>
     <Row style={{ height: 500 }}>
       <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={140}>
@@ -45,7 +44,7 @@ const Welcome = props => {
         <Col span={8} >
           <Card bodyStyle={{ padding: 18 }} bordered={false}>
             <div style={{ textAlign: 'center' }}>
-              <Avatar size="large" icon="user" className={styles.customAvatar}></Avatar>
+              <Avatar size="large" src={img} className={styles.customAvatar}></Avatar>
               <p className={styles.firstTitle}> ND </p>
               <p className={styles.contentTxt}> 艰苦朴素，求真务实 </p>
               <p className={styles.contentTxt} style={{ marginBottom: 10 }}>
