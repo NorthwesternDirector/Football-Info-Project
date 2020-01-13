@@ -3,128 +3,156 @@ import { mockData } from '../../utils/utils'
 export default {
   '/api/learningContent': mockData([
     {
-      name: '前端',
+      name: 'React 套件',
       itemStyle: {
-          color: '#da0d68',
+          color: '#EEAD0E',
       },
       children: [{
-          name: 'React 套件',
-          itemStyle: {
-              color: '#975e6d',
-          },
-          children: [{
-            name: 'React-Router',
-            value: 1,
-            itemStyle: {
-                color: '#975e6d',
-            },
-          }, {
-            name: 'Redux',
-            value: 1,
-            itemStyle: {
-                color: '#975e6d',
-            },
-          }, {
-            name: 'DvaJS',
-            value: 1,
-            itemStyle: {
-                color: '#975e6d',
-            },
-          }, {
-            name: 'UmiJS',
-            value: 1,
-            itemStyle: {
-                color: '#975e6d',
-            },
-          }],
-      }, {
-          name: '语法',
-          itemStyle: {
-              color: '#e0719c',
-          },
-          children: [{
-              name: 'ES6',
-              value: 1,
-              itemStyle: {
-                  color: '#f99e1c',
-              },
-          }, {
-              name: 'Less',
-              value: 1,
-              itemStyle: {
-                  color: '#ef5a78',
-              },
-          }],
-      }, {
-        name: '插件',
+        name: 'React-Router',
+        value: 1,
         itemStyle: {
-            color: '#e0719c',
+            color: '#EED8AE',
         },
         children: [{
-            name: 'lodash',
-            value: 1,
-            itemStyle: {
-                color: '#f99e1c',
-            },
-        }, {
-            name: 'moment',
-            value: 1,
-            itemStyle: {
-                color: '#ef5a78',
-            },
-        }, {
-            name: 'Echarts',
-            value: 1,
-            itemStyle: {
-                color: '#f99e1c',
-            },
-        }, {
-            name: 'umi-request',
-            value: 1,
-            itemStyle: {
-                color: '#ef5a78',
-            },
-        }, {
-            name: 'dva-loading',
-            value: 1,
-            itemStyle: {
-                color: '#ef5a78',
-            },
-        }, {
-          name: 'className',
+          name: '路由控制',
           value: 1,
           itemStyle: {
-              color: '#ef5a78',
+              color: '#CDAA7D',
           },
-      }],
-    }, {
-        name: '框架',
+        }],
+      }, {
+        name: 'Redux',
+        value: 1,
         itemStyle: {
-            color: '#e0719c',
+            color: '#EEC591',
         },
         children: [{
-            name: 'Antd',
+          name: '数据管理方案',
+          value: 1,
+          itemStyle: {
+              color: '#CDAA7D',
+          },
+        }],
+      }, {
+        name: 'DvaJS',
+        value: 1,
+        itemStyle: {
+            color: '#CDBA96',
+        },
+        children: [{
+          name: '数据流解决方案',
+          value: 1,
+          itemStyle: {
+              color: '#CDAA7D',
+          },
+        }],
+      }, {
+        name: 'UmiJS',
+        value: 1,
+        itemStyle: {
+            color: '#CDAA7D',
+        },
+        children: [{
+          name: '开发框架',
+          value: 1,
+          itemStyle: {
+              color: '#CDAA7D',
+          },
+        }],
+      }],
+    }, {
+      name: '插件',
+      itemStyle: {
+          color: '#EE6363',
+      },
+      children: [{
+          name: 'lodash',
+          value: 1,
+          itemStyle: {
+              color: '#CD8500',
+          },
+          children: [{
+            name: '工具库',
             value: 1,
             itemStyle: {
-                color: '#f99e1c',
+                color: '#CD8500',
             },
-        }, {
-            name: 'Antd Pro',
+          }],
+      }, {
+          name: 'moment',
+          value: 1,
+          itemStyle: {
+              color: '#CD6600',
+          },
+          children: [{
+            name: '日期库',
             value: 1,
             itemStyle: {
-                color: '#ef5a78',
+                color: '#CD6600',
             },
+          }],
+      }, {
+          name: 'Echarts',
+          value: 2,
+          itemStyle: {
+              color: '#CD5B45',
+          },
+          children: [{
+            name: '图表库',
+            value: 2,
+            itemStyle: {
+                color: '#CD5B45',
+            },
+          }],
+      }, {
+        name: 'className',
+        value: 1,
+        itemStyle: {
+            color: '#CD4F39',
+        },
+        children: [{
+          name: 'className库',
+          value: 1,
+          itemStyle: {
+              color: '#CD4F39',
+          },
+        }],
+    }, {
+          name: 'dva-loading',
+          value: 1,
+          itemStyle: {
+              color: '#CD3700',
+          },
+          children: [{
+            name: '获取加载状态',
+            value: 1,
+            itemStyle: {
+                color: '#CD3700',
+            },
+          }],
+      }, {
+        name: 'umi-request',
+        value: 1,
+        itemStyle: {
+            color: '#CD0000',
+        },
+        children: [{
+          name: '发送网络请求',
+          value: 1,
+          itemStyle: {
+              color: '#CD0000',
+          },
         }],
     }],
-  }, {
+    }, {
       name: '网络',
       itemStyle: {
-          color: '#da1d23',
+          color: '#551A8B',
       },
       children: [{
           name: 'CAS登录',
           itemStyle: {
-              color: '#dd4c51',
+              color: '#68228B',
           },
           children: [{
               name: '中央认证服务',
@@ -136,7 +164,7 @@ export default {
       }, {
           name: 'Proxy',
           itemStyle: {
-              color: '#c94a44',
+              color: '#9A32CD',
           },
           children: [{
               name: 'SwitchOmega',
@@ -147,108 +175,184 @@ export default {
           }],
       }],
   }, {
+    name: '框架',
+    itemStyle: {
+        color: '#5D478B',
+    },
+    children: [{
+        name: 'Antd',
+        value: 2,
+        itemStyle: {
+            color: '#B23AEE',
+        },
+        children: [{
+          name: '设计语言',
+          value: 2,
+          itemStyle: {
+              color: '#B23AEE',
+          },
+        }],
+    }, {
+        name: 'Antd Pro',
+        value: 2,
+        itemStyle: {
+            color: '#8968CD',
+        },
+        children: [{
+          name: '项目模版',
+          value: 2,
+          itemStyle: {
+              color: '#8968CD',
+          },
+        }],
+    }],
+}, {
       name: '协作工具',
       itemStyle: {
-          color: '#ebb40f',
+          color: '#1874CD',
       },
       children: [{
           name: 'Gitlab',
           itemStyle: {
-              color: '#e1c315',
+              color: '#4F94CD',
           },
           children: [{
               name: '团队代码整合',
               value: 1,
               itemStyle: {
-                  color: '#9ea718',
+                  color: '#9d977f',
               },
           }],
       }, {
           name: 'Teambition',
           itemStyle: {
-              color: '#b09733',
+              color: '#009ACD',
           },
           children: [{
               name: '开发任务信息',
               value: 1,
               itemStyle: {
-                  color: '#8f1c53',
+                  color: '#beb276',
               },
           }],
       }, {
         name: 'Wiki',
         itemStyle: {
-            color: '#f7a128',
+            color: '#6CA6CD',
         },
         children: [{
             name: '项目文档信息',
             value: 1,
             itemStyle: {
-                color: '#8f1c53',
+                color: '#744e03',
             },
         }],
     }, {
         name: 'YApi',
         itemStyle: {
-            color: '#dd4c51',
+            color: '#8DB6CD',
         },
         children: [{
             name: '数据接口管理',
             value: 1,
             itemStyle: {
-                color: '#e62969',
+                color: '#a3a36f',
             },
         }],
     }, {
         name: 'OneNote',
         itemStyle: {
-            color: '#b09733',
+            color: '#9FB6CD',
         },
         children: [{
             name: '工作日周报',
             value: 1,
             itemStyle: {
-                color: '#8f1c53',
+                color: '#c9b583',
             },
         }],
     }, {
         name: 'GitBook',
         itemStyle: {
-            color: '#dd4c51',
+            color: '#A2B5CD',
         },
         children: [{
             name: '学习记录',
             value: 1,
             itemStyle: {
-                color: '#e62969',
+                color: '#978847',
+            },
+        }],
+    }, {
+        name: 'Jira',
+        itemStyle: {
+            color: '#9AC0CD',
+        },
+        children: [{
+            name: '测试状态管理',
+            value: 1,
+            itemStyle: {
+                color: '#8b8c90',
             },
         }],
     }],
   }, {
     name: '其他',
     itemStyle: {
-        color: '#da1d23',
+        color: '#7A8B8B',
     },
     children: [{
         name: '编辑器',
         itemStyle: {
-            color: '#dd4c51',
+            color: '#9AC0CD',
         },
         children: [{
             name: 'Vim',
             value: 1,
             itemStyle: {
-                color: '#e62969',
+                color: '#9AC0CD',
             },
         }, {
             name: 'PowerShell',
             value: 1,
             itemStyle: {
-                color: '#e62969',
+                color: '#B4CDCD',
             },
         }],
     }],
-},
+  }, {
+    name: '语法',
+    itemStyle: {
+        color: '#548B54',
+    },
+    children: [{
+        name: 'ES6',
+        value: 1,
+        itemStyle: {
+            color: '#66CDAA',
+        },
+        children: [{
+          name: '语法',
+          value: 1,
+          itemStyle: {
+              color: '#66CDAA',
+          },
+        }],
+    }, {
+        name: 'Less',
+        value: 1,
+        itemStyle: {
+            color: '#43CD80',
+        },
+        children: [{
+          name: '样式',
+          value: 1,
+          itemStyle: {
+              color: '#43CD80',
+          },
+        }],
+    }],
+  },
 ],
   ),
   '/api/learningWords': mockData([
@@ -449,8 +553,8 @@ export default {
         { id: 45, date: '2020-01-07', time: ['09:00:00', '20:18:00', 8.30], sleepTime: ['23:51', 8.30, 1.93] },
         { id: 46, date: '2020-01-08', time: ['09:02:00', '20:05:00', 8.05], sleepTime: ['23:28', 8.72, 2.22] },
         { id: 47, date: '2020-01-09', time: ['09:15:00', '20:40:00', 8.42], sleepTime: ['00:45', 7.58, 1.25] },
-        { id: 48, date: '2020-01-09', time: ['09:08:00', ''], sleepTime: ['23:53', 8.65, 1.90] },
-
+        { id: 48, date: '2020-01-09', time: ['09:08:00', '22:01:00', 9.88], sleepTime: ['23:53', 8.65, 1.90] },
+        { id: 49, date: '2020-01-13', time: ['08:56:00', ''], sleepTime: ['23:50', 8.50, 1.03] },
       ],
     },
   ]),
