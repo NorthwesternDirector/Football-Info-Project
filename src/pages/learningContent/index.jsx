@@ -43,8 +43,15 @@ const LearningContent = ({
     data,
     chartHeight = 600,
     xoffset = 0,
+    title,
   }) => {
     const option = {
+      title: {
+        top: 0,
+        text: title,
+        subtext: '2019.11.03-2020.1.21',
+        left: 'center',
+      },
       tooltip: {
         trigger: 'axis',
         formatter: '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 16px;padding-bottom: 3px;margin-bottom: 3px">{b0}</div><span style="color:#9400D3;">●</span> {a0}: {c0}<br /><span style="color:#0000CD;">●</span> {a1}: {c1}<br /><span style="color:#B0E0E6;">●</span> {a2}: {c2}h<br /><span style="color:#006400;">●</span> {a3}: {c3}<br /><span style="color:#006699;">●</span> {a4}: {c4}h<br /><span style="color:#FFD700;">●</span> {a5}: {c5}h',
@@ -95,6 +102,7 @@ const LearningContent = ({
       ],
       legend: {
         data: ['上班时间', '下班时间', '入睡时间', '工作时长', '睡眠时长', '深睡时长'],
+        top: 50,
       },
       xAxis: {
           type: 'category',
@@ -169,6 +177,11 @@ const LearningContent = ({
         yAxisIndex: 1,
       },
       ],
+      grid: {
+        left: '90',
+        top: '90',
+        right: '90',
+      },
     }
 
     return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
@@ -177,19 +190,18 @@ const LearningContent = ({
     <>
     <Row gutter={24}>
       <Col span={24} style={{ marginBottom: 24 }}>
-        <Card title="在实习阳光灿烂的日子" style={{ marginTop: 5 }}>
-        <Bar data={learnTimes.data} chartHeight={570} ></Bar>
+        <Card style={{ marginTop: 5 }}>
+        <Bar data={learnTimes.data} chartHeight={600} title="在实习阳光灿烂的日子-摸鱼时间统计"></Bar>
         </Card>
       </Col>
       <Col span={14}>
-        <Card title="在实习阳光灿烂的日子">
-          <Sunburst data={learnInfo.data} chartHeight={570}></Sunburst>
+        <Card>
+          <Sunburst data={learnInfo.data} chartHeight={670} title="在实习阳光灿烂的日子-Get新技能统计"></Sunburst>
         </Card>
       </Col>
-
       <Col span={10}>
-      <Card title="在实习阳光灿烂的日子">
-        <WordCloud data={learnWords.data} chartHeight={300}></WordCloud>
+      <Card>
+        <WordCloud data={learnWords.data} chartHeight={300} title="在实习阳光灿烂的日子-烫嘴学习热词统计"></WordCloud>
       </Card>
       </Col>
     </Row>
