@@ -5,7 +5,7 @@ const TeamLoName = ({ matchDetail }) =>
     <Row gutter={24}>
       {matchDetail.slice(0, 12).map(val =>
         <Col span={8} style={{ marginBottom: '8px' }} key={Math.random()}>
-          <Card title={val.match } description={val.status} extra={<a href={val.rateProgress.type[0].href} target="_blank">比赛战报</a>} size="small">
+          <Card title={val.match } description={val.status} extra={<a href={val.rateProgress.type[0].href} target="_blank" rel="noopener noreferrer">比赛战报</a>} size="small">
             <Row gutter={24}>
               <Col span={8} style={{ textAlign: 'center' }}>
                 <Avatar shape="square" size={54} src={val.rateProgress.matchData[0].icon} style={{ display: 'block', margin: '0 auto' }}/>
@@ -16,7 +16,7 @@ const TeamLoName = ({ matchDetail }) =>
               </Col>
               <Col span={8} style={{ textAlign: 'center' }}>
                 {`${val.status}`}
-                <h1 style={{ color: '#FF8C00', fontSize: '30px', margin: '0' }}> {`${val.rateProgress.matchData[0].rate}：${val.rateProgress.matchData[1].rate}`}</h1>
+                <h1 style={{ color: '#FF8C00', fontSize: '30px', margin: '0' }}> {`${val.rateProgress.matchData[0].rate}:${val.rateProgress.matchData[1].rate}`}</h1>
                 {`${val.rateProgress.matchData[0].startTime} ${val.rateProgress.matchData[1].startTime}`}
               </Col>
               <Col span={8} style={{ textAlign: 'center' }}>
