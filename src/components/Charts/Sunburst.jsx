@@ -4,13 +4,21 @@ import ReactEcharts from 'echarts-for-react'
 const Sunburst = ({
   data,
   chartHeight,
+  title,
 }) => {
   const option = {
+    title: {
+      top: 0,
+      text: title,
+      subtext: '2019.11.03-2020.1.21',
+      left: 'center',
+    },
     series: {
       type: 'sunburst',
       highlightPolicy: 'ancestor',
       data,
-      radius: [0, '95%'],
+      radius: [0, '100%'],
+      center: ['50%', '53%'],
       sort: null,
       levels: [{}, {
           r0: '15%',
@@ -23,13 +31,13 @@ const Sunburst = ({
           },
       }, {
           r0: '35%',
-          r: '70%',
+          r: '65%',
           label: {
               align: 'right',
           },
       }, {
-          r0: '70%',
-          r: '72%',
+          r0: '65%',
+          r: '67%',
           label: {
               position: 'outside',
               padding: 3,

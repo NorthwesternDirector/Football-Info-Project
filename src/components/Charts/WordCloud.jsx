@@ -4,7 +4,7 @@ import echarts from 'echarts'
 import ReactEchartsCore from 'echarts-for-react/lib/core'
 import 'echarts-wordcloud'
 
-const WordCloud = ({ data, onEvents, chartHeight = 300 }) => {
+const WordCloud = ({ data, onEvents, chartHeight = 300, title }) => {
   if (!data) return <Skeleton title={false} />
   const formatData = data
   if (formatData.length === 0) return <Skeleton title={false} />
@@ -16,16 +16,21 @@ const WordCloud = ({ data, onEvents, chartHeight = 300 }) => {
         return `${params.name}:${params.value}`
       },
     },
-
+    title: {
+      top: 0,
+      text: title,
+      subtext: '2019.11.03-2020.1.21',
+      left: 'center',
+    },
     series: [
       {
         type: 'wordCloud',
         shape: 'circle',
         maskImage: null,
         left: 'center',
-        top: 'center',
+        top: 50,
         width: '95%',
-        height: '95%',
+        height: '85%',
         right: null,
         bottom: null,
         sizeRange: [12, 60],
