@@ -5,16 +5,21 @@ import ReactEcharts from 'echarts-for-react'
 import moment from 'moment'
 import Sunburst from '../../components/Charts/Sunburst'
 import WordCloud from '../../components/Charts/WordCloud'
+import Calendar from '../../components/Charts/Calendar'
 
 const LearningContent = ({
   learnInfo,
   learnWords,
   learnTimes,
+  walkingStep,
   dispatch,
 }) => {
   useEffect(() => {
     dispatch({
       type: 'learningContent/fetchLearningContent',
+    })
+    dispatch({
+      type: 'learningContent/fetchLearningWalkingStep',
     })
   }, [])
 
@@ -200,9 +205,14 @@ const LearningContent = ({
         </Card>
       </Col>
       <Col span={10}>
-      <Card>
-        <WordCloud data={learnWords.data} chartHeight={300} title="在实习阳光灿烂的日子-烫嘴学习热词统计"></WordCloud>
-      </Card>
+        <Card>
+          <WordCloud data={learnWords.data} chartHeight={300} title="在实习阳光灿烂的日子-烫嘴学习热词统计"></WordCloud>
+        </Card>
+      </Col>
+      <Col span={10}>
+        <Card style={{ marginTop: 16 }}>
+          <Calendar data={walkingStep && walkingStep.data} title="在实习阳光灿烂的日子-Walking Steps/Commit 统计"></Calendar>
+        </Card>
       </Col>
     </Row>
     </>
@@ -213,5 +223,6 @@ export default connect(({ learningContent, loading }) => ({
   learnInfo: learningContent.learnInfo,
   learnWords: learningContent.learnWords,
   learnTimes: learningContent.learnTimes,
+  walkingStep: learningContent.walkingStep,
   loading: loading.effects['learningContent/fetchLearningContent'],
 }))(LearningContent)
