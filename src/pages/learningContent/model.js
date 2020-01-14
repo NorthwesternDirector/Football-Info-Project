@@ -1,4 +1,8 @@
-import { queryLearningContent, queryLearningWords, queryLearningTimes } from './service'
+import {
+  queryLearningContent,
+  queryLearningWords,
+  queryLearningTimes,
+  queryLearningWalkingStep } from './service'
 
 const Model = {
   namespace: 'learningContent',
@@ -37,6 +41,17 @@ const Model = {
           type: 'save',
           payload: {
             learnTimes: response,
+          },
+        })
+      }
+    },
+    *fetchLearningWalkingStep(_, { put, call }) {
+      const response = yield call(queryLearningWalkingStep)
+      if (response) {
+        yield put({
+          type: 'save',
+          payload: {
+            walkingStep: response,
           },
         })
       }
