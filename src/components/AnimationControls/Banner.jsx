@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import anime from 'animejs'
-import moment from 'moment'
 
 const Banner = ({ flag }) => {
   const animation = anime({
     targets: '.haha',
-    translateX(el) {
-      return el.getAttribute('data-x')
+    translateX(el, i) {
+      return 60 * i
     },
     translateY(el, i) {
-      return 100 + (-100 * i)
+      return -50 * i
     },
-    scale(el, i, l) {
-      return (l - i) + 0.05
+    scale(el) {
+      return el.getAttribute('level') * 0.25
     },
     rotate() { return anime.random(-360, 360); },
     borderRadius() { return ['50%', `${anime.random(10, 35)}%`]; },
@@ -24,12 +23,8 @@ const Banner = ({ flag }) => {
   if (flag) {
     animation.play()
   } else {
-    animation.pause()
+    animation.play()
   }
-
-
-  console.log('zhixing')
-
   return (
     <div>
     </div>
