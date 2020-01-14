@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Icon, Row, Col, Divider, Tag, Timeline, Collapse, Avatar, Carousel, Button } from 'antd';
+import { Card, Icon, Row, Col, Divider, Tag, Timeline, Collapse, Avatar, Carousel } from 'antd';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import { connect } from 'dva'
 import styles from './welcome.less'
@@ -91,18 +91,6 @@ const Welcome = props => {
                 制工具 Git 的经验； 熟悉 Chrome 浏览器
                 调试工具；有1年以上 ASP.NET MVC 项目开发经验
               </Col>
-              {/* <Col style={{ margin: '3px 0' }}>
-                <Tag color="purple">前端开发</Tag>
-                <Tag color="magenta">React</Tag>
-                <Tag color="red">Antd</Tag>
-                <Tag color="volcano">JavaScript</Tag>
-              </Col>
-              <Col style={{ margin: '6px 0' }}>
-                <Tag color="gold">git</Tag>
-                <Tag color="geekblue">散装Ps、Pr</Tag>
-                <Tag color="blue">业余Vlog</Tag>
-                <Tag color="cyan">足球小将</Tag>
-              </Col> */}
               <Divider dashed style={{ margin: '10px 0' }}/>
               <p className={styles.secondTitle} style={{ textAlign: 'center', margin: 0 }}>
                 <Icon type="bank" theme="twoTone" style={{ marginRight: 4 }}/>校园经历
