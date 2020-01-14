@@ -205,13 +205,13 @@ const LearningContent = ({
         </Card>
       </Col>
       <Col span={10}>
-        <Card>
-          <WordCloud data={learnWords.data} chartHeight={300} title="在实习阳光灿烂的日子-烫嘴学习热词统计"></WordCloud>
+        <Card >
+          <Calendar data={walkingStep && walkingStep.data} title="在实习阳光灿烂的日子-Walking Steps/Commit 统计"></Calendar>
         </Card>
       </Col>
       <Col span={10}>
         <Card style={{ marginTop: 16 }}>
-          <Calendar data={walkingStep && walkingStep.data} title="在实习阳光灿烂的日子-Walking Steps/Commit 统计"></Calendar>
+          <WordCloud data={learnWords.data} chartHeight={300} title="在实习阳光灿烂的日子-烫嘴学习热词统计"></WordCloud>
         </Card>
       </Col>
     </Row>
