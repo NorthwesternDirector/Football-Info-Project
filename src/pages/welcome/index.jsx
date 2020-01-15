@@ -21,30 +21,20 @@ const Welcome = props => {
 
   return (
   <PageHeaderWrapper title="ND学习时间" subTitle="我又不是个薯憨憨，当然会选择做前端">
-    {/* <img alt="welcome" width={1150} src={logo} className={styles.imgBlur} /> */}
-    <Avatar size="large" src={img} className={styles.customAvatar} onClick={() => setFlag(!flag)}/>
     <Banner flag={flag}></Banner>
-    <Row style={{ height: 500 }}>
-      <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={140}>
-        <IconFont type="icon-zhizhuxia" className={styles.customAnticon}/>
-      </div>
-      <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={340}>
-        <IconFont type="icon-fuchouzhelianmeng-meiguoduichang" className={styles.customAnticon}/>
-      </div>
-      <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={540}>
-        <IconFont type="icon-fuchouzhelianmeng-gangtiexia" className={styles.customAnticon}/>
-      </div>
-      <div className="haha" style={{ width: '3rem', height: '3rem', backgroundColor: '#CCC' }} data-x={740}>
-        <IconFont type="icon-qiyiboshi" className={styles.customAnticon}/>
-      </div>
-
+    <Row style={{ height: 0, zIndex: 2 }}>
+    {iconInfo && iconInfo.data ? iconInfo.data.map(item =>
+      <div className="haha" style={{ width: '50px', height: '50px' }} level={item.level}>
+        <IconFont type={item.type} className={styles.customAnticon}/>
+      </div>) : null
+    }
     </Row>
     <Card >
       <Row gutter={24}>
         <Col span={8} >
           <Card bodyStyle={{ padding: 18 }} bordered={false}>
             <div style={{ textAlign: 'center' }}>
-              <Avatar size="large" src={img} className={styles.customAvatar}></Avatar>
+              <Avatar size="large" src={img} className={styles.customAvatar} onClick={() => setFlag(!flag)} style={{ cursor: 'pointer' }}></Avatar>
               <p className={styles.firstTitle}> ND </p>
               <p className={styles.contentTxt}> 艰苦朴素，求真务实 </p>
               <p className={styles.contentTxt} style={{ marginBottom: 10 }}>
@@ -162,7 +152,6 @@ const Welcome = props => {
               <p style={{ margin: 0 }}><b>负责内容：</b>在本项目中负责项目的启动、分析、实施、部署及测试，完成了项目五大模块的开发并进行着持续维护迭代。</p>
               <p style={{ margin: 0 }}><b>项目技术：</b><Tag>C#</Tag><Tag>JavaScript</Tag><Tag>JQuery</Tag><Tag>OpenLayers</Tag><Tag>SQL Server</Tag></p>
               <p style={{ margin: 0 }}><b>项目地址：</b><a href="https://github.com/NorthwesternDirector/campus-Project" target="_blank" rel="noopener noreferrer">campus-Project</a></p>
-
             </span>
             <p className={styles.thirdTitle}>2017.11-2018.03 植物物候观测系统</p>
             <span>
@@ -170,20 +159,7 @@ const Welcome = props => {
               <p style={{ margin: 0 }}><b>负责内容：</b>在本项目中负责前端站点模块、个人足迹模块的设计与开发，实现了Web端仿iOS地图相册功能，与后端数据接口对接后完成了对近50年来全国44个观测站点的近50种植物物候数据的可视化。</p>
               <p style={{ margin: 0 }}><b>项目技术：</b><Tag>C#</Tag><Tag>JavaScript</Tag><Tag>Bootstrap</Tag><Tag>高德地图JS API</Tag><Tag>ECharts</Tag></p>
               <p style={{ margin: 0 }}><b>项目地址：</b><a href="https://github.com/NorthwesternDirector/plantCamera-Project" target="_blank" rel="noopener noreferrer">plantCamera-Project</a></p>
-
             </span>
-          </Card>
-          <Card bordered={false}>
-            <Carousel autoplay style={{ height: 220 }}>
-              <div>
-                {iconInfo && iconInfo.data ? iconInfo.data.map(item =>
-                  <span key={item.key}>
-                    <Avatar size="large" style={{ backgroundColor: '#FFF' }} icon={<IconFont type={item.type} />} key={item.key}/>
-                    <Tag>{item.info}</Tag>
-                  </span>) : null
-                }
-              </div>
-            </Carousel>
           </Card>
         </Col>
       </Row>
