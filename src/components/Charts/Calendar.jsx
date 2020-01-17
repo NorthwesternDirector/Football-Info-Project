@@ -3,7 +3,7 @@ import ReactEcharts from 'echarts-for-react'
 
 const Calendar = ({
   data,
-  chartHeight = 300,
+  chartHeight = 280,
   title,
 }) => {
   const option = {
