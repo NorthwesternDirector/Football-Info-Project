@@ -211,7 +211,7 @@ const LearningContent = ({
       </Col>
       <Col span={10}>
         <Card style={{ marginTop: 16 }}>
-          <WordCloud data={learnWords.data} chartHeight={300} title="在实习阳光灿烂的日子-烫嘴学习热词统计"></WordCloud>
+          <WordCloud data={learnWords.data} chartHeight={320} title="在实习阳光灿烂的日子-烫嘴学习热词统计"></WordCloud>
         </Card>
       </Col>
     </Row>

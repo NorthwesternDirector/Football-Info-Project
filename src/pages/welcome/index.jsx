@@ -20,9 +20,9 @@ const Welcome = props => {
   }, [])
 
   return (
-  <PageHeaderWrapper title="ND学习时间" subTitle="我又不是个薯憨憨，当然会选择做前端">
+  <PageHeaderWrapper title="ND学习时间" subTitle="我就是个薯憨憨，只能选择做前端">
     <Banner flag={flag}></Banner>
-    <Row style={{ height: 0, zIndex: 2 }}>
+    <Row style={{ marginLeft: -60, height: 0, zIndex: 2 }}>
     {iconInfo && iconInfo.data ? iconInfo.data.map(item =>
       <div className="haha" style={{ width: '50px', height: '50px' }} level={item.level}>
         <IconFont type={item.type} className={styles.customAnticon}/>
@@ -131,7 +131,7 @@ const Welcome = props => {
             </p>
             <p className={styles.thirdTitle}>2019.11.01-至今 小米 大数据-技术平台部 前端开发实习生</p>
             <span>
-              <p style={{ margin: 0 }}><b>实习内容：</b>基于React技术栈参与了3个中台系统的前端开发任务，涉及多个页面的开发、bug调试及UI调整；其中独自梳理需求逻辑并实现了4个全新的页面，与后端完成联调并最终测试上线；尝试封装了表单验证组件、图表（折线图）组件，优化代码结构提升开发效率。</p>
+              <p style={{ margin: 0 }}><b>实习内容：</b>基于React技术栈参与了4个中台系统的前端开发任务，涉及多个页面的开发、bug调试及UI调整；其中独自梳理需求逻辑并实现了4个全新的页面，与后端完成联调并最终测试上线；尝试封装了表单验证组件、图表（折线图）组件，优化代码结构提升开发效率。</p>
               <p style={{ margin: 0 }}><b>项目技术：</b><Tag>React</Tag><Tag>UmiJS</Tag><Tag>DvaJS</Tag><Tag>Ant Design</Tag><Tag>ECharts</Tag><Tag>Git</Tag></p>
             </span>
           </Card>

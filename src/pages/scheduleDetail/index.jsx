@@ -19,14 +19,14 @@ const ScheduleInfo = props => {
   const { data } = schedule
 
   const selectDate = useMemo(() => {
-    const selectArr = data ? data[0].timeRange.split(',') : ['2019-08-17', '2019-11-24']
+    const selectArr = data ? data[0].timeRange.split(',') : ['2019-08-17', '2020-01-16']
     const arrayLength = moment(selectArr[1]).diff(moment(selectArr[0]), 'days')
 
     return new Array(arrayLength).fill(1).map((val, index, array) =>
       moment(selectArr[1]).subtract(array.length - index, 'days').format('YYYY-MM-DD'),
     )
   }, [data])
-  selectDate.push('2019-11-24')
+  selectDate.push('2020-01-16')
 
 
   return (
