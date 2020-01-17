@@ -5,7 +5,7 @@ const Banner = ({ flag }) => {
   const animation = anime({
     targets: '.haha',
     translateX(el, i) {
-      return 60 * i
+      return 70 * i
     },
     translateY(el, i) {
       return -50 * i
@@ -21,8 +21,6 @@ const Banner = ({ flag }) => {
     // loop: true,
   });
   if (flag) {
-    animation.play()
-  } else {
     animation.play()
   }
   return (
