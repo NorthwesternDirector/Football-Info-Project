@@ -15,7 +15,7 @@ const Pie = ({
     },
     tooltip: {
       trigger: 'item',
-      formatter: '{a} <br/>{b}: {c} ({d}%)',
+      formatter: '{b}</br>积{c}分 占比 ({d}%)',
     },
     legend: {
       bottom: 10,
@@ -28,11 +28,11 @@ const Pie = ({
       center,
       type: 'pie',
       radius,
-      data: data.map(itemss => ({ name: itemss.team, value: itemss.tmpScore })),
-      minShowLabbelAngle: 10,
-      selectedMode: 'single',
+      data: data.map(itemss => ({
+        name: itemss.team, value: itemss.tmpScore })).sort((a, b) => a.value - b.value),
+
       laeblLine: {
-        smooth: true,
+        smooth: 0.8,
         length: 4,
       },
       itemStyle: {
@@ -40,7 +40,10 @@ const Pie = ({
           shadowBlur: 20,
           shadowColor: 'rgba(0,0,0,0.5)',
         },
+        shadowBlur: 30,
+        shadowColor: 'rgba(0, 0, 0, 0.3)',
       },
+      roseType: 'radius',
     }],
   }
   return <ReactEcharts theme="theme" option={option} notMerge style={{ height: chartHeight }}></ReactEcharts>
