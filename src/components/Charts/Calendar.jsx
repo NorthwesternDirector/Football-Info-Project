@@ -5,12 +5,16 @@ const Calendar = ({
   data,
   chartHeight = 280,
   title,
+  subtext = '2019.11.03-2020.1.21',
+  range = ['2019-11-01', '2020-01-27'],
+  left = 100,
+  cellSize = 25,
 }) => {
   const option = {
     title: {
       top: 0,
       text: title,
-      subtext: '2019.11.03-2020.1.21',
+      subtext,
       left: 'center',
       textStyle: {
           color: '#333',
@@ -29,9 +33,9 @@ const Calendar = ({
     },
     calendar: [{
       top: 100,
-      left: 100,
-      range: ['2019-11-01', '2020-01-27'],
-      cellSize: 25,
+      left,
+      range,
+      cellSize,
       splitLine: {
           show: true,
           lineStyle: {
