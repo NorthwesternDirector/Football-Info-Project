@@ -52,5 +52,6 @@ export default {
   'menu.matchInfo': '比赛信息',
   'menu.pointsInfo': '积分情况',
   'menu.scheduleDetail': '积分详情',
-  'menu.learningContent': '学习记录',
+  'menu.learningContent': '实习记录',
+  'menu.newYear2020': '2020记录',
 };
