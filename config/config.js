@@ -132,6 +132,12 @@ export default {
               component: './learningContent',
             },
             {
+              path: '/newYear2020',
+              name: 'newYear2020',
+              icon: 'snippets',
+              component: './newYear2020',
+            },
+            {
               path: '/admin',
               name: 'admin',
               icon: 'crown',
