@@ -206,7 +206,12 @@ const LearningContent = ({
       </Col>
       <Col span={10}>
         <Card >
-          <Calendar data={walkingStep && walkingStep.data} title="在实习阳光灿烂的日子-Walking Steps/Commit 统计"></Calendar>
+          <Calendar
+            data={walkingStep && walkingStep.data}
+            title="在实习阳光灿烂的日子-Walking Steps/Commit 统计"
+            flag="internShip"
+          >
+          </Calendar>
         </Card>
       </Col>
       <Col span={10}>
