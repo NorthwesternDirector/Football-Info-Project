@@ -178,11 +178,26 @@ const LearningContent = ({
         <Card >
           <Calendar
             data={times.data && times.data[0].list.map(i => [i.date, i.walkingSteps])}
-            title="Walking Steps/Commit 统计"
+            title="Walking Steps"
             subtext="2020.01.01-2020.12.31"
             range={['2020-01-01', '2020-12-31']}
             left={50}
             cellSize={24}
+            flag="walkingSteps"
+          >
+          </Calendar>
+        </Card>
+      </Col>
+      <Col span={24}>
+        <Card >
+          <Calendar
+            data={times.data && times.data[0].list.map(i => [i.date, ...i.physicalExercise])}
+            title="Physical Exercise"
+            subtext="2020.01.01-2020.12.31"
+            range={['2020-01-01', '2020-12-31']}
+            left={50}
+            cellSize={24}
+            flag="bodyBuilding"
           >
           </Calendar>
         </Card>
