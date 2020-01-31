@@ -1,7 +1,24 @@
 import { mockData } from '../../utils/utils'
 
 export default {
+  '/api/games': mockData([
+    { id: 1, round: '第1轮', me: 0, father: -4, mother: -3, meL: 1.17, fatherL: 1.5, motherL: 5.33, meT: 1.17, fatherT: -2.5, motherT: 2.33 },
+    { id: 2, round: '第2轮', me: -10, father: 0, mother: 0, meL: 2.45, fatherL: 4.88, motherL: 2.67, meT: -6.38, fatherT: 2.38, motherT: 5 },
+    { id: 3, round: '第3轮', me: 0, father: 0, mother: -4, meL: 0.57, fatherL: 0.79, motherL: 2.64, meT: -5.81, fatherT: 3.17, motherT: 3.64 },
+    { id: 4, round: '第4轮', me: 0, father: -4, mother: -4, meL: 3.28, fatherL: 2.9, motherL: 1.82, meT: -2.53, fatherT: 2.07, motherT: 1.46 },
+    { id: 5, round: '第5轮', me: -2, father: 0, mother: -3, meL: 3.71, fatherL: 0.3, motherL: 0.99, meT: -1.36, fatherT: 2.37, motherT: -0.55 },
+    { id: 6, round: '第6轮', me: 0, father: 0, mother: -4, meL: 1.72, fatherL: 2.03, motherL: 0.25, meT: 0.36, fatherT: 4.4, motherT: -4.3 },
+    { id: 7, round: '第7轮', me: -6, father: 0, mother: 0, meL: 1.49, fatherL: 2.79, motherL: 1.72, meT: -4.15, fatherT: 7.19, motherT: -2.58 },
+    { id: 8, round: '第8轮', me: -4, father: 0, mother: -2, meL: 1.59, fatherL: 3.26, motherL: 1.15, meT: -6.56, fatherT: 10.45, motherT: -3.43 },
+    { id: 9, round: '第9轮', me: 0, father: -2, mother: 0, meL: 0.41, fatherL: 0.54, motherL: 1.05, meT: -6.15, fatherT: 8.99, motherT: -2.38 },
+    { id: 10, round: '第10轮', me: 0, father: -4, mother: -10, meL: 3.02, fatherL: 4.73, motherL: 6.25, meT: -3.13, fatherT: 9.72, motherT: -6.13 },
+    { id: 11, round: '第11轮', me: -4, father: -4, mother: 0, meL: 2.19, fatherL: 0.49, motherL: 5.32, meT: -4.94, fatherT: 6.21, motherT: -0.81 },
+    { id: 12, round: '第12轮', me: -4, father: -8, mother: 0, meL: 2.92, fatherL: 8.45, motherL: 0.63, meT: -6.02, fatherT: 6.66, motherT: -0.18 },
+    { id: 13, round: '第13轮', me: -4, father: 0, mother: -4, meL: 2.82, fatherL: 4.03, motherL: 1.15, meT: -7.2, fatherT: 10.69, motherT: -3.03 },
+    { id: 14, round: '第14轮', me: 0, father: -2, mother: -6, meL: 1.17, fatherL: 1.5, motherL: 5.33, meT: -6.03, fatherT: 10.19, motherT: -3.7 },
+    { id: 15, round: '第15轮', me: -20, father: -8, mother: 0, meL: 6.66, fatherL: 20.17, motherL: 1.17, meT: -19.37, fatherT: 21.9, motherT: -2.53 },
 
+  ]),
   '/api/times': mockData([
     {
       timeRange: '2020-01-01,2020-12-31',
@@ -34,7 +51,10 @@ export default {
         { id: 26, date: '2020-01-26', workTime: ['', '', 0], sleepTime: ['23:34', 10.96, 1.80], walkingSteps: 933, physicalExercise: [0, 0, 0, 0] },
         { id: 27, date: '2020-01-27', workTime: ['', '', 0], sleepTime: ['00:22', 9.17, 1.52], walkingSteps: 1282, physicalExercise: [0, 0, 0, 0] },
         { id: 28, date: '2020-01-28', workTime: ['', '', 0], sleepTime: ['00:05', 10.17, 1.68], walkingSteps: 1022, physicalExercise: [0, 0, 0, 0] },
-        { id: 29, date: '2020-01-29', workTime: ['', '', 0], sleepTime: ['23:53', 8.80, 1.62], walkingSteps: 0, physicalExercise: [30, 0, 0, 0] },
+        { id: 29, date: '2020-01-29', workTime: ['', '', 0], sleepTime: ['23:53', 8.80, 1.62], walkingSteps: 1011, physicalExercise: [30, 0, 0, 0] },
+        { id: 30, date: '2020-01-30', workTime: ['', '', 0], sleepTime: ['23:43', 10.17, 1.70], walkingSteps: 2140, physicalExercise: [41, 0, 0, 0] },
+        { id: 31, date: '2020-01-31', workTime: ['', '', 0], sleepTime: ['00:31', 9.17, 1.05], walkingSteps: 0, physicalExercise: [23, 0, 0, 0] },
+
       ],
     },
   ]),
