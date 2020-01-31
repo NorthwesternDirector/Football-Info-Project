@@ -1,4 +1,4 @@
-import { queryTimes } from './service'
+import { queryTimes, queryGames } from './service'
 
 const Model = {
   namespace: 'newYear2020',
@@ -13,6 +13,17 @@ const Model = {
           type: 'save',
           payload: {
             times: response,
+          },
+        })
+      }
+    },
+    *fetchGames(_, { put, call }) {
+      const response = yield call(queryGames)
+      if (response) {
+        yield put({
+          type: 'save',
+          payload: {
+            games: response,
           },
         })
       }

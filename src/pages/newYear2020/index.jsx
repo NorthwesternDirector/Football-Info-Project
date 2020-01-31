@@ -4,14 +4,20 @@ import { connect } from 'dva'
 import ReactEcharts from 'echarts-for-react'
 import moment from 'moment'
 import Calendar from '../../components/Charts/Calendar'
+import SpecialChart from '../../components/Charts/SpecialChart'
+
 
 const LearningContent = ({
   times,
+  games,
   dispatch,
 }) => {
   useEffect(() => {
     dispatch({
       type: 'newYear2020/fetchTimes',
+    })
+    dispatch({
+      type: 'newYear2020/fetchGames',
     })
   }, [])
   const selectminute = useMemo(() =>
@@ -166,6 +172,7 @@ const LearningContent = ({
 
     return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
+
   return (
     <>
     <Row gutter={24}>
@@ -202,6 +209,11 @@ const LearningContent = ({
           </Calendar>
         </Card>
       </Col>
+      <Col span={24} >
+        <Card style={{ height: 450 }}>
+          <SpecialChart games={games} chartHeight={400} title="快乐game" subtext="2020.01.29"/>
+        </Card>
+      </Col>
     </Row>
     </>
   )
@@ -209,5 +221,6 @@ const LearningContent = ({
 
 export default connect(({ newYear2020, loading }) => ({
   times: newYear2020.times,
+  games: newYear2020.games,
   loading: loading.effects['newYear2020/fetchTimes'],
 }))(LearningContent)
