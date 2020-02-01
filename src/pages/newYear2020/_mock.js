@@ -55,7 +55,6 @@ export default {
         { id: 30, date: '2020-01-30', workTime: ['', '', 0], sleepTime: ['23:43', 10.17, 1.70], walkingSteps: 2140, physicalExercise: [41, 0, 0, 0] },
         { id: 31, date: '2020-01-31', workTime: ['', '', 0], sleepTime: ['00:31', 9.17, 1.05], walkingSteps: 1082, physicalExercise: [23, 0, 0, 0] },
         { id: 32, date: '2020-02-01', workTime: ['', '', 0], sleepTime: ['23:32', 8.72, 1.58], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
-
       ],
     },
   ]),
