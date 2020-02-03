@@ -21,7 +21,7 @@ const LearningContent = ({
     })
   }, [])
   const selectminute = useMemo(() =>
-    new Array(1120).fill(1).map((val, index, array) =>
+    new Array(1060).fill(1).map((val, index, array) =>
       moment('2019-11-29 01:00').subtract(array.length - index, 'minute').format('HH:mm'),
     ), [])
 
