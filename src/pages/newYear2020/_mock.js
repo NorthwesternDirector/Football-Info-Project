@@ -57,7 +57,7 @@ export default {
         { id: 32, date: '2020-02-01', workTime: ['', '', 0], sleepTime: ['23:32', 8.72, 1.58], walkingSteps: 673, physicalExercise: [15, 0, 0, 0] },
         { id: 33, date: '2020-02-02', workTime: ['', '', 0], sleepTime: ['00:30', 8.67, 0.43], walkingSteps: 2161, physicalExercise: [15, 0, 0, 0] },
         { id: 34, date: '2020-02-03', workTime: ['', '', 0], sleepTime: ['23:38', 8.25, 1.35], walkingSteps: 696, physicalExercise: [10, 0, 0, 0] },
-        { id: 35, date: '2020-02-03', workTime: ['', '', 0], sleepTime: ['00:07', 8..85, 1.50], walkingSteps: 0, physicalExercise: [15, 0, 0, 0] },
+        { id: 35, date: '2020-02-04', workTime: ['', '', 0], sleepTime: ['00:07', 8.85, 1.50], walkingSteps: 0, physicalExercise: [15, 0, 0, 0] },
 
       ],
     },
