@@ -1,6 +1,13 @@
 import { mockData } from '../../utils/utils'
 
 export default {
+  '/api/paper': mockData([
+    { id: 1, date: '2020-02-09', wordNumber: 534 },
+    { id: 2, date: '2020-02-10', wordNumber: 1510 },
+    { id: 3, date: '2020-02-11', wordNumber: 2677 },
+    { id: 4, date: '2020-02-12', wordNumber:  },
+
+  ]),
   '/api/games': mockData([
     { id: 1, round: '第1轮', me: 0, father: -4, mother: -3, meL: 1.17, fatherL: 1.5, motherL: 5.33, meT: 1.17, fatherT: -2.5, motherT: 2.33 },
     { id: 2, round: '第2轮', me: -10, father: 0, mother: 0, meL: 2.45, fatherL: 4.88, motherL: 2.67, meT: -6.38, fatherT: 2.38, motherT: 5 },
@@ -64,7 +71,8 @@ export default {
         { id: 39, date: '2020-02-08', workTime: ['', '', 0], sleepTime: ['00:02', 10.13, 1.03], walkingSteps: 1909, physicalExercise: [10, 0, 0, 0] },
         { id: 40, date: '2020-02-09', workTime: ['', '', 0], sleepTime: ['00:59', 8.03, 1.43], walkingSteps: 2219, physicalExercise: [20, 0, 0, 0] },
         { id: 41, date: '2020-02-10', workTime: ['', '', 0], sleepTime: ['23:34', 9.25, 0.78], walkingSteps: 1771, physicalExercise: [15, 0, 0, 0] },
-        { id: 42, date: '2020-02-11', workTime: ['', '', 0], sleepTime: ['23:14', 8.62, 1.01], walkingSteps: 0, physicalExercise: [15, 0, 0, 0] },
+        { id: 42, date: '2020-02-11', workTime: ['', '', 0], sleepTime: ['23:14', 8.62, 1.01], walkingSteps: 1287, physicalExercise: [15, 0, 0, 0] },
+        { id: 43, date: '2020-02-12', workTime: ['', '', 0], sleepTime: ['22:06', 9.77, 0.53], walkingSteps: 0, physicalExercise: [15, 0, 0, 0] },
 
       ],
     },
