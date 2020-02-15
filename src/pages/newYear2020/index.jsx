@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react'
-import { Card, Row, Col } from 'antd'
+import { Card, Row, Col, Tag } from 'antd'
 import { connect } from 'dva'
 import ReactEcharts from 'echarts-for-react'
 import liquidfill from 'echarts-liquidfill'
@@ -29,6 +29,7 @@ const LearningContent = ({
       type: 'newYear2020/fetchVirus',
     })
   }, [])
+
   const selectminute = useMemo(() =>
     new Array(1060).fill(1).map((val, index, array) =>
       moment('2019-11-29 01:00').subtract(array.length - index, 'minute').format('HH:mm'),
@@ -195,7 +196,7 @@ const LearningContent = ({
       title: {
         top: 0,
         text: title,
-        subtext: '信息来自国家卫生健康委员会官方网站 (http://www.nhc.gov.cn)',
+        subtext: '信息来自国家卫生健康委员会官方网站 (http://www.nhc.gov.cn) , 数据更新时间: 2020/02/15 09:00',
         sublink: 'http://www.nhc.gov.cn',
         left: 'center',
       },
@@ -309,8 +310,8 @@ const LearningContent = ({
       },
       ],
       grid: {
-        left: '90',
-        top: '90',
+        left: '40',
+        top: '120',
         right: '150',
       },
     }
@@ -366,7 +367,7 @@ const LearningContent = ({
       grid: {
         left: '90',
         top: '90',
-        right: '150',
+        right: '0',
       },
     }
     return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
@@ -388,7 +389,7 @@ const LearningContent = ({
       series: [{
         type: 'liquidFill',
         radius: '70%',
-        center: ['40%', '50%'],
+        center: ['50%', '50%'],
         data,
         itemStyle: {
           shadowBlur: 10,
@@ -417,12 +418,36 @@ const LearningContent = ({
     <Row gutter={24}>
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 680 }}>
-          {virus && <>
+        {virus && <Row>
+          <Col span={21}>
             <VirusBar data={virus.data} chartHeight={600} title="新型冠状病毒肺炎疫情通报"/>
             <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
               <p>说明：‘新增死亡’、‘新增治愈’参考坐标轴低1；‘新增确诊’、‘新增疑似’、‘累计死亡’、‘累计治愈’参考坐标轴中2；‘累计确诊‘、‘累计疑似‘、‘追踪密切接触者‘、‘尚在医学观察者‘参考坐标轴高3</p>
             </div>
-          </>}
+          </Col>
+          <Col span={3}>
+              <div style={{ textAlign: 'center', marginTop: 140 }}>
+                <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#3A5FCD' }}>{virus.data.slice(-1)[0].totalDeath}</p>
+                <Tag style={{ margin: 0 }}>死亡人数</Tag>
+                <p>昨日 <span style={{ color: '#3A5FCD' }}>+{virus.data.slice(-1)[0].newDeath}</span></p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#43CD80' }}>{virus.data.slice(-1)[0].totalCuredCase}</p>
+                <Tag style={{ margin: 0 }}>治愈人数</Tag>
+                <p>昨日 <span style={{ color: '#43CD80' }}>+{virus.data.slice(-1)[0].newCuredCase}</span></p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#FF7F50' }}>{virus.data.slice(-1)[0].totalConfirmedCase}</p>
+                <Tag style={{ margin: 0 }}>确诊人数</Tag>
+                <p>昨日 <span style={{ color: '#FF7F50' }}>+{virus.data.slice(-1)[0].newConfirmedCase}</span></p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#FFB5C5' }}>{virus.data.slice(-1)[0].totalSuspectedCase}</p>
+                <Tag style={{ margin: 0 }}>疑似人数</Tag>
+                <p>昨日 <span style={{ color: '#FFB5C5' }}>+{virus.data.slice(-1)[0].newSuspectedCase}</span></p>
+              </div>
+          </Col>
+          </Row>}
         </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
