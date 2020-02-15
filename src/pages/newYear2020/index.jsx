@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react'
 import { Card, Row, Col } from 'antd'
 import { connect } from 'dva'
 import ReactEcharts from 'echarts-for-react'
+import liquidfill from 'echarts-liquidfill'
 import moment from 'moment'
 import Calendar from '../../components/Charts/Calendar'
 import SpecialChart from '../../components/Charts/SpecialChart'
@@ -317,16 +318,124 @@ const LearningContent = ({
   }
   // #endregion
 
+  // #region 论文
+  const PaperBar = ({
+    data,
+    chartHeight = 300,
+    xoffset = 0,
+    title,
+  }) => {
+    const option = {
+      title: {
+        top: 0,
+        text: title,
+        subtext: '2020.02.09-至今',
+        left: 'center',
+      },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(245, 245, 245, 0.8)',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        textStyle: {
+            color: '#000',
+        },
+      },
+      legend: {
+        data: ['字数累计'],
+        top: 50,
+      },
+      xAxis: {
+          type: 'category',
+          data: data.map(item => item.date.slice(5)),
+          offset: xoffset,
+      },
+      yAxis: [{
+        type: 'value',
+        scale: true,
+        name: '字数/个',
+      }],
+      series: [{
+        name: '字数累计',
+        data: data.map(item => item.wordNumber),
+        type: 'line',
+        smooth: true,
+        color: '#6495ED',
+      }],
+      grid: {
+        left: '90',
+        top: '90',
+        right: '150',
+      },
+    }
+    return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
+
+  const LiquidPaperBar = ({
+    // data,
+    chartHeight = 500,
+  }) => {
+    const value = 0.1275;
+    const data = [value, value, value, value, value];
+    const option = {
+      backgroundColor: '#fff',
+      graphic: [{
+          type: 'group',
+          left: 'center',
+          bottom: 10,
+      }],
+      series: [{
+        type: 'liquidFill',
+        radius: '70%',
+        center: ['40%', '50%'],
+        data,
+        itemStyle: {
+          shadowBlur: 10,
+        },
+        backgroundStyle: {
+          borderWidth: 5,
+          borderColor: '#1daaeb',
+          color: '#fff',
+        },
+        label: {
+          normal: {
+            formatter: `完成度 ${(value * 100).toFixed(2)}%`,
+            textStyle: {
+              fontSize: 20,
+            },
+          },
+        },
+      }],
+    };
+    return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
+  // #endregion
+
   return (
     <>
     <Row gutter={24}>
       <Col span={24} style={{ marginBottom: 24 }}>
-        <Card style={{ height: 650 }}>
-          {virus && <VirusBar data={virus.data} chartHeight={600} title="新型冠状病毒肺炎疫情通报"></VirusBar>}
-          <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
-            <p>说明：‘新增死亡’、‘新增治愈’参考坐标轴低1；‘新增确诊’、‘新增疑似’、‘累计死亡’、‘累计治愈’参考坐标轴中2；‘累计确诊‘、‘累计疑似‘、‘追踪密切接触者‘、‘尚在医学观察者‘参考坐标轴高3</p>
-          </div>
+        <Card style={{ height: 680 }}>
+          {virus && <>
+            <VirusBar data={virus.data} chartHeight={600} title="新型冠状病毒肺炎疫情通报"/>
+            <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
+              <p>说明：‘新增死亡’、‘新增治愈’参考坐标轴低1；‘新增确诊’、‘新增疑似’、‘累计死亡’、‘累计治愈’参考坐标轴中2；‘累计确诊‘、‘累计疑似‘、‘追踪密切接触者‘、‘尚在医学观察者‘参考坐标轴高3</p>
+            </div>
+          </>}
+        </Card>
+      </Col>
+      <Col span={24} style={{ marginBottom: 24 }}>
+        <Card style={{ height: 550 }}>
+          <Row gutter={24}>
+            <Col span={18}>
+              {paper && <PaperBar data={paper.data} chartHeight={500} title="论文完成情况"></PaperBar>}
+            </Col>
+            <Col span={6}>
+              <LiquidPaperBar></LiquidPaperBar>
+            </Col>
 
+          </Row>
         </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
