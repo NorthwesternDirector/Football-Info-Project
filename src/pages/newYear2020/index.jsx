@@ -198,6 +198,16 @@ const LearningContent = ({
         sublink: 'http://www.nhc.gov.cn',
         left: 'center',
       },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(245, 245, 245, 0.8)',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        textStyle: {
+            color: '#000',
+        },
+      },
       toolbox: {
         show: true,
         feature: {
@@ -303,7 +313,6 @@ const LearningContent = ({
         right: '150',
       },
     }
-
     return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
   // #endregion
