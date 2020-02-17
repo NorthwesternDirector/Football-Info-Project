@@ -192,11 +192,12 @@ const LearningContent = ({
     xoffset = 0,
     title,
   }) => {
+    const subtext = `信息来自国家卫生健康委员会官方网站 (http://www.nhc.gov.cn) , 数据更新时间: ${data.slice(-1)[0].updateTime} 09:00`
     const option = {
       title: {
         top: 0,
         text: title,
-        subtext: '信息来自国家卫生健康委员会官方网站 (http://www.nhc.gov.cn) , 数据更新时间: 2020/02/16 09:00',
+        subtext,
         sublink: 'http://www.nhc.gov.cn',
         left: 'center',
       },
@@ -374,10 +375,9 @@ const LearningContent = ({
   }
 
   const LiquidPaperBar = ({
-    // data,
+    value,
     chartHeight = 500,
   }) => {
-    const value = 0.1275;
     const data = [value, value, value, value, value];
     const option = {
       backgroundColor: '#fff',
@@ -458,9 +458,8 @@ const LearningContent = ({
               {paper && <PaperBar data={paper.data} chartHeight={500} title="论文完成情况"></PaperBar>}
             </Col>
             <Col span={6}>
-              <LiquidPaperBar></LiquidPaperBar>
+            {paper && <LiquidPaperBar value={paper.data.slice(-1)[0].wordNumber / 35000}/>}
             </Col>
-
           </Row>
         </Card>
       </Col>
