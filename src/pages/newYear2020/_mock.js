@@ -2,14 +2,14 @@ import { mockData } from '../../utils/utils'
 
 export default {
   '/api/paper': mockData([
-    { id: 1, date: '2020-02-09', wordNumber: 534 },
-    { id: 2, date: '2020-02-10', wordNumber: 1510 },
-    { id: 3, date: '2020-02-11', wordNumber: 2677 },
-    { id: 4, date: '2020-02-12', wordNumber: 3192 },
-    { id: 5, date: '2020-02-13', wordNumber: 3766 },
-    { id: 6, date: '2020-02-14', wordNumber: 4463 },
-    { id: 7, date: '2020-02-15', wordNumber: 5070 },
-    { id: 8, date: '2020-02-16', wordNumber: 6188 },
+    { id: 1, date: '2020-02-09', wordNumberS: 534, wordNumberT: 0 },
+    { id: 2, date: '2020-02-10', wordNumberS: 1510, wordNumberT: 0 },
+    { id: 3, date: '2020-02-11', wordNumberS: 2677, wordNumberT: 0 },
+    { id: 4, date: '2020-02-12', wordNumberS: 3192, wordNumberT: 0 },
+    { id: 5, date: '2020-02-13', wordNumberS: 3766, wordNumberT: 0 },
+    { id: 6, date: '2020-02-14', wordNumberS: 4463, wordNumberT: 0 },
+    { id: 7, date: '2020-02-15', wordNumberS: 5070, wordNumberT: 0 },
+    { id: 8, date: '2020-02-16', wordNumberS: 6188, wordNumberT: 0 },
   ]),
   '/api/virus': mockData([
     { id: 1, date: '2020-01-23', updateTime: '2020-01-24', newConfirmedCase: 256, newDeath: 8, newCuredCase: 6, newSuspectedCase: 680, totalConfirmedCase: 830, totalDeath: 25, totalCuredCase: 6, totalSuspectedCase: 1072, watch: 4928, remove: 969, touch: 5897 },
