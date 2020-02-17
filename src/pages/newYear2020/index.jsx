@@ -345,7 +345,7 @@ const LearningContent = ({
         },
       },
       legend: {
-        data: ['字数累计'],
+        data: ['字数累计(sss)', '字数累计(mmt)'],
         top: 50,
       },
       xAxis: {
@@ -359,11 +359,17 @@ const LearningContent = ({
         name: '字数/个',
       }],
       series: [{
-        name: '字数累计',
-        data: data.map(item => item.wordNumber),
+        name: '字数累计(sss)',
+        data: data.map(item => item.wordNumberS),
         type: 'line',
         smooth: true,
         color: '#6495ED',
+      }, {
+        name: '字数累计(mmt)',
+        data: data.map(item => item.wordNumberT),
+        type: 'line',
+        smooth: true,
+        color: '#FF69B4',
       }],
       grid: {
         left: '90',
@@ -376,7 +382,9 @@ const LearningContent = ({
 
   const LiquidPaperBar = ({
     value,
-    chartHeight = 500,
+    center,
+    color,
+    chartHeight = 250,
   }) => {
     const data = [value, value, value, value, value];
     const option = {
@@ -389,14 +397,15 @@ const LearningContent = ({
       series: [{
         type: 'liquidFill',
         radius: '70%',
-        center: ['50%', '50%'],
+        center,
         data,
+        color,
         itemStyle: {
           shadowBlur: 10,
         },
         backgroundStyle: {
           borderWidth: 5,
-          borderColor: '#1daaeb',
+          borderColor: color[3],
           color: '#fff',
         },
         label: {
@@ -404,12 +413,22 @@ const LearningContent = ({
             formatter: `完成度 ${(value * 100).toFixed(2)}%`,
             textStyle: {
               fontSize: 20,
+              color: color[1],
             },
           },
         },
+        outline: {
+          borderDistance: 0,
+          itemStyle: {
+              borderWidth: 6,
+              borderColor: color[1],
+              shadowBlur: 30,
+              shadowColor: color[1],
+          },
+      },
       }],
     };
-    return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
+    return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
   // #endregion
 
@@ -458,7 +477,18 @@ const LearningContent = ({
               {paper && <PaperBar data={paper.data} chartHeight={500} title="论文完成情况"></PaperBar>}
             </Col>
             <Col span={6}>
-            {paper && <LiquidPaperBar value={paper.data.slice(-1)[0].wordNumber / 35000}/>}
+            {paper &&
+              <LiquidPaperBar
+                value={paper.data.slice(-1)[0].wordNumberT / 35000}
+                center={['50%', '55%']}
+                color={['#8B475D', '#CD6889', '#EEA2AD', '#FFB5C5']}
+            />}
+            {paper &&
+              <LiquidPaperBar
+                value={paper.data.slice(-1)[0].wordNumberS / 35000}
+                center={['50%', '45%']}
+                color={['#104E8B', '#1874CD', '#1E90FF', '#00BFFF']}
+            />}
             </Col>
           </Row>
         </Card>
