@@ -220,7 +220,7 @@ const LearningContent = ({
         },
       },
       legend: {
-        data: ['新增死亡', '新增治愈', '新增确诊', '新增疑似', '累计死亡', '累计治愈', '现有确诊', '累计疑似', '追踪密切接触者', '解除观察', '尚在医学观察者'],
+        data: ['新增死亡', '新增治愈', '新增确诊', '新增疑似', '累计死亡', '累计治愈', '现有确诊', '现有疑似', '追踪密切接触者', '解除观察', '尚在医学观察者'],
         top: 50,
       },
       xAxis: {
@@ -288,7 +288,7 @@ const LearningContent = ({
         color: '#43CD80',
         yAxisIndex: 1,
       }, {
-        name: '累计疑似',
+        name: '现有疑似',
         data: data.map(item => item.totalSuspectedCase),
         type: 'line',
         smooth: true,
@@ -422,7 +422,7 @@ const LearningContent = ({
           itemStyle: {
               borderWidth: 6,
               borderColor: color[1],
-              shadowBlur: 30,
+              shadowBlur: 6,
               shadowColor: color[1],
           },
       },
@@ -441,7 +441,7 @@ const LearningContent = ({
           <Col span={21}>
             <VirusBar data={virus.data} chartHeight={600} title="新型冠状病毒肺炎疫情通报"/>
             <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
-              <p>说明：1. ‘新增死亡’、‘新增治愈’参考坐标轴低1；‘新增确诊’、‘新增疑似’、‘累计死亡’、‘累计治愈’参考坐标轴中2；‘现有确诊‘、‘累计疑似‘、‘追踪密切接触者‘、‘尚在医学观察者‘参考坐标轴高3</p>
+              <p>说明：1. ‘新增死亡’、‘新增治愈’参考坐标轴低1；‘新增确诊’、‘新增疑似’、‘累计死亡’、‘累计治愈’参考坐标轴中2；‘现有确诊‘、‘现有疑似‘、‘追踪密切接触者‘、‘尚在医学观察者‘参考坐标轴高3</p>
               <p>2. 为了更加直观展示确诊人数，图中仅展示现有确诊人数不展示累计确诊人数，计算关系为：‘现有确诊’ = ‘累计确诊’ - ‘累计治愈’ - ‘累计死亡’</p>
             </div>
           </Col>
