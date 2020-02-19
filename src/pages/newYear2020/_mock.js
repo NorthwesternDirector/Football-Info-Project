@@ -11,6 +11,7 @@ export default {
     { id: 7, date: '2020-02-15', wordNumberS: 5070, wordNumberT: 0 },
     { id: 8, date: '2020-02-16', wordNumberS: 6188, wordNumberT: 0 },
     { id: 9, date: '2020-02-17', wordNumberS: 7376, wordNumberT: 0 },
+    { id: 10, date: '2020-02-18', wordNumberS: 9473, wordNumberT: 0 },
 
   ]),
   '/api/virus': mockData([
@@ -40,6 +41,7 @@ export default {
     { id: 24, date: '2020-02-15', updateTime: '2020-02-16', newConfirmedCase: 2009, newDeath: 142, newCuredCase: 1323, newSuspectedCase: 1918, totalConfirmedCase: 57416, totalDeath: 1665, totalCuredCase: 9419, totalSuspectedCase: 8228, watch: 158764, remove: 29788, touch: 529418 },
     { id: 25, date: '2020-02-16', updateTime: '2020-02-17', newConfirmedCase: 2048, newDeath: 105, newCuredCase: 1425, newSuspectedCase: 1563, totalConfirmedCase: 57934, totalDeath: 1770, totalCuredCase: 10844, totalSuspectedCase: 7264, watch: 150539, remove: 28178, touch: 546016 },
     { id: 26, date: '2020-02-17', updateTime: '2020-02-18', newConfirmedCase: 1886, newDeath: 98, newCuredCase: 1701, newSuspectedCase: 1432, totalConfirmedCase: 58016, totalDeath: 1868, totalCuredCase: 12552, totalSuspectedCase: 6242, watch: 141552, remove: 27908, touch: 560901 },
+    { id: 27, date: '2020-02-18', updateTime: '2020-02-19', newConfirmedCase: 1749, newDeath: 136, newCuredCase: 1824, newSuspectedCase: 1185, totalConfirmedCase: 57805, totalDeath: 2004, totalCuredCase: 14376, totalSuspectedCase: 5248, watch: 135881, remove: 25014, touch: 574418 },
 
   ]),
   '/api/games': mockData([
@@ -112,7 +114,8 @@ export default {
         { id: 46, date: '2020-02-14', workTime: ['', '', 0], sleepTime: ['00:50', 8.47, 0.85], walkingSteps: 971, physicalExercise: [20, 0, 0, 0] },
         { id: 47, date: '2020-02-15', workTime: ['', '', 0], sleepTime: ['00:59', 8.43, 2.28], walkingSteps: 686, physicalExercise: [20, 0, 0, 0] },
         { id: 48, date: '2020-02-16', workTime: ['', '', 0], sleepTime: ['00:05', 7.28, 1.58], walkingSteps: 1575, physicalExercise: [20, 0, 0, 0] },
-        { id: 49, date: '2020-02-17', workTime: ['', '', 0], sleepTime: ['23:37', 8.87, 0.87], walkingSteps: 0, physicalExercise: [20, 0, 0, 0] },
+        { id: 49, date: '2020-02-17', workTime: ['', '', 0], sleepTime: ['23:37', 8.87, 0.87], walkingSteps: 2904, physicalExercise: [20, 0, 0, 0] },
+        { id: 50, date: '2020-02-18', workTime: ['', '', 0], sleepTime: ['23:30', 8.75, 1.28], walkingSteps: 0, physicalExercise: [20, 0, 0, 0] },
 
       ],
     },
