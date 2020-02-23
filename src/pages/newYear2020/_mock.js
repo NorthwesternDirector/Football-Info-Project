@@ -16,6 +16,8 @@ export default {
     { id: 11, date: '2020-02-19', wordNumberS: 10779, wordNumberT: 0 },
     { id: 12, date: '2020-02-20', wordNumberS: 13918, wordNumberT: 0 },
     { id: 13, date: '2020-02-21', wordNumberS: 15814, wordNumberT: 0 },
+    { id: 14, date: '2020-02-22', wordNumberS: 16758, wordNumberT: 0 },
+    { id: 15, date: '2020-02-23', wordNumberS: 17201, wordNumberT: 0 },
 
   ]),
   '/api/virus': mockData([
@@ -48,6 +50,8 @@ export default {
     { id: 27, date: '2020-02-18', updateTime: '2020-02-19', newConfirmedCase: 1749, newDeath: 136, newCuredCase: 1824, newSuspectedCase: 1185, totalConfirmedCase: 57805, totalDeath: 2004, totalCuredCase: 14376, totalSuspectedCase: 5248, watch: 135881, remove: 25014, touch: 574418 },
     { id: 28, date: '2020-02-19', updateTime: '2020-02-20', newConfirmedCase: 394, newDeath: 114, newCuredCase: 1779, newSuspectedCase: 1277, totalConfirmedCase: 56303, totalDeath: 2118, totalCuredCase: 16155, totalSuspectedCase: 4922, watch: 126363, remove: 25318, touch: 589163 },
     { id: 29, date: '2020-02-20', updateTime: '2020-02-21', newConfirmedCase: 889, newDeath: 118, newCuredCase: 2109, newSuspectedCase: 1614, totalConfirmedCase: 54965, totalDeath: 2236, totalCuredCase: 18264, totalSuspectedCase: 5206, watch: 120302, remove: 28804, touch: 606037 },
+    { id: 30, date: '2020-02-21', updateTime: '2020-02-22', newConfirmedCase: 397, newDeath: 109, newCuredCase: 2393, newSuspectedCase: 1361, totalConfirmedCase: 53284, totalDeath: 2345, totalCuredCase: 20659, totalSuspectedCase: 5365, watch: 113564, remove: 26441, touch: 618915 },
+    { id: 31, date: '2020-02-22', updateTime: '2020-02-23', newConfirmedCase: 648, newDeath: 97, newCuredCase: 2230, newSuspectedCase: 882, totalConfirmedCase: 51606, totalDeath: 2442, totalCuredCase: 22888, totalSuspectedCase: 4148, watch: 106089, remove: 22128, touch: 628517 },
 
   ]),
   '/api/games': mockData([
@@ -94,9 +98,9 @@ export default {
         { id: 20, date: '2020-01-20', workTime: ['09:09:00', '18:30:00', 6.35], sleepTime: ['00:15', 7.80, 1.90], walkingSteps: 10676, physicalExercise: [0, 0, 0, 0] },
         { id: 21, date: '2020-01-21', workTime: ['', '', 0], sleepTime: ['00:16', 7.20, 1.37], walkingSteps: 3476, physicalExercise: [0, 0, 0, 0] },
         { id: 22, date: '2020-01-22', workTime: ['', '', 0], sleepTime: ['00:40', 10.52, 1.35], walkingSteps: 17524, physicalExercise: [0, 0, 0, 0] },
-        { id: 23, date: '2020-01-23', workTime: ['', '', 0], sleepTime: ['23:53', 8.57, 1.47], walkingSteps: 131, physicalExercise: [0, 0, 0, 0] },
+        { id: 23, date: '2020-01-23', workTime: ['', '', 0], sleepTime: ['23:53', 8.57, 1.47], walkingSteps: 1311, physicalExercise: [0, 0, 0, 0] },
         { id: 24, date: '2020-01-24', workTime: ['', '', 0], sleepTime: ['23:54', 10.03, 1.60], walkingSteps: 5928, physicalExercise: [0, 0, 0, 0] },
-        { id: 25, date: '2020-01-25', workTime: ['', '', 0], sleepTime: ['00:59', 6.00, 2.23], walkingSteps: 16441, physicalExercise: [0, 0, 0, 0] },
+        { id: 25, date: '2020-01-25', workTime: ['', '', 0], sleepTime: ['00:59', 6.00, 2.23], walkingSteps: 4441, physicalExercise: [0, 0, 0, 0] },
         { id: 26, date: '2020-01-26', workTime: ['', '', 0], sleepTime: ['23:34', 10.96, 1.80], walkingSteps: 933, physicalExercise: [0, 0, 0, 0] },
         { id: 27, date: '2020-01-27', workTime: ['', '', 0], sleepTime: ['00:22', 9.17, 1.52], walkingSteps: 1282, physicalExercise: [0, 0, 0, 0] },
         { id: 28, date: '2020-01-28', workTime: ['', '', 0], sleepTime: ['00:05', 10.17, 1.68], walkingSteps: 1022, physicalExercise: [0, 0, 0, 0] },
@@ -122,8 +126,10 @@ export default {
         { id: 48, date: '2020-02-17', workTime: ['', '', 0], sleepTime: ['00:05', 7.28, 1.58], walkingSteps: 1575, physicalExercise: [20, 0, 0, 0] },
         { id: 49, date: '2020-02-18', workTime: ['', '', 0], sleepTime: ['23:37', 8.87, 0.87], walkingSteps: 2904, physicalExercise: [20, 0, 0, 0] },
         { id: 50, date: '2020-02-19', workTime: ['', '', 0], sleepTime: ['23:30', 8.75, 1.28], walkingSteps: 1875, physicalExercise: [20, 0, 0, 0] },
-        { id: 51, date: '2020-02-20', workTime: ['', '', 0], sleepTime: ['23:47', 9.27, 1.62], walkingSteps: 1719, physicalExercise: [20, 0, 0, 0] },
-        { id: 52, date: '2020-02-21', workTime: ['', '', 0], sleepTime: ['23:41', 9.00, 1.02], walkingSteps: 0, physicalExercise: [20, 0, 0, 0] },
+        { id: 51, date: '2020-02-20', workTime: ['', '', 0], sleepTime: ['23:47', 9.27, 1.62], walkingSteps: 1719, physicalExercise: [15, 0, 0, 0] },
+        { id: 52, date: '2020-02-21', workTime: ['', '', 0], sleepTime: ['23:41', 9.00, 1.02], walkingSteps: 764, physicalExercise: [15, 0, 0, 0] },
+        { id: 53, date: '2020-02-22', workTime: ['', '', 0], sleepTime: ['23:29', 9.47, 1.28], walkingSteps: 2624, physicalExercise: [30, 0, 0, 0] },
+        { id: 54, date: '2020-02-23', workTime: ['', '', 0], sleepTime: ['23:34', 8.91, 1.45], walkingSteps: 0, physicalExercise: [15, 0, 0, 0] },
 
       ],
     },
