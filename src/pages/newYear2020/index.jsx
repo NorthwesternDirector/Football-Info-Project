@@ -359,6 +359,8 @@ const LearningContent = ({
                   show: true,
               },
           },
+          layoutCenter: ['52%', '50%'],
+          layoutSize: chartHeight,
           data: [
             { name: '湖北', value: 64287 },
             { name: '广东', value: 1345 },
@@ -530,14 +532,14 @@ const LearningContent = ({
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 680 }}>
         {virus && <Row>
-          <Col span={15}>
+          <Col span={16}>
             <VirusBar data={virus.data} chartHeight={600} title="新型冠状病毒肺炎疫情通报"/>
             <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
               <p>说明：1. 所有“新增数据”参考(低)坐标轴；“累计（现有）数据”参考(高)坐标轴</p>
               <p>2. 为了更加直观展示确诊人数，图中仅展示现有确诊人数不展示累计确诊人数，计算关系为：‘现有确诊’ = ‘累计确诊’ - ‘累计治愈’ - ‘累计死亡’</p>
             </div>
           </Col>
-          <Col span={9}>
+          <Col span={8}>
             <Row span={24} style={{ marginTop: 68 }}>
               <Col span={5} offset={2}>
                 <div style={{ textAlign: 'center' }}>
