@@ -3,6 +3,7 @@ import { Card, Row, Col, Tag } from 'antd'
 import { connect } from 'dva'
 import ReactEcharts from 'echarts-for-react'
 import liquidfill from 'echarts-liquidfill'
+import 'echarts/map/js/china';
 import moment from 'moment'
 import Calendar from '../../components/Charts/Calendar'
 import SpecialChart from '../../components/Charts/SpecialChart'
@@ -222,6 +223,11 @@ const LearningContent = ({
       legend: {
         data: ['新增死亡', '新增治愈', '新增确诊', '新增疑似', '累计死亡', '累计治愈', '现有确诊', '现有疑似', '追踪密切接触者', '解除观察', '尚在医学观察者'],
         top: 50,
+        type: 'scroll',
+        selected: {
+          追踪密切接触者: false,
+          尚在医学观察者: false,
+        },
       },
       xAxis: {
           type: 'category',
@@ -231,95 +237,170 @@ const LearningContent = ({
       yAxis: [{
         type: 'value',
         scale: true,
-        name: '人数/个(低1)',
+        name: '人数/个(低)',
       }, {
         type: 'value',
         scale: true,
-        name: '人数/个(中2)',
-      }, {
-        type: 'value',
-        scale: true,
-        name: '人数/个(高3)',
-        offset: 80,
+        name: '人数/个(高)',
       }],
       series: [{
         name: '新增确诊',
         data: data.map(item => item.newConfirmedCase),
         type: 'bar',
-        color: '#FF7F50',
-        yAxisIndex: 1,
+        color: '#8f5558',
+        yAxisIndex: 0,
+        stack: 1,
       }, {
         name: '新增死亡',
         data: data.map(item => item.newDeath),
         type: 'bar',
-        color: '#3A5FCD',
+        color: '#e2e7c4',
         yAxisIndex: 0,
+        stack: 1,
       }, {
         name: '新增治愈',
         data: data.map(item => item.newCuredCase),
         type: 'bar',
-        color: '#43CD80',
+        color: '#cd703f',
         yAxisIndex: 0,
+        stack: 1,
       }, {
         name: '新增疑似',
         data: data.map(item => item.newSuspectedCase),
         type: 'bar',
-        color: '#FFB5C5',
-        yAxisIndex: 1,
+        color: '#e0b654',
+        yAxisIndex: 0,
+        stack: 1,
       }, {
         name: '现有确诊',
         data: data.map(item => item.totalConfirmedCase),
         type: 'line',
         smooth: true,
-        color: '#FF7F50',
-        yAxisIndex: 2,
+        color: '#8f5558',
+        yAxisIndex: 1,
       }, {
         name: '累计死亡',
         data: data.map(item => item.totalDeath),
         type: 'line',
         smooth: true,
-        color: '#3A5FCD',
+        color: '#e2e7c4',
         yAxisIndex: 1,
       }, {
         name: '累计治愈',
         data: data.map(item => item.totalCuredCase),
         type: 'line',
         smooth: true,
-        color: '#43CD80',
+        color: '#cd703f',
         yAxisIndex: 1,
       }, {
         name: '现有疑似',
         data: data.map(item => item.totalSuspectedCase),
         type: 'line',
         smooth: true,
-        color: '#FFB5C5',
-        yAxisIndex: 2,
+        color: '#e0b654',
+        yAxisIndex: 1,
       }, {
         name: '追踪密切接触者',
         data: data.map(item => item.touch),
         type: 'line',
         smooth: true,
         color: '#CFCFCF',
-        yAxisIndex: 2,
+        yAxisIndex: 1,
       }, {
         name: '尚在医学观察者',
         data: data.map(item => item.watch),
         type: 'line',
         smooth: true,
         color: '#9C9C9C',
-        yAxisIndex: 2,
+        yAxisIndex: 1,
       },
       ],
       grid: {
         left: '50',
         top: '120',
-        right: '150',
+        right: '60',
       },
     }
     return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
   // #endregion
 
+  // #region 新冠肺炎地图
+  const VirusMap = ({
+    chartHeight = 400,
+  }) => {
+    const option = {
+      title: {
+          subtext: '全国确诊人数分布',
+          left: 'center',
+      },
+      tooltip: {
+          trigger: 'item',
+      },
+      visualMap: {
+          min: 0,
+          max: 2500,
+          left: 'left',
+          top: '80',
+          text: ['高', '低'], // 文本，默认为数值文本
+          calculable: true,
+      },
+      series: [
+        {
+          name: '确诊人数',
+          type: 'map',
+          mapType: 'china',
+          roam: false,
+          label: {
+              normal: {
+                  show: true,
+              },
+              emphasis: {
+                  show: true,
+              },
+          },
+          data: [
+            { name: '湖北', value: 64287 },
+            { name: '广东', value: 1345 },
+            { name: '河南', value: 1271 },
+            { name: '浙江', value: 1205 },
+            { name: '湖南', value: 1016 },
+            { name: '安徽', value: 989 },
+            { name: '江西', value: 934 },
+            { name: '山东', value: 755 },
+            { name: '江苏', value: 631 },
+            { name: '重庆', value: 575 },
+            { name: '四川', value: 527 },
+            { name: '黑龙江', value: 480 },
+            { name: '北京', value: 399 },
+            { name: '上海', value: 335 },
+            { name: '河北', value: 311 },
+            { name: '福建', value: 293 },
+            { name: '广西', value: 251 },
+            { name: '陕西', value: 245 },
+            { name: '云南', value: 174 },
+            { name: '海南', value: 168 },
+            { name: '贵州', value: 146 },
+            { name: '天津', value: 135 },
+            { name: '山西', value: 132 },
+            { name: '辽宁', value: 121 },
+            { name: '吉林', value: 93 },
+            { name: '甘肃', value: 91 },
+            { name: '香港', value: 79 },
+            { name: '新疆', value: 76 },
+            { name: '内蒙古', value: 75 },
+            { name: '宁夏', value: 71 },
+            { name: '台湾', value: 30 },
+            { name: '青海', value: 18 },
+            { name: '澳门', value: 10 },
+            { name: '西藏', value: 1 },
+          ],
+        },
+      ],
+    }
+    return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
+  // #endregion
   // #region 论文
   const PaperBar = ({
     data,
@@ -449,34 +530,47 @@ const LearningContent = ({
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 680 }}>
         {virus && <Row>
-          <Col span={21}>
+          <Col span={15}>
             <VirusBar data={virus.data} chartHeight={600} title="新型冠状病毒肺炎疫情通报"/>
             <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
-              <p>说明：1. ‘新增死亡’、‘新增治愈’参考坐标轴低1；‘新增确诊’、‘新增疑似’、‘累计死亡’、‘累计治愈’参考坐标轴中2；‘现有确诊‘、‘现有疑似‘、‘追踪密切接触者‘、‘尚在医学观察者‘参考坐标轴高3</p>
+              <p>说明：1. 所有“新增数据”参考(低)坐标轴；“累计（现有）数据”参考(高)坐标轴</p>
               <p>2. 为了更加直观展示确诊人数，图中仅展示现有确诊人数不展示累计确诊人数，计算关系为：‘现有确诊’ = ‘累计确诊’ - ‘累计治愈’ - ‘累计死亡’</p>
             </div>
           </Col>
-          <Col span={3}>
-              <div style={{ textAlign: 'center', marginTop: 140 }}>
-                <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#3A5FCD' }}>{virus.data.slice(-1)[0].totalDeath}</p>
-                <Tag style={{ margin: 0 }}>死亡人数</Tag>
-                <p>昨日 <span style={{ color: '#3A5FCD' }}>+{virus.data.slice(-1)[0].newDeath}</span></p>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#43CD80' }}>{virus.data.slice(-1)[0].totalCuredCase}</p>
-                <Tag style={{ margin: 0 }}>治愈人数</Tag>
-                <p>昨日 <span style={{ color: '#43CD80' }}>+{virus.data.slice(-1)[0].newCuredCase}</span></p>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#FF7F50' }}>{virus.data.slice(-1)[0].totalConfirmedCase}</p>
-                <Tag style={{ margin: 0 }}>确诊人数</Tag>
-                <p>昨日 <span style={{ color: '#FF7F50' }}>+{virus.data.slice(-1)[0].newConfirmedCase}</span></p>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#FFB5C5' }}>{virus.data.slice(-1)[0].totalSuspectedCase}</p>
-                <Tag style={{ margin: 0 }}>疑似人数</Tag>
-                <p>昨日 <span style={{ color: '#FFB5C5' }}>+{virus.data.slice(-1)[0].newSuspectedCase}</span></p>
-              </div>
+          <Col span={9}>
+            <Row span={24} style={{ marginTop: 68 }}>
+              <Col span={5} offset={2}>
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#3A5FCD' }}>{virus.data.slice(-1)[0].totalDeath}</p>
+                  <Tag style={{ margin: 0 }}>死亡人数</Tag>
+                  <p>昨日 <span style={{ color: '#3A5FCD' }}>+{virus.data.slice(-1)[0].newDeath}</span></p>
+                </div>
+              </Col>
+              <Col span={5}>
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#43CD80' }}>{virus.data.slice(-1)[0].totalCuredCase}</p>
+                  <Tag style={{ margin: 0 }}>治愈人数</Tag>
+                  <p>昨日 <span style={{ color: '#43CD80' }}>+{virus.data.slice(-1)[0].newCuredCase}</span></p>
+                </div>
+              </Col>
+              <Col span={5}>
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#FF7F50' }}>{virus.data.slice(-1)[0].totalConfirmedCase}</p>
+                  <Tag style={{ margin: 0 }}>确诊人数</Tag>
+                  <p>昨日 <span style={{ color: '#FF7F50' }}>+{virus.data.slice(-1)[0].newConfirmedCase}</span></p>
+                </div>
+              </Col>
+              <Col span={5}>
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#FFB5C5' }}>{virus.data.slice(-1)[0].totalSuspectedCase}</p>
+                  <Tag style={{ margin: 0 }}>疑似人数</Tag>
+                  <p>昨日 <span style={{ color: '#FFB5C5' }}>+{virus.data.slice(-1)[0].newSuspectedCase}</span></p>
+                </div>
+              </Col>
+              <Col span={24}>
+                <VirusMap/>
+              </Col>
+            </Row>
           </Col>
           </Row>}
         </Card>
@@ -490,13 +584,13 @@ const LearningContent = ({
             <Col span={6}>
             {paper &&
               <LiquidPaperBar
-                value={paper.data.slice(-1)[0].wordNumberT / 35000}
+                value={paper.data.slice(-1)[0].wordNumberT / 30000}
                 center={['50%', '55%']}
                 color={['#8B475D', '#CD6889', '#EEA2AD', '#FFB5C5']}
             />}
             {paper &&
               <LiquidPaperBar
-                value={paper.data.slice(-1)[0].wordNumberS / 35000}
+                value={paper.data.slice(-1)[0].wordNumberS / 30000}
                 center={['50%', '45%']}
                 color={['#104E8B', '#1874CD', '#1E90FF', '#00BFFF']}
             />}
