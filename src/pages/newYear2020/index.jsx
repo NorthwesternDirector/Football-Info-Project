@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react'
-import { Card, Row, Col, Tag } from 'antd'
+import { Card, Row, Col, Tag, Statistic } from 'antd'
 import { connect } from 'dva'
 import ReactEcharts from 'echarts-for-react'
 import liquidfill from 'echarts-liquidfill'
@@ -428,7 +428,7 @@ const LearningContent = ({
         },
       },
       legend: {
-        data: ['字数累计(sss)', '字数累计(mmt)'],
+        data: ['字数累计(SSS)', '字数累计(MMT)'],
         top: 50,
       },
       xAxis: {
@@ -442,7 +442,7 @@ const LearningContent = ({
         name: '字数/个',
       }],
       series: [{
-        name: '字数累计(sss)',
+        name: '字数累计(SSS)',
         data: data.map(item => item.wordNumberS),
         type: 'line',
         smooth: true,
@@ -455,7 +455,7 @@ const LearningContent = ({
           shadowOffsetY: 20,
         },
       }, {
-        name: '字数累计(mmt)',
+        name: '字数累计(MMT)',
         data: data.map(item => item.wordNumberT),
         type: 'line',
         smooth: true,
@@ -481,7 +481,7 @@ const LearningContent = ({
     value,
     center,
     color,
-    chartHeight = 250,
+    chartHeight = 200,
   }) => {
     const data = [value, value, value, value, value];
     const option = {
@@ -585,17 +585,26 @@ const LearningContent = ({
             </Col>
             <Col span={6}>
             {paper &&
+            <>
+              <Row gutter={8} style={{ marginTop: 30 }}>
+                <Col span={8}>
+                  <Statistic title="MMT" value={paper.data.slice(-1)[0].wordNumberT} suffix="/ 30000" />
+                </Col>
+                <Col span={12}>
+                  <Statistic title="SSS" value={paper.data.slice(-1)[0].wordNumberS} suffix="/ 30000" />
+                </Col>
+              </Row>
               <LiquidPaperBar
                 value={paper.data.slice(-1)[0].wordNumberT / 30000}
                 center={['50%', '55%']}
                 color={['#8B475D', '#CD6889', '#EEA2AD', '#FFB5C5']}
-            />}
-            {paper &&
+              />
               <LiquidPaperBar
                 value={paper.data.slice(-1)[0].wordNumberS / 30000}
                 center={['50%', '45%']}
                 color={['#104E8B', '#1874CD', '#1E90FF', '#00BFFF']}
-            />}
+              />
+            </>}
             </Col>
           </Row>
         </Card>
