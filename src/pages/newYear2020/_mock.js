@@ -20,7 +20,9 @@ export default {
     { id: 15, date: '2020-02-23', wordNumberS: 17201, wordNumberT: 0 },
     { id: 16, date: '2020-02-24', wordNumberS: 17960, wordNumberT: 0 },
     { id: 17, date: '2020-02-25', wordNumberS: 19132, wordNumberT: 0 },
-    { id: 18, date: '2020-02-26', wordNumberS: 20184, wordNumberT: 0 },
+    { id: 18, date: '2020-02-26', wordNumberS: 20744, wordNumberT: 0 },
+    { id: 19, date: '2020-02-27', wordNumberS: 23439, wordNumberT: 0 },
+    { id: 20, date: '2020-02-28', wordNumberS: 24004, wordNumberT: 0 },
 
   ]),
   '/api/virus': mockData([
@@ -58,6 +60,8 @@ export default {
     { id: 32, date: '2020-02-23', updateTime: '2020-02-24', newConfirmedCase: 409, newDeath: 150, newCuredCase: 1846, newSuspectedCase: 620, totalConfirmedCase: 49824, totalDeath: 2592, totalCuredCase: 24734, totalSuspectedCase: 3434, watch: 97481, remove: 16758, touch: 635531 },
     { id: 33, date: '2020-02-24', updateTime: '2020-02-25', newConfirmedCase: 508, newDeath: 71, newCuredCase: 2589, newSuspectedCase: 530, totalConfirmedCase: 47672, totalDeath: 2663, totalCuredCase: 27323, totalSuspectedCase: 2824, watch: 87902, remove: 15758, touch: 641742 },
     { id: 34, date: '2020-02-25', updateTime: '2020-02-26', newConfirmedCase: 406, newDeath: 52, newCuredCase: 2422, newSuspectedCase: 439, totalConfirmedCase: 45604, totalDeath: 2715, totalCuredCase: 29745, totalSuspectedCase: 2491, watch: 79108, remove: 14573, touch: 647406 },
+    { id: 35, date: '2020-02-26', updateTime: '2020-02-27', newConfirmedCase: 433, newDeath: 29, newCuredCase: 2750, newSuspectedCase: 508, totalConfirmedCase: 43258, totalDeath: 2744, totalCuredCase: 32495, totalSuspectedCase: 2358, watch: 71572, remove: 12823, touch: 652174 },
+    { id: 36, date: '2020-02-27', updateTime: '2020-02-28', newConfirmedCase: 327, newDeath: 44, newCuredCase: 3622, newSuspectedCase: 452, totalConfirmedCase: 39919, totalDeath: 2788, totalCuredCase: 36117, totalSuspectedCase: 2308, watch: 65225, remove: 10525, touch: 656054 },
 
   ]),
   '/api/games': mockData([
@@ -137,8 +141,11 @@ export default {
         { id: 53, date: '2020-02-22', workTime: ['', '', 0], sleepTime: ['23:29', 9.47, 1.28], walkingSteps: 2624, physicalExercise: [30, 0, 0, 0] },
         { id: 54, date: '2020-02-23', workTime: ['', '', 0], sleepTime: ['23:34', 8.91, 1.45], walkingSteps: 9288, physicalExercise: [10, 0, 0, 0] },
         { id: 55, date: '2020-02-24', workTime: ['', '', 0], sleepTime: ['23:30', 9.05, 0.78], walkingSteps: 1104, physicalExercise: [10, 0, 0, 0] },
-        { id: 56, date: '2020-02-25', workTime: ['', '', 0], sleepTime: ['23:32', 9.08, 1.42], walkingSteps: 458, physicalExercise: [10, 0, 0, 0] },
-        { id: 57, date: '2020-02-26', workTime: ['', '', 0], sleepTime: ['23:41', 8.33, 1.21], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
+        { id: 56, date: '2020-02-25', workTime: ['', '', 0], sleepTime: ['23:32', 9.08, 1.42], walkingSteps: 7458, physicalExercise: [10, 0, 0, 0] },
+        { id: 57, date: '2020-02-26', workTime: ['', '', 0], sleepTime: ['23:41', 8.33, 1.21], walkingSteps: 8630, physicalExercise: [10, 0, 0, 0] },
+        { id: 58, date: '2020-02-27', workTime: ['', '', 0], sleepTime: ['23:30', 7.75, 1.12], walkingSteps: 644, physicalExercise: [25, 0, 0, 0] },
+        { id: 59, date: '2020-02-28', workTime: ['', '', 0], sleepTime: ['23:30', 8.15, 1.47], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
+
       ],
     },
   ]),
