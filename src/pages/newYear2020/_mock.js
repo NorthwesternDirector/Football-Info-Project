@@ -27,8 +27,9 @@ export default {
     { id: 22, date: '2020-03-01', wordNumberS: 26321, wordNumberT: 0 },
     { id: 23, date: '2020-03-02', wordNumberS: 27386, wordNumberT: 0 },
     { id: 24, date: '2020-03-03', wordNumberS: 28034, wordNumberT: 0 },
-    { id: 25, date: '2020-03-04', wordNumberS: 29677, wordNumberT: 0 },
-
+    { id: 25, date: '2020-03-04', wordNumberS: 30026, wordNumberT: 0 },
+    { id: 26, date: '2020-03-05', wordNumberS: 30026, wordNumberT: 0 },
+    { id: 26, date: '2020-03-05', wordNumberS: 30026, wordNumberT: 0 },
   ]),
   '/api/virus': mockData([
     { id: 1, date: '2020-01-23', updateTime: '2020-01-24', newConfirmedCase: 256, newDeath: 8, newCuredCase: 6, newSuspectedCase: 680, totalConfirmedCase: 830, totalDeath: 25, totalCuredCase: 6, totalSuspectedCase: 1072, watch: 4928, remove: 969, touch: 5897 },
@@ -72,6 +73,8 @@ export default {
     { id: 39, date: '2020-03-01', updateTime: '2020-03-02', newConfirmedCase: 202, newDeath: 42, newCuredCase: 2837, newSuspectedCase: 141, totalConfirmedCase: 32652, totalDeath: 2912, totalCuredCase: 44462, totalSuspectedCase: 751, watch: 46219, remove: 8154, touch: 663240 },
     { id: 40, date: '2020-03-02', updateTime: '2020-03-03', newConfirmedCase: 125, newDeath: 31, newCuredCase: 2742, newSuspectedCase: 129, totalConfirmedCase: 30004, totalDeath: 2943, totalCuredCase: 47204, totalSuspectedCase: 587, watch: 40651, remove: 7650, touch: 664899 },
     { id: 41, date: '2020-03-03', updateTime: '2020-03-04', newConfirmedCase: 119, newDeath: 38, newCuredCase: 2652, newSuspectedCase: 143, totalConfirmedCase: 27433, totalDeath: 2981, totalCuredCase: 49856, totalSuspectedCase: 520, watch: 36432, remove: 6250, touch: 666397 },
+    { id: 42, date: '2020-03-04', updateTime: '2020-03-05', newConfirmedCase: 139, newDeath: 31, newCuredCase: 2189, newSuspectedCase: 143, totalConfirmedCase: 25352, totalDeath: 3012, totalCuredCase: 52045, totalSuspectedCase: 522, watch: 32870, remove: 6584, touch: 669025 },
+    { id: 43, date: '2020-03-05', updateTime: '2020-03-06', newConfirmedCase: 143, newDeath: 30, newCuredCase: 1681, newSuspectedCase: 102, totalConfirmedCase: 23784, totalDeath: 3042, totalCuredCase: 53726, totalSuspectedCase: 482, watch: 29896, remove: 5457, touch: 670854 },
 
   ]),
   '/api/games': mockData([
@@ -159,7 +162,9 @@ export default {
         { id: 61, date: '2020-03-01', workTime: ['', '', 0], sleepTime: ['23:47', 9.01, 1.32], walkingSteps: 16900, physicalExercise: [10, 0, 0, 0] },
         { id: 62, date: '2020-03-02', workTime: ['', '', 0], sleepTime: ['23:18', 8.93, 0.81], walkingSteps: 1390, physicalExercise: [10, 0, 0, 0] },
         { id: 63, date: '2020-03-03', workTime: ['', '', 0], sleepTime: ['23:21', 8.65, 1.21], walkingSteps: 1233, physicalExercise: [30, 0, 0, 0] },
-        { id: 64, date: '2020-03-04', workTime: ['', '', 0], sleepTime: ['23:41', 8.05, 1.78], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 64, date: '2020-03-04', workTime: ['', '', 0], sleepTime: ['23:41', 8.05, 1.78], walkingSteps: 1467, physicalExercise: [10, 0, 0, 0] },
+        { id: 65, date: '2020-03-05', workTime: ['', '', 0], sleepTime: ['23:30', 8.67, 1.13], walkingSteps: 2626, physicalExercise: [25, 0, 0, 0] },
+        { id: 66, date: '2020-03-06', workTime: ['', '', 0], sleepTime: ['23:38', 7.85, 2.12], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
