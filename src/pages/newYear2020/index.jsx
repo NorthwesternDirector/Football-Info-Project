@@ -362,23 +362,23 @@ const LearningContent = ({
           layoutCenter: ['52%', '50%'],
           layoutSize: chartHeight,
           data: [
-            { name: '湖北', value: 64287 },
-            { name: '广东', value: 1345 },
-            { name: '河南', value: 1271 },
-            { name: '浙江', value: 1205 },
-            { name: '湖南', value: 1016 },
-            { name: '安徽', value: 989 },
-            { name: '江西', value: 934 },
-            { name: '山东', value: 755 },
+            { name: '湖北', value: 67466 },
+            { name: '广东', value: 1350 },
+            { name: '河南', value: 1272 },
+            { name: '浙江', value: 1213 },
+            { name: '湖南', value: 1018 },
+            { name: '安徽', value: 990 },
+            { name: '江西', value: 935 },
+            { name: '山东', value: 758 },
             { name: '江苏', value: 631 },
             { name: '重庆', value: 575 },
-            { name: '四川', value: 527 },
+            { name: '四川', value: 538 },
             { name: '黑龙江', value: 480 },
             { name: '北京', value: 399 },
             { name: '上海', value: 335 },
             { name: '河北', value: 311 },
             { name: '福建', value: 293 },
-            { name: '广西', value: 251 },
+            { name: '广西', value: 252 },
             { name: '陕西', value: 245 },
             { name: '云南', value: 174 },
             { name: '海南', value: 168 },
@@ -428,7 +428,7 @@ const LearningContent = ({
         },
       },
       legend: {
-        data: ['字数累计(SSS)', '字数累计(MMT)'],
+        data: ['字数累计(SSS)', '字数累计(MMT)', '重复率(SSS)', '重复率(MMT)'],
         top: 50,
       },
       xAxis: {
@@ -440,6 +440,10 @@ const LearningContent = ({
         type: 'value',
         scale: true,
         name: '字数/个',
+      }, {
+        type: 'value',
+        scale: true,
+        name: '重复率/%',
       }],
       series: [{
         name: '字数累计(SSS)',
@@ -447,6 +451,10 @@ const LearningContent = ({
         type: 'line',
         smooth: true,
         symbolSize: 5,
+        yAxisIndex: 0,
+        itemStyle: {
+          color: '#6495ED',
+        },
         lineStyle: {
           color: '#6495ED',
           width: 4,
@@ -460,6 +468,10 @@ const LearningContent = ({
         type: 'line',
         smooth: true,
         symbolSize: 5,
+        yAxisIndex: 0,
+        itemStyle: {
+          color: '#FF69B4',
+        },
         lineStyle: {
           color: '#FF69B4',
           width: 4,
@@ -467,14 +479,47 @@ const LearningContent = ({
           shadowBlur: 15,
           shadowOffsetY: 20,
         },
-      }],
+      }, {
+        name: '重复率(SSS)',
+        data: data.map(item => (item.repetitonS !== 100 ? item.repetitonS : null)),
+        type: 'line',
+        smooth: true,
+        symbolSize: 5,
+        yAxisIndex: 1,
+        itemStyle: {
+          color: '#FFA500',
+        },
+        lineStyle: {
+          color: '#FFA500',
+          width: 2,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '重复率(MMT)',
+        data: data.map(item => (item.repetitonT !== 100 ? item.repetitonT : null)),
+        type: 'line',
+        smooth: true,
+        symbolSize: 5,
+        yAxisIndex: 1,
+        color: '#FF4500',
+        lineStyle: {
+          color: '#FF4500',
+          width: 2,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      },
+    ],
       grid: {
         left: '90',
         top: '90',
-        right: '0',
+        right: '100',
       },
     }
-    return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
+    return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
 
   const LiquidPaperBar = ({
@@ -536,7 +581,7 @@ const LearningContent = ({
             <VirusBar data={virus.data} chartHeight={600} title="新型冠状病毒肺炎疫情通报"/>
             <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
               <p>说明：1. 所有“新增数据”参考(低)坐标轴；“累计（现有）数据”参考(高)坐标轴</p>
-              <p>2. 为了更加直观展示确诊人数，图中仅展示现有确诊人数不展示累计确诊人数，计算关系为：‘现有确诊’ = ‘累计确诊’ - ‘累计治愈’ - ‘累计死亡’</p>
+              <p>2. 为了更加直观展示确诊人数，图中仅展示现有确诊人数不展示累计确诊人数，计算关系为：‘累计确诊’ = ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
             </div>
           </Col>
           <Col span={8}>
@@ -587,11 +632,13 @@ const LearningContent = ({
             {paper &&
             <>
               <Row gutter={8} style={{ marginTop: 30 }}>
-                <Col span={8}>
+                <Col span={12}>
                   <Statistic title="MMT" value={paper.data.slice(-1)[0].wordNumberT} suffix="/ 30000" />
+                  重复率:--%
                 </Col>
                 <Col span={12}>
                   <Statistic title="SSS" value={paper.data.slice(-1)[0].wordNumberS} suffix="/ 30000" />
+                  重复率:15.1%
                 </Col>
               </Row>
               <LiquidPaperBar
