@@ -516,7 +516,7 @@ const LearningContent = ({
       grid: {
         left: '90',
         top: '90',
-        right: '100',
+        right: '70',
       },
     }
     return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
@@ -638,7 +638,7 @@ const LearningContent = ({
                 </Col>
                 <Col span={12}>
                   <Statistic title="SSS" value={paper.data.slice(-1)[0].wordNumberS} suffix="/ 30000" />
-                  重复率:15.1%
+                  {`重复率:${paper.data.slice(-1)[0].repetitonS}%`}
                 </Col>
               </Row>
               <LiquidPaperBar
