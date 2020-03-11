@@ -634,7 +634,7 @@ const LearningContent = ({
               <Row gutter={8} style={{ marginTop: 30 }}>
                 <Col span={12}>
                   <Statistic title="MMT" value={paper.data.slice(-1)[0].wordNumberT} suffix="/ 30000" />
-                  重复率:--%
+                  {`重复率:${paper.data.slice(-1)[0].repetitonM}%`}
                 </Col>
                 <Col span={12}>
                   <Statistic title="SSS" value={paper.data.slice(-1)[0].wordNumberS} suffix="/ 30000" />
