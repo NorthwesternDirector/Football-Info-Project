@@ -602,7 +602,9 @@ const LearningContent = ({
               </Col>
               <Col span={5}>
                 <div style={{ textAlign: 'center' }}>
-                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#FF7F50' }}>{virus.data.slice(-1)[0].totalConfirmedCase}</p>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#FF7F50' }}>
+                    {virus.data.slice(-1)[0].totalConfirmedCase + virus.data.slice(-1)[0].totalCuredCase + virus.data.slice(-1)[0].totalDeath}
+                  </p>
                   <Tag style={{ margin: 0 }}>确诊人数</Tag>
                   <p>昨日 <span style={{ color: '#FF7F50' }}>+{virus.data.slice(-1)[0].newConfirmedCase}</span></p>
                 </div>
@@ -634,7 +636,7 @@ const LearningContent = ({
               <Row gutter={8} style={{ marginTop: 30 }}>
                 <Col span={12}>
                   <Statistic title="MMT" value={paper.data.slice(-1)[0].wordNumberT} suffix="/ 30000" />
-                  {`重复率:${paper.data.slice(-1)[0].repetitonM}%`}
+                  {`重复率:${paper.data.slice(-1)[0].repetitonT === 100 ? '--' : paper.data.slice(-1)[0].repetitonT}%`}
                 </Col>
                 <Col span={12}>
                   <Statistic title="SSS" value={paper.data.slice(-1)[0].wordNumberS} suffix="/ 30000" />
