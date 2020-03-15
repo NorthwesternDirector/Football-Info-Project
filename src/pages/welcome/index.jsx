@@ -86,7 +86,7 @@ const Welcome = props => {
                 <Icon type="bank" theme="twoTone" style={{ marginRight: 4 }}/>校园经历
               </p>
               <Collapse bordered={false} style={{ border: 0 }} className={styles.customCollapse} >
-                <Collapse.Panel header="2013 中国地质大学(武汉)地理信息科学" key="1" style={{ border: 0 }}>
+                <Collapse.Panel header="2013 中国地质大学(武汉) 地理信息科学" key="1" style={{ border: 0 }}>
                   <Timeline style={{ marginLeft: '25px' }} className={ styles.customTimeline }>
                     <Timeline.Item dot={<IconFont type="icon-xuesheng" />}> 院足球队队长 2015/09/01</Timeline.Item>
                     <Timeline.Item dot={<IconFont type="icon-jiangbei" />}> “地大英才” 体育之星，校级优秀个人 2015/12/01</Timeline.Item>
@@ -122,7 +122,7 @@ const Welcome = props => {
             <p className={styles.thirdTitle}>2013.09-2017.06 中国地质大学(武汉) 地理信息科学</p>
             <p>主修C++、地理信息系统原理、地图可视化、WebGIS、地理信息工程等相关课程，通过英语四六级考试，无挂科记录。</p>
             <p className={styles.thirdTitle}>2017.09-至今 中国海洋大学 测绘工程</p>
-            <p>主要研究方向为WebGIS与出租车轨迹数据信息提取，在中国海洋大学学报自然科学版发表题为《基于聚类算法的出租车载客点时空分布特征探究》一文</p>
+            <p style={{ marginBottom: 0 }}>主要研究方向为WebGIS与出租车轨迹数据信息提取，在中国海洋大学学报自然科学版发表题为《基于聚类算法的出租车载客点时空分布特征探究》一文</p>
           </Card>
           <Card bordered={false}>
             <p className={styles.secondTitle}>
@@ -131,7 +131,7 @@ const Welcome = props => {
             </p>
             <p className={styles.thirdTitle}>2019.11.01-至今 小米 大数据-技术平台部 前端开发实习生</p>
             <span>
-              <p style={{ margin: 0 }}><b>实习内容：</b>基于React技术栈参与了4个中台系统的前端开发任务，涉及多个页面的开发、bug调试及UI调整；其中独自梳理需求逻辑并实现了4个全新的页面，与后端完成联调并最终测试上线；尝试封装了表单验证组件、图表（折线图）组件，优化代码结构提升开发效率。</p>
+              <p style={{ margin: 0 }}><b>实习内容：</b>基于React、UmiJS、DvaJS、Ant Design技术栈 ，涉及了3个中台系统的页面开发及bug调试；其中独自梳理需求逻辑并实现了4个页面，与后端完成联调并最终测试后上线；尝试封装了表单验证组件、图表（折线图）组件，优化了代码结构提升组内开发效率。</p>
               <p style={{ margin: 0 }}><b>项目技术：</b><Tag>React</Tag><Tag>UmiJS</Tag><Tag>DvaJS</Tag><Tag>Ant Design</Tag><Tag>ECharts</Tag><Tag>Git</Tag></p>
             </span>
           </Card>
@@ -139,10 +139,15 @@ const Welcome = props => {
             <p className={styles.secondTitle}>
               <Icon type="pushpin" theme="twoTone" style={{ marginRight: 4 }}/>项目经历
             </p>
+            <p className={styles.thirdTitle}>2019.11-2020.03 React Project</p>
+            <span>
+              <p style={{ margin: 0 }}><b>项目描述：</b>该系统利用Antd Pro模版快速搭建，结合Umi框架及Dva数据流，以记录日常生活的数据为主，内部封装了多个Echarts图表组件，使用Umi的mock数据功能，展示了例如新冠肺炎疫情发展统计图、日常步数及锻炼事件统计图、实习时间规划图等，除图表内容外还实现了个人简历的展示效果，并利用git进行代码版本管理。</p>
+              <p style={{ margin: 0 }}><b>项目技术：</b><Tag>React</Tag><Tag>UmiJS</Tag><Tag>DvaJS</Tag><Tag>Ant Design</Tag><Tag>ECharts</Tag><Tag>Git</Tag></p>
+              <p style={{ margin: 0 }}><b>项目地址：</b><a href="https://github.com/NorthwesternDirector/Football-Info-Project" target="_blank" rel="noopener noreferrer">vue-demo-Project</a></p>
+            </span>
             <p className={styles.thirdTitle}>2019.06-2019.09 vue demo APP</p>
             <span>
-              <p style={{ margin: 0 }}><b>项目描述：</b>该demo APP主要以实践vue代码为主，设计编写了旅行游记、图片分享、留言评论、闲置物品、购物车五个功能模块。</p>
-              <p style={{ margin: 0 }}><b>负责内容：</b>利用webpack手动构建vue项目，使用.vue组件模板文件创建子功能模块，结合vue-router实现页面路由匹配跳转、vuex实现多组件间共享购物车数据，结合Mint-UI优化界面显示效果，并利用git进行代码版本管理。</p>
+              <p style={{ margin: 0 }}><b>项目描述：</b>该demo APP主要以实践vue代码为主，设计编写了旅行游记、图片分享、留言评论、闲置物品、购物车五个功能模块，利用webpack手动构建vue项目，使用.vue组件模板文件创建子功能模块，结合vue-router实现页面路由匹配跳转、vuex实现多组件间共享购物车数据，结合Mint-UI优化界面显示效果，并利用git进行代码版本管理。</p>
               <p style={{ margin: 0 }}><b>项目技术：</b><Tag>vue</Tag><Tag>webpack</Tag><Tag>git</Tag><Tag>Mint-UI</Tag></p>
               <p style={{ margin: 0 }}><b>项目地址：</b><a href="https://github.com/NorthwesternDirector/vue-demo-Project" target="_blank" rel="noopener noreferrer">vue-demo-Project</a></p>
             </span>
