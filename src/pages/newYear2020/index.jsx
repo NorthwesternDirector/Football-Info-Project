@@ -16,6 +16,7 @@ const LearningContent = ({
   games,
   paper,
   virus,
+  virusGlobal,
   dispatch,
 }) => {
   useEffect(() => {
@@ -30,6 +31,9 @@ const LearningContent = ({
     })
     dispatch({
       type: 'newYear2020/fetchVirus',
+    })
+    dispatch({
+      type: 'newYear2020/fetchVirusGlobal',
     })
   }, [])
   // #region 新冠肺炎
@@ -291,6 +295,60 @@ const LearningContent = ({
   }
   // #endregion
 
+  // #region 全球疫情极坐标系统计图
+  const VirusGlobalBar = ({
+    data,
+    chartHeight = 500,
+  }) => {
+    const option = {
+      angleAxis: {
+          type: 'category',
+          data: data.map(i => i.country),
+      },
+      radiusAxis: {
+      },
+      polar: {
+        center: ['50%', '55%'],
+        radius: '75%',
+      },
+      title: {
+        top: 0,
+        text: '全球疫情统计图',
+        subtext: '数据更新时间：2020-03-16 09:00',
+        left: 'center',
+      },
+      series: [{
+          type: 'bar',
+          data: data.map(i => i.existConfirmedCase),
+          coordinateSystem: 'polar',
+          name: '现有确诊',
+          color: '#8f5558',
+          stack: 'a',
+      }, {
+          type: 'bar',
+          data: data.map(i => i.totalDeath),
+          coordinateSystem: 'polar',
+          name: '累计死亡',
+          color: '#e2e7c4',
+          stack: 'a',
+      }, {
+          type: 'bar',
+          data: data.map(i => i.totalCuredCase),
+          coordinateSystem: 'polar',
+          name: '累计治愈',
+          color: '#cd703f',
+          stack: 'a',
+      }],
+      legend: {
+          show: true,
+          data: ['现有确诊', '累计死亡', '累计治愈'],
+          top: 50,
+      },
+    };
+    return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
+
+  // #endregion
   return (
     <>
     <Row gutter={24}>
@@ -342,6 +400,11 @@ const LearningContent = ({
             </Row>
           </Col>
           </Row>}
+        </Card>
+      </Col>
+      <Col span={24} style={{ marginBottom: 24 }}>
+        <Card style={{ height: 550 }}>
+          {virusGlobal && <VirusGlobalBar data={virusGlobal.data}/>}
         </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
@@ -426,5 +489,6 @@ export default connect(({ newYear2020, loading }) => ({
   games: newYear2020.games,
   paper: newYear2020.paper,
   virus: newYear2020.virus,
+  virusGlobal: newYear2020.virusGlobal,
   loading: loading.effects['newYear2020/fetchTimes'],
 }))(LearningContent)
