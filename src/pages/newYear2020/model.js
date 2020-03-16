@@ -1,4 +1,4 @@
-import { queryTimes, queryGames, queryPaper, queryVirus } from './service'
+import { queryTimes, queryGames, queryPaper, queryVirus, queryVirusGlobal } from './service'
 
 const Model = {
   namespace: 'newYear2020',
@@ -50,6 +50,17 @@ const Model = {
         })
       }
     },
+    *fetchVirusGlobal(_, { put, call }) {
+      const response = yield call(queryVirusGlobal)
+      if (response) {
+        yield put({
+          type: 'save',
+          payload: {
+            virusGlobal: response,
+          },
+        })
+      }
+    },
   },
   reducers: {
     save(state, { payload }) {
@@ -61,6 +72,7 @@ const Model = {
         games: [],
         paper: [],
         virus: [],
+        virusGlobal: [],
       }
     },
   },

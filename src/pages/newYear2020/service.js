@@ -15,6 +15,11 @@ export async function queryVirus() {
   return request(url)
 }
 
+export async function queryVirusGlobal() {
+  const url = '/api/virusGlobal'
+  return request(url)
+}
+
 export async function queryPaper() {
   const url = '/api/paper'
   return request(url)

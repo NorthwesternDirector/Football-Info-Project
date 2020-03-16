@@ -98,6 +98,20 @@ export default {
     { id: 53, date: '2020-03-15', updateTime: '2020-03-16', newConfirmedCase: 16, newDeath: 14, newCuredCase: 838, newSuspectedCase: 41, totalConfirmedCase: 9898, totalDeath: 3213, totalCuredCase: 67749, totalSuspectedCase: 134, watch: 9582, remove: 1316, touch: 680462 },
 
   ]),
+  '/api/virusGlobal': mockData([
+    // { id: 1, country: '中国', existConfirmedCase: 9996, totalDeath: 3218, totalCuredCase: 67863 },
+    { id: 2, country: '意大利', existConfirmedCase: 20972, totalDeath: 2325, totalCuredCase: 1966 },
+    { id: 6, country: '伊朗', existConfirmedCase: 8624, totalDeath: 724, totalCuredCase: 4590 },
+    { id: 7, country: '韩国', existConfirmedCase: 7376, totalDeath: 72, totalCuredCase: 714 },
+    { id: 3, country: '西班牙', existConfirmedCase: 6948, totalDeath: 288, totalCuredCase: 517 },
+    { id: 4, country: '法国', existConfirmedCase: 5284, totalDeath: 127, totalCuredCase: 12 },
+    { id: 5, country: '德国', existConfirmedCase: 5084, totalDeath: 9, totalCuredCase: 49 },
+
+
+    { id: 8, country: '美国', existConfirmedCase: 3126, totalDeath: 62, totalCuredCase: 56 },
+
+
+  ]),
   '/api/games': mockData([
     { id: 1, round: '第1轮', me: 0, father: -4, mother: -3, meL: 1.17, fatherL: 1.5, motherL: 5.33, meT: 1.17, fatherT: -2.5, motherT: 2.33 },
     { id: 2, round: '第2轮', me: -10, father: 0, mother: 0, meL: 2.45, fatherL: 4.88, motherL: 2.67, meT: -6.38, fatherT: 2.38, motherT: 5 },
