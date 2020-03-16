@@ -1,12 +1,14 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect } from 'react'
 import { Card, Row, Col, Tag, Statistic } from 'antd'
 import { connect } from 'dva'
 import ReactEcharts from 'echarts-for-react'
 import liquidfill from 'echarts-liquidfill'
 import 'echarts/map/js/china';
-import moment from 'moment'
 import Calendar from '../../components/Charts/Calendar'
 import SpecialChart from '../../components/Charts/SpecialChart'
+import LiquidPaperBar from '../../components/Charts/LiquidBar'
+import TimeLineBar from '../../components/Charts/TimeLineBar'
+import MapChart from '../../components/Charts/MapChart'
 
 
 const LearningContent = ({
@@ -30,162 +32,6 @@ const LearningContent = ({
       type: 'newYear2020/fetchVirus',
     })
   }, [])
-
-  const selectminute = useMemo(() =>
-    new Array(1060).fill(1).map((val, index, array) =>
-      moment('2019-11-29 01:00').subtract(array.length - index, 'minute').format('HH:mm'),
-    ), [])
-
-  // #region 2020折线图
-  const Bar = ({
-    data,
-    chartHeight = 600,
-    xoffset = 0,
-    title,
-  }) => {
-    const option = {
-      title: {
-        top: 0,
-        text: title,
-        subtext: '2020.01.01-2020.12.31',
-        left: 'center',
-      },
-      tooltip: {
-        trigger: 'axis',
-        formatter: '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 16px;padding-bottom: 3px;margin-bottom: 3px">{b0}</div><span style="color:#9400D3;">●</span> {a0}: {c0}<br /><span style="color:#0000CD;">●</span> {a1}: {c1}<br /><span style="color:#B0E0E6;">●</span> {a2}: {c2}h<br /><span style="color:#006400;">●</span> {a3}: {c3}<br /><span style="color:#006699;">●</span> {a4}: {c4}h<br /><span style="color:#FFD700;">●</span> {a5}: {c5}h',
-        backgroundColor: 'rgba(245, 245, 245, 0.8)',
-        borderWidth: 1,
-        borderColor: '#ccc',
-        padding: 10,
-        textStyle: {
-            color: '#000',
-        },
-      },
-      toolbox: {
-        show: true,
-        feature: {
-          dataView: { readOnly: true },
-          saveAsImage: {},
-          restore: {},
-        },
-      },
-      dataZoom: [
-        {
-          type: 'slider',
-          show: true,
-          xAxisIndex: [0],
-          start: 40,
-          end: 100,
-        },
-        {
-          type: 'slider',
-          show: true,
-          yAxisIndex: [0],
-          left: '93%',
-          start: 0,
-          end: 100,
-        },
-        {
-          type: 'inside',
-          xAxisIndex: [0],
-          start: 40,
-          end: 100,
-        },
-        {
-          type: 'inside',
-          yAxisIndex: [0],
-          start: 0,
-          end: 100,
-        },
-      ],
-      legend: {
-        data: ['上班时间', '下班时间', '入睡时间', '工作时长', '睡眠时长', '深睡时长'],
-        top: 50,
-      },
-      xAxis: {
-          type: 'category',
-          data: data && data[0].list.map(item => item.date),
-          offset: xoffset,
-      },
-      yAxis: [{
-          type: 'category',
-          data: selectminute,
-          name: '时间',
-      }, {
-        type: 'value',
-        scale: true,
-        name: '时长/h',
-        max: 12,
-        min: 0,
-      }],
-      series: [{
-        name: '上班时间',
-        data: data && data[0].list.map(
-          item => ({ name: item.date, value: item.workTime[0].slice(0, 5) })),
-        type: 'line',
-        smooth: true,
-        color: '#9400D3',
-        markLine: {
-          silent: true,
-          data: [
-              { yAxis: '09:00' },
-          ],
-        },
-      }, {
-        name: '下班时间',
-        data: data && data[0].list.map(
-          item => ({ name: item.date, value: item.workTime[1].slice(0, 5) })),
-        type: 'line',
-        smooth: true,
-        color: '#0000CD',
-        markLine: {
-          silent: true,
-          data: [
-              { yAxis: '18:30' },
-              { yAxis: '21:00' },
-          ],
-        },
-      },
-      {
-        name: '工作时长',
-        data: data && data[0].list.map(item => ({ name: item.date, value: item.workTime[2] })),
-        type: 'bar',
-        color: '#B0E0E6',
-        yAxisIndex: 1,
-      },
-      {
-        name: '入睡时间',
-        data: data && data[0].list.map(item => ({ name: item.date, value: item.sleepTime[0] })),
-        type: 'line',
-        smooth: true,
-        color: '#006400',
-      },
-      {
-        name: '睡眠时长',
-        data: data && data[0].list.map(item => ({ name: item.date, value: item.sleepTime[1] })),
-        type: 'bar',
-        color: '#006699',
-        yAxisIndex: 1,
-      },
-      {
-        name: '深睡时长',
-        data: data && data[0].list.map(item => ({ name: item.date, value: item.sleepTime[2] })),
-        type: 'bar',
-        color: '#FFD700',
-        yAxisIndex: 1,
-      },
-      ],
-      grid: {
-        left: '90',
-        top: '90',
-        right: '90',
-      },
-    }
-
-    return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
-  }
-  // #endregion
-
   // #region 新冠肺炎
   const VirusBar = ({
     data,
@@ -325,84 +171,6 @@ const LearningContent = ({
   }
   // #endregion
 
-  // #region 新冠肺炎地图
-  const VirusMap = ({
-    chartHeight = 400,
-  }) => {
-    const option = {
-      title: {
-          subtext: '全国确诊人数分布',
-          left: 'center',
-      },
-      tooltip: {
-          trigger: 'item',
-      },
-      visualMap: {
-          min: 0,
-          max: 2500,
-          left: 'left',
-          top: '80',
-          text: ['高', '低'], // 文本，默认为数值文本
-          calculable: true,
-      },
-      series: [
-        {
-          name: '确诊人数',
-          type: 'map',
-          mapType: 'china',
-          roam: false,
-          label: {
-              normal: {
-                  show: true,
-              },
-              emphasis: {
-                  show: true,
-              },
-          },
-          layoutCenter: ['52%', '50%'],
-          layoutSize: chartHeight,
-          data: [
-            { name: '湖北', value: 67466 },
-            { name: '广东', value: 1350 },
-            { name: '河南', value: 1272 },
-            { name: '浙江', value: 1213 },
-            { name: '湖南', value: 1018 },
-            { name: '安徽', value: 990 },
-            { name: '江西', value: 935 },
-            { name: '山东', value: 758 },
-            { name: '江苏', value: 631 },
-            { name: '重庆', value: 575 },
-            { name: '四川', value: 538 },
-            { name: '黑龙江', value: 480 },
-            { name: '北京', value: 399 },
-            { name: '上海', value: 335 },
-            { name: '河北', value: 311 },
-            { name: '福建', value: 293 },
-            { name: '广西', value: 252 },
-            { name: '陕西', value: 245 },
-            { name: '云南', value: 174 },
-            { name: '海南', value: 168 },
-            { name: '贵州', value: 146 },
-            { name: '天津', value: 135 },
-            { name: '山西', value: 132 },
-            { name: '辽宁', value: 121 },
-            { name: '吉林', value: 93 },
-            { name: '甘肃', value: 91 },
-            { name: '香港', value: 79 },
-            { name: '新疆', value: 76 },
-            { name: '内蒙古', value: 75 },
-            { name: '宁夏', value: 71 },
-            { name: '台湾', value: 30 },
-            { name: '青海', value: 18 },
-            { name: '澳门', value: 10 },
-            { name: '西藏', value: 1 },
-          ],
-        },
-      ],
-    }
-    return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
-  }
-  // #endregion
   // #region 论文
   const PaperBar = ({
     data,
@@ -521,54 +289,6 @@ const LearningContent = ({
     }
     return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
-
-  const LiquidPaperBar = ({
-    value,
-    center,
-    color,
-    chartHeight = 200,
-  }) => {
-    const data = [value, value, value, value, value];
-    const option = {
-      backgroundColor: '#fff',
-      graphic: [{
-          type: 'group',
-          left: 'center',
-          bottom: 10,
-      }],
-      series: [{
-        type: 'liquidFill',
-        radius: '70%',
-        // shape: 'path://M367.855,428.202c-3.674-1.385-7.452-1.966-11.146-1.794c0.659-2.922,0.844-5.85,0.58-8.719 c-0.937-10.407-7.663-19.864-18.063-23.834c-10.697-4.043-22.298-1.168-29.902,6.403c3.015,0.026,6.074,0.594,9.035,1.728 c13.626,5.151,20.465,20.379,15.32,34.004c-1.905,5.02-5.177,9.115-9.22,12.05c-6.951,4.992-16.19,6.536-24.777,3.271 c-13.625-5.137-20.471-20.371-15.32-34.004c0.673-1.768,1.523-3.423,2.526-4.992h-0.014c0,0,0,0,0,0.014 c4.386-6.853,8.145-14.279,11.146-22.187c23.294-61.505-7.689-130.278-69.215-153.579c-61.532-23.293-130.279,7.69-153.579,69.202 c-6.371,16.785-8.679,34.097-7.426,50.901c0.026,0.554,0.079,1.121,0.132,1.688c4.973,57.107,41.767,109.148,98.945,130.793 c58.162,22.008,121.303,6.529,162.839-34.465c7.103-6.893,17.826-9.444,27.679-5.719c11.858,4.491,18.565,16.6,16.719,28.643 c4.438-3.126,8.033-7.564,10.117-13.045C389.751,449.992,382.411,433.709,367.855,428.202z',
-        center,
-        data,
-        color,
-        itemStyle: {
-          shadowBlur: 10,
-        },
-        backgroundStyle: {
-          borderColor: color[1],
-          borderWidth: 1,
-          shadowColor: 'rgba(0, 0, 0, 0.2)',
-          shadowBlur: 20,
-          color: '#fff',
-        },
-        label: {
-          normal: {
-            formatter: ` ${(value * 100).toFixed(2)}%`,
-            textStyle: {
-              fontSize: 20,
-              color: color[1],
-            },
-          },
-        },
-        outline: {
-          show: false,
-        },
-      }],
-    };
-    return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
-  }
   // #endregion
 
   return (
@@ -578,7 +298,7 @@ const LearningContent = ({
         <Card style={{ height: 680 }}>
         {virus && <Row>
           <Col span={16}>
-            <VirusBar data={virus.data} chartHeight={600} title="新型冠状病毒肺炎疫情通报"/>
+            <VirusBar data={virus.data} chartHeight={600} title="我国新型冠状病毒肺炎疫情通报"/>
             <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
               <p>说明：1. 所有“新增数据”参考(低)坐标轴；“累计（现有）数据”参考(高)坐标轴</p>
               <p>2. 为了更加直观展示确诊人数，图中仅展示现有确诊人数不展示累计确诊人数，计算关系为：‘累计确诊’ = ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
@@ -617,7 +337,7 @@ const LearningContent = ({
                 </div>
               </Col>
               <Col span={24}>
-                <VirusMap/>
+                <MapChart/>
               </Col>
             </Row>
           </Col>
@@ -628,7 +348,7 @@ const LearningContent = ({
         <Card style={{ height: 550 }}>
           <Row gutter={24}>
             <Col span={18}>
-              {paper && <PaperBar data={paper.data} chartHeight={500} title="论文完成情况"></PaperBar>}
+              {paper && <PaperBar data={paper.data} chartHeight={500} title="论文完成情况"/>}
             </Col>
             <Col span={6}>
             {paper &&
@@ -660,7 +380,7 @@ const LearningContent = ({
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ marginTop: 5 }}>
-          <Bar data={times.data} chartHeight={600} title="2020时间统计"></Bar>
+          <TimeLineBar data={times.data} chartHeight={600} title="2020时间统计" />
         </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
