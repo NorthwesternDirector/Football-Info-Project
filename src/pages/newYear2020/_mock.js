@@ -96,19 +96,35 @@ export default {
     { id: 51, date: '2020-03-13', updateTime: '2020-03-14', newConfirmedCase: 11, newDeath: 13, newCuredCase: 1430, newSuspectedCase: 17, totalConfirmedCase: 12094, totalDeath: 3189, totalCuredCase: 65541, totalSuspectedCase: 115, watch: 10879, remove: 2174, touch: 678935 },
     { id: 52, date: '2020-03-14', updateTime: '2020-03-15', newConfirmedCase: 20, newDeath: 10, newCuredCase: 1370, newSuspectedCase: 39, totalConfirmedCase: 10734, totalDeath: 3199, totalCuredCase: 66911, totalSuspectedCase: 113, watch: 10189, remove: 1409, touch: 679759 },
     { id: 53, date: '2020-03-15', updateTime: '2020-03-16', newConfirmedCase: 16, newDeath: 14, newCuredCase: 838, newSuspectedCase: 41, totalConfirmedCase: 9898, totalDeath: 3213, totalCuredCase: 67749, totalSuspectedCase: 134, watch: 9582, remove: 1316, touch: 680462 },
+    { id: 54, date: '2020-03-16', updateTime: '2020-03-17', newConfirmedCase: 21, newDeath: 13, newCuredCase: 830, newSuspectedCase: 45, totalConfirmedCase: 8976, totalDeath: 3226, totalCuredCase: 68679, totalSuspectedCase: 128, watch: 9351, remove: 1105, touch: 681404 },
 
   ]),
   '/api/virusGlobal': mockData([
-    // { id: 1, country: '中国', existConfirmedCase: 9996, totalDeath: 3218, totalCuredCase: 67863 },
-    { id: 2, country: '意大利', existConfirmedCase: 20972, totalDeath: 2325, totalCuredCase: 1966 },
-    { id: 6, country: '伊朗', existConfirmedCase: 8624, totalDeath: 724, totalCuredCase: 4590 },
-    { id: 7, country: '韩国', existConfirmedCase: 7376, totalDeath: 72, totalCuredCase: 714 },
-    { id: 3, country: '西班牙', existConfirmedCase: 6948, totalDeath: 288, totalCuredCase: 517 },
-    { id: 4, country: '法国', existConfirmedCase: 5284, totalDeath: 127, totalCuredCase: 12 },
-    { id: 5, country: '德国', existConfirmedCase: 5084, totalDeath: 9, totalCuredCase: 49 },
-
-
-    { id: 8, country: '美国', existConfirmedCase: 3126, totalDeath: 62, totalCuredCase: 56 },
+    { type: 'country',
+      data: [
+        // { id: 1, country: '中国', existConfirmedCase: 9996, totalDeath: 3218, totalCuredCase: 67863 },
+        { id: 2, country: '意大利', existConfirmedCase: 20972, totalDeath: 2325, totalCuredCase: 1966 },
+        { id: 3, country: '伊朗', existConfirmedCase: 8624, totalDeath: 724, totalCuredCase: 4590 },
+        { id: 4, country: '韩国', existConfirmedCase: 7376, totalDeath: 72, totalCuredCase: 714 },
+        { id: 5, country: '西班牙', existConfirmedCase: 6948, totalDeath: 288, totalCuredCase: 517 },
+        { id: 6, country: '法国', existConfirmedCase: 5284, totalDeath: 127, totalCuredCase: 12 },
+        { id: 7, country: '德国', existConfirmedCase: 5084, totalDeath: 9, totalCuredCase: 49 },
+        { id: 8, country: '美国', existConfirmedCase: 3126, totalDeath: 62, totalCuredCase: 56 },
+      ],
+    }, { type: 'continent',
+      data: [
+        { id: 1, continent: '亚洲', existConfirmedCase: 29074, totalConfirmCase: 106804, totalDeath: 4073, totalCuredCase: 73657 },
+        { id: 2, continent: '欧洲', existConfirmedCase: 51034, totalConfirmCase: 55979, totalDeath: 2333, totalCuredCase: 2612 },
+        { id: 3, continent: '北美洲', existConfirmedCase: 4097, totalConfirmCase: 4230, totalDeath: 65, totalCuredCase: 68 },
+        { id: 4, continent: '南美洲', existConfirmedCase: 433, totalConfirmCase: 439, totalDeath: 4, totalCuredCase: 2 },
+        { id: 5, continent: '非洲', existConfirmedCase: 298, totalConfirmCase: 342, totalDeath: 8, totalCuredCase: 36 },
+        { id: 6, continent: '大洋洲', existConfirmedCase: 275, totalConfirmCase: 307, totalDeath: 5, totalCuredCase: 27 },
+      ],
+    }, { type: 'total',
+    data: [
+      { id: 1, date: '2020-03-16', totalConfirmCase: 87735, newtotalConfirmCase: 7580, existConfirmedCase: 75530, newexistConfirmedCase: 7148, totalDeath: 3277, newDeath: 432, totalCuredCase: 8928, newCuredCase: 0 },
+    ],
+  },
 
 
   ]),
@@ -209,7 +225,8 @@ export default {
         { id: 73, date: '2020-03-13', workTime: ['', '', 0], sleepTime: ['23:37', 8.37, 2.13], walkingSteps: 1432, physicalExercise: [20, 0, 0, 0] },
         { id: 74, date: '2020-03-14', workTime: ['', '', 0], sleepTime: ['23:22', 8.12, 1.08], walkingSteps: 1575, physicalExercise: [20, 0, 0, 0] },
         { id: 75, date: '2020-03-15', workTime: ['', '', 0], sleepTime: ['23:35', 9.35, 0.73], walkingSteps: 17841, physicalExercise: [10, 0, 0, 0] },
-        { id: 76, date: '2020-03-16', workTime: ['', '', 0], sleepTime: ['23:18', 7.65, 2.60], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 76, date: '2020-03-16', workTime: ['', '', 0], sleepTime: ['23:18', 7.65, 2.60], walkingSteps: 1290, physicalExercise: [10, 0, 0, 0] },
+        { id: 77, date: '2020-03-17', workTime: ['', '', 0], sleepTime: ['23:45', 9.25, 1.13], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
