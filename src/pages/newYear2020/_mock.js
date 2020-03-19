@@ -41,6 +41,7 @@ export default {
     { id: 36, date: '2020-03-15', wordNumberS: 31323, wordNumberT: 1306, repetitonS: 6.1, repetitonT: 100 },
     { id: 37, date: '2020-03-16', wordNumberS: 31323, wordNumberT: 1306, repetitonS: 6.1, repetitonT: 100 },
     { id: 38, date: '2020-03-17', wordNumberS: 31323, wordNumberT: 1306, repetitonS: 6.1, repetitonT: 100 },
+    { id: 39, date: '2020-03-18', wordNumberS: 31323, wordNumberT: 2867, repetitonS: 6.1, repetitonT: 100 },
 
   ]),
   '/api/virus': mockData([
@@ -99,19 +100,20 @@ export default {
     { id: 53, date: '2020-03-15', updateTime: '2020-03-16', newConfirmedCase: 16, newDeath: 14, newCuredCase: 838, newSuspectedCase: 41, totalConfirmedCase: 9898, totalDeath: 3213, totalCuredCase: 67749, totalSuspectedCase: 134, watch: 9582, remove: 1316, touch: 680462 },
     { id: 54, date: '2020-03-16', updateTime: '2020-03-17', newConfirmedCase: 21, newDeath: 13, newCuredCase: 830, newSuspectedCase: 45, totalConfirmedCase: 8976, totalDeath: 3226, totalCuredCase: 68679, totalSuspectedCase: 128, watch: 9351, remove: 1105, touch: 681404 },
     { id: 55, date: '2020-03-17', updateTime: '2020-03-18', newConfirmedCase: 13, newDeath: 11, newCuredCase: 922, newSuspectedCase: 21, totalConfirmedCase: 8059, totalDeath: 3237, totalCuredCase: 69601, totalSuspectedCase: 119, watch: 9222, remove: 1014, touch: 682327 },
+    { id: 56, date: '2020-03-18', updateTime: '2020-03-19', newConfirmedCase: 34, newDeath: 8, newCuredCase: 819, newSuspectedCase: 23, totalConfirmedCase: 7263, totalDeath: 3245, totalCuredCase: 70420, totalSuspectedCase: 105, watch: 9144, remove: 1032, touch: 683281 },
 
   ]),
   '/api/virusGlobal': mockData([
     { type: 'country',
       data: [
         // { id: 1, country: '中国', existConfirmedCase: 9996, totalDeath: 3218, totalCuredCase: 67863 },
-        { id: 2, country: '意大利', existConfirmedCase: 26254, totalDeath: 2503, totalCuredCase: 2749 },
-        { id: 3, country: '伊朗', existConfirmedCase: 9792, totalDeath: 988, totalCuredCase: 5389 },
-        { id: 5, country: '西班牙', existConfirmedCase: 10258, totalDeath: 491, totalCuredCase: 530 },
-        { id: 4, country: '韩国', existConfirmedCase: 6838, totalDeath: 81, totalCuredCase: 1401 },
-        { id: 6, country: '法国', existConfirmedCase: 6953, totalDeath: 175, totalCuredCase: 602 },
-        { id: 7, country: '德国', existConfirmedCase: 7602, totalDeath: 20, totalCuredCase: 64 },
-        { id: 8, country: '美国', existConfirmedCase: 6152, totalDeath: 105, totalCuredCase: 74 },
+        { id: 2, country: '意大利', existConfirmedCase: 29794, totalDeath: 2978, totalCuredCase: 2941 },
+        { id: 3, country: '伊朗', existConfirmedCase: 10519, totalDeath: 1135, totalCuredCase: 5710 },
+        { id: 5, country: '西班牙', existConfirmedCase: 12090, totalDeath: 598, totalCuredCase: 1028 },
+        { id: 7, country: '德国', existConfirmedCase: 12226, totalDeath: 28, totalCuredCase: 73 },
+        { id: 4, country: '韩国', existConfirmedCase: 6526, totalDeath: 92, totalCuredCase: 1947 },
+        { id: 6, country: '法国', existConfirmedCase: 8268, totalDeath: 264, totalCuredCase: 602 },
+        { id: 8, country: '美国', existConfirmedCase: 8858, totalDeath: 145, totalCuredCase: 74 },
       ],
     }, { type: 'continent',
       data: [
@@ -227,7 +229,8 @@ export default {
         { id: 75, date: '2020-03-15', workTime: ['', '', 0], sleepTime: ['23:35', 9.35, 0.73], walkingSteps: 17841, physicalExercise: [10, 0, 0, 0] },
         { id: 76, date: '2020-03-16', workTime: ['', '', 0], sleepTime: ['23:18', 7.65, 2.60], walkingSteps: 1290, physicalExercise: [10, 0, 0, 0] },
         { id: 77, date: '2020-03-17', workTime: ['', '', 0], sleepTime: ['23:45', 9.25, 1.13], walkingSteps: 1585, physicalExercise: [20, 0, 0, 0] },
-        { id: 78, date: '2020-03-18', workTime: ['', '', 0], sleepTime: ['23:35', 7.92, 0.85], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 78, date: '2020-03-18', workTime: ['', '', 0], sleepTime: ['23:35', 7.92, 0.85], walkingSteps: 1295, physicalExercise: [10, 0, 0, 0] },
+        { id: 79, date: '2020-03-19', workTime: ['', '', 0], sleepTime: ['23:29', 8.30, 2.42], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
