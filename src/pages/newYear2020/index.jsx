@@ -447,24 +447,36 @@ const LearningContent = ({
               <p>说明：柱状体总高度即代表‘累计确诊’值，‘累计确诊’= ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
             </div>
             </Col>
-            <Col span={10}>
-              <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333' }}>国外疫情发展情况</p>
-              <Row gutter={2} style={{ marginBottom: '15', fontSize: 24, textAlign: 'center' }}>
-                <Col span={5} offset={4} style={{ color: '' }}>112747</Col>
-                <Col span={5} style={{ color: '#8f5558' }}>96013</Col>
-                <Col span={5} style={{ color: '#cd703f' }}>12090</Col>
-                <Col span={5} style={{ color: '#e2e7c4' }}>4644</Col>
-              </Row>
-              <Row gutter={2} style={{ marginBottom: '15', fontWeight: 'bolder' }}>
-                <Col span={4} style={{ textAlign: 'center' }}>地区</Col>
-                <Col span={5} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
-                <Col span={5} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
-                <Col span={5} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
-                <Col span={5} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
-              </Row>
+            <Col span={12}>
+              <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国际疫情发展情况</p>
+
+              { virusGlobal && ((i = virusGlobal.data[2].data.slice(-1)[0]) =>
+                <>
+                  <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{i.date} 09:00</p>
+                  <Row gutter={2} style={{ marginBottom: '15', fontSize: 24, textAlign: 'center' }}>
+                    <Col span={5} offset={4} style={{ color: '' }}>{i.totalConfirmCase}</Col>
+                    <Col span={5} style={{ color: '#8f5558' }}>{i.existConfirmedCase}</Col>
+                    <Col span={5} style={{ color: '#cd703f' }}>{i.totalCuredCase}</Col>
+                    <Col span={5} style={{ color: '#e2e7c4' }}>{i.totalDeath}</Col>
+                  </Row>
+                  <Row gutter={2} style={{ marginBottom: '15', fontWeight: 'bolder' }}>
+                    <Col span={4} style={{ textAlign: 'center' }}>地区</Col>
+                    <Col span={5} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
+                    <Col span={5} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
+                    <Col span={5} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
+                    <Col span={5} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
+                  </Row>
+                  <Row gutter={2} style={{ marginBottom: '15', fontSize: 12, textAlign: 'center' }}>
+                    <Col span={5} offset={4} style={{ color: '' }}>昨日+{i.newtotalConfirmCase}</Col>
+                    <Col span={5} style={{ color: '#8f5558' }}>昨日+{i.newexistConfirmedCase}</Col>
+                    <Col span={5} style={{ color: '#cd703f' }}>昨日+{i.newCuredCase}</Col>
+                    <Col span={5} style={{ color: '#e2e7c4' }}>昨日+{i.newDeath}</Col>
+                  </Row>
+                </>)()
+              }
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
-              {virusGlobal && virusGlobal.data[1].data.map(i =>
+              {virusGlobal && virusGlobal.data[1].data.sort((a, b) => b.totalConfirmCase - a.totalConfirmCase).map(i =>
                 <>
                   <Row gutter={2} style={{ backgroundColor: '#f7f7f7', borderRadius: '20px', paddingBottom: '5', lineHeight: '40px' }}>
                     <Col span={4} style={{ textAlign: 'center' }}>{i.continent}</Col>
@@ -474,8 +486,12 @@ const LearningContent = ({
                     <Col span={5} style={{ textAlign: 'center' }}>{i.totalDeath}</Col>
                   </Row>
                   <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
+                  <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
                 </>,
               )}
+              <div style={{ fontSize: 12, color: '#999', marginTop: 5, textAlign: 'center' }}>
+              <p>说明：国际疫情数据总和不包含我国数据，亚洲疫情数据总和包含我国数据</p>
+            </div>
             </Col>
           </Row>
         </Card>
