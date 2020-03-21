@@ -128,6 +128,12 @@ const LearningContent = ({
         smooth: true,
         color: '#8f5558',
         yAxisIndex: 1,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
       }, {
         name: '累计死亡',
         data: data.map(item => item.totalDeath),
@@ -135,6 +141,12 @@ const LearningContent = ({
         smooth: true,
         color: '#e2e7c4',
         yAxisIndex: 1,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
       }, {
         name: '累计治愈',
         data: data.map(item => item.totalCuredCase),
@@ -142,6 +154,12 @@ const LearningContent = ({
         smooth: true,
         color: '#cd703f',
         yAxisIndex: 1,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
       }, {
         name: '现有疑似',
         data: data.map(item => item.totalSuspectedCase),
@@ -149,6 +167,12 @@ const LearningContent = ({
         smooth: true,
         color: '#e0b654',
         yAxisIndex: 1,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
       }, {
         name: '追踪密切接触者',
         data: data.map(item => item.touch),
@@ -156,6 +180,12 @@ const LearningContent = ({
         smooth: true,
         color: '#CFCFCF',
         yAxisIndex: 1,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
       }, {
         name: '尚在医学观察者',
         data: data.map(item => item.watch),
@@ -163,6 +193,12 @@ const LearningContent = ({
         smooth: true,
         color: '#9C9C9C',
         yAxisIndex: 1,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
       },
       ],
       grid: {
@@ -303,37 +339,37 @@ const LearningContent = ({
     const option = {
       angleAxis: {
           type: 'category',
-          data: data.map(i => i.country),
+          data: data[0].data.map(i => i.country),
       },
       radiusAxis: {
       },
       polar: {
         center: ['50%', '55%'],
-        radius: '75%',
+        radius: '70%',
       },
       title: {
         top: 0,
-        text: '全球疫情统计图',
-        subtext: '数据更新时间：2020-03-16 09:00',
+        text: '国外疫情 TOP 7 国家',
+        subtext: `数据更新时间：${data[2].data.slice(-1)[0].date} 09:00`,
         left: 'center',
       },
       series: [{
           type: 'bar',
-          data: data.map(i => i.existConfirmedCase),
+          data: data[0].data.map(i => i.existConfirmedCase),
           coordinateSystem: 'polar',
           name: '现有确诊',
           color: '#8f5558',
           stack: 'a',
       }, {
           type: 'bar',
-          data: data.map(i => i.totalDeath),
+          data: data[0].data.map(i => i.totalDeath),
           coordinateSystem: 'polar',
           name: '累计死亡',
           color: '#e2e7c4',
           stack: 'a',
       }, {
           type: 'bar',
-          data: data.map(i => i.totalCuredCase),
+          data: data[0].data.map(i => i.totalCuredCase),
           coordinateSystem: 'polar',
           name: '累计治愈',
           color: '#cd703f',
@@ -347,8 +383,8 @@ const LearningContent = ({
     };
     return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
-
   // #endregion
+
   return (
     <>
     <Row gutter={24}>
@@ -404,7 +440,44 @@ const LearningContent = ({
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 550 }}>
-          {virusGlobal && <VirusGlobalBar data={virusGlobal.data}/>}
+          <Row gutter={24}>
+            <Col span={11}>
+              {virusGlobal && <VirusGlobalBar data={virusGlobal.data}/>}
+              <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
+              <p>说明：柱状体总高度即代表‘累计确诊’值，‘累计确诊’= ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
+            </div>
+            </Col>
+            <Col span={10}>
+              <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333' }}>国外疫情发展情况</p>
+              <Row gutter={2} style={{ marginBottom: '15', fontSize: 24, textAlign: 'center' }}>
+                <Col span={5} offset={4} style={{ color: '' }}>112747</Col>
+                <Col span={5} style={{ color: '#8f5558' }}>96013</Col>
+                <Col span={5} style={{ color: '#cd703f' }}>12090</Col>
+                <Col span={5} style={{ color: '#e2e7c4' }}>4644</Col>
+              </Row>
+              <Row gutter={2} style={{ marginBottom: '15', fontWeight: 'bolder' }}>
+                <Col span={4} style={{ textAlign: 'center' }}>地区</Col>
+                <Col span={5} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
+                <Col span={5} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
+                <Col span={5} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
+                <Col span={5} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
+              </Row>
+              <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
+              <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
+              {virusGlobal && virusGlobal.data[1].data.map(i =>
+                <>
+                  <Row gutter={2} style={{ backgroundColor: '#f7f7f7', borderRadius: '20px', paddingBottom: '5', lineHeight: '40px' }}>
+                    <Col span={4} style={{ textAlign: 'center' }}>{i.continent}</Col>
+                    <Col span={5} style={{ textAlign: 'center' }}>{i.totalConfirmCase}</Col>
+                    <Col span={5} style={{ textAlign: 'center' }}>{i.existConfirmedCase}</Col>
+                    <Col span={5} style={{ textAlign: 'center' }}>{i.totalCuredCase}</Col>
+                    <Col span={5} style={{ textAlign: 'center' }}>{i.totalDeath}</Col>
+                  </Row>
+                  <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
+                </>,
+              )}
+            </Col>
+          </Row>
         </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
