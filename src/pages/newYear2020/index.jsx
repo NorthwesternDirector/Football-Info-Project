@@ -4,6 +4,7 @@ import { connect } from 'dva'
 import ReactEcharts from 'echarts-for-react'
 import liquidfill from 'echarts-liquidfill'
 import 'echarts/map/js/china';
+import echarts from 'echarts'
 import Calendar from '../../components/Charts/Calendar'
 import SpecialChart from '../../components/Charts/SpecialChart'
 import LiquidPaperBar from '../../components/Charts/LiquidBar'
@@ -353,6 +354,16 @@ const LearningContent = ({
         subtext: `数据更新时间：${data[2].data.slice(-1)[0].date} 09:00`,
         left: 'center',
       },
+      tooltip: {
+        trigger: 'item',
+        backgroundColor: 'rgba(245, 245, 245, 0.8)',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        textStyle: {
+            color: '#000',
+        },
+      },
       series: [{
           type: 'bar',
           data: data[0].data.map(i => i.existConfirmedCase),
@@ -380,6 +391,104 @@ const LearningContent = ({
           data: ['现有确诊', '累计死亡', '累计治愈'],
           top: 50,
       },
+    };
+    return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
+
+  const VirusGlobalBarC = ({
+    data,
+    chartHeight = 500,
+  }) => {
+    const orderData = data[1].data.sort((a, b) => a.existConfirmedCase - b.existConfirmedCase)
+    const option = {
+      angleAxis: {
+        max: 200000,
+        show: false,
+      },
+      radiusAxis: {
+        type: 'category',
+        show: true,
+        axisLabel: {
+          fontSize: 12,
+          margin: 14,
+          interval: 0,
+          showMinLabel: true,
+          showMaxLabel: true,
+        },
+        axisLine: {
+            show: false,
+        },
+        axisTick: {
+            show: false,
+        },
+        data: orderData.map(i => i.continent),
+        z: 10,
+    },
+      polar: {
+        center: ['50%', '55%'],
+        radius: '80%',
+      },
+      tooltip: {
+        backgroundColor: 'rgba(245, 245, 245, 0.8)',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        textStyle: {
+            color: '#000',
+        },
+      },
+      series: orderData.map((item, index) => {
+        const dataSeries = [null, null, null, null, null, null]
+        dataSeries[index] = item.existConfirmedCase
+        return index !== 5 ? {
+          type: 'bar',
+          data: dataSeries,
+          roundCap: true,
+          coordinateSystem: 'polar',
+          stack: 'a',
+          name: item.continent,
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(
+                0.5, 0.5, 0.5, 1,
+                [
+                  { offset: 0, color: item.color1 },
+                  { offset: 1, color: item.color2 },
+                ],
+            ) },
+          },
+        } : {
+          type: 'bar',
+          roundCap: true,
+          showBackground: true, // 这里设置背景最后一层才生效
+          backgroundStyle: {
+            color: '#EEE',
+          },
+          data: dataSeries,
+          coordinateSystem: 'polar',
+          name: item.continent,
+          stack: 'a',
+          label: {
+            show: true,
+          },
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(
+                0.5, 0.5, 0.5, 1,
+                [
+                  { offset: 0, color: item.color1 },
+                  { offset: 1, color: item.color2 },
+                ],
+            ) },
+          },
+        }
+      }),
+      // legend: {
+      //     show: true,
+      //     data: orderData.map(i => i.continent),
+      //     icon: 'circle',
+      //     top: 50,
+      // },
     };
     return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
@@ -441,13 +550,13 @@ const LearningContent = ({
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 550 }}>
           <Row gutter={24}>
-            <Col span={11}>
+            <Col span={8}>
               {virusGlobal && <VirusGlobalBar data={virusGlobal.data}/>}
               <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
               <p>说明：柱状体总高度即代表‘累计确诊’值，‘累计确诊’= ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
             </div>
             </Col>
-            <Col span={12}>
+            <Col span={8}>
               <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国际疫情发展情况</p>
 
               { virusGlobal && ((i = virusGlobal.data[2].data.slice(-1)[0]) =>
@@ -492,6 +601,9 @@ const LearningContent = ({
               <div style={{ fontSize: 12, color: '#999', marginTop: 5, textAlign: 'center' }}>
               <p>说明：国际疫情数据总和不包含我国数据，亚洲疫情数据总和包含我国数据</p>
             </div>
+            </Col>
+            <Col span={8}>
+            {virusGlobal && <VirusGlobalBarC data={virusGlobal.data}/>}
             </Col>
           </Row>
         </Card>
