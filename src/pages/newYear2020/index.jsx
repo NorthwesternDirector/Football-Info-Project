@@ -337,10 +337,11 @@ const LearningContent = ({
     data,
     chartHeight = 500,
   }) => {
+    const hh = data && data[0].data.map(i => i.slice(-1)[0]).sort((a, b) => b.existConfirmedCase - a.existConfirmedCase)
     const option = {
       angleAxis: {
           type: 'category',
-          data: data[0].data.map(i => i.country),
+          data: hh.map(i => i.country),
       },
       radiusAxis: {
       },
@@ -350,7 +351,7 @@ const LearningContent = ({
       },
       title: {
         top: 0,
-        text: '国外疫情 TOP 7 国家',
+        text: '国外疫情 TOP N 国家',
         subtext: `数据更新时间：${data[2].data.slice(-1)[0].date} 09:00`,
         left: 'center',
       },
@@ -366,21 +367,21 @@ const LearningContent = ({
       },
       series: [{
           type: 'bar',
-          data: data[0].data.map(i => i.existConfirmedCase),
+          data: hh.map(i => i.existConfirmedCase),
           coordinateSystem: 'polar',
           name: '现有确诊',
           color: '#8f5558',
           stack: 'a',
       }, {
           type: 'bar',
-          data: data[0].data.map(i => i.totalDeath),
+          data: hh.map(i => i.totalDeath),
           coordinateSystem: 'polar',
           name: '累计死亡',
           color: '#e2e7c4',
           stack: 'a',
       }, {
           type: 'bar',
-          data: data[0].data.map(i => i.totalCuredCase),
+          data: hh.map(i => i.totalCuredCase),
           coordinateSystem: 'polar',
           name: '累计治愈',
           color: '#cd703f',
@@ -397,12 +398,17 @@ const LearningContent = ({
 
   const VirusGlobalBarC = ({
     data,
-    chartHeight = 500,
+    chartHeight = 400,
   }) => {
-    const orderData = data[1].data.sort((a, b) => a.existConfirmedCase - b.existConfirmedCase)
+    const orderData = data[1].data.slice(-1)[0].sort((a, b) => a.existConfirmedCase - b.existConfirmedCase)
     const option = {
+      title: {
+        subtext: '现有确诊人数',
+        left: 40,
+        top: 20,
+      },
       angleAxis: {
-        max: 200000,
+        max: 330000,
         show: false,
       },
       radiusAxis: {
@@ -425,7 +431,7 @@ const LearningContent = ({
         z: 10,
     },
       polar: {
-        center: ['50%', '55%'],
+        center: ['50%', '40%'],
         radius: '80%',
       },
       tooltip: {
@@ -556,36 +562,37 @@ const LearningContent = ({
               <p>说明：柱状体总高度即代表‘累计确诊’值，‘累计确诊’= ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
             </div>
             </Col>
-            <Col span={8}>
+            <Col span={16}>
               <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国际疫情发展情况</p>
-
+              {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00</p>}
               { virusGlobal && ((i = virusGlobal.data[2].data.slice(-1)[0]) =>
                 <>
-                  <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{i.date} 09:00</p>
                   <Row gutter={2} style={{ marginBottom: '15', fontSize: 24, textAlign: 'center' }}>
-                    <Col span={5} offset={4} style={{ color: '' }}>{i.totalConfirmCase}</Col>
-                    <Col span={5} style={{ color: '#8f5558' }}>{i.existConfirmedCase}</Col>
-                    <Col span={5} style={{ color: '#cd703f' }}>{i.totalCuredCase}</Col>
-                    <Col span={5} style={{ color: '#e2e7c4' }}>{i.totalDeath}</Col>
+                    <Col span={3} offset={6} style={{ color: '' }}>{i.totalConfirmCase}</Col>
+                    <Col span={3} style={{ color: '#8f5558' }}>{i.existConfirmedCase}</Col>
+                    <Col span={3} style={{ color: '#cd703f' }}>{i.totalCuredCase}</Col>
+                    <Col span={3} style={{ color: '#e2e7c4' }}>{i.totalDeath}</Col>
                   </Row>
                   <Row gutter={2} style={{ marginBottom: '15', fontWeight: 'bolder' }}>
-                    <Col span={4} style={{ textAlign: 'center' }}>地区</Col>
-                    <Col span={5} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
-                    <Col span={5} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
-                    <Col span={5} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
-                    <Col span={5} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
+                    <Col span={3} offset={6} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
+                    <Col span={3} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
+                    <Col span={3} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
+                    <Col span={3} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
                   </Row>
                   <Row gutter={2} style={{ marginBottom: '15', fontSize: 12, textAlign: 'center' }}>
-                    <Col span={5} offset={4} style={{ color: '' }}>昨日+{i.newtotalConfirmCase}</Col>
-                    <Col span={5} style={{ color: '#8f5558' }}>昨日+{i.newexistConfirmedCase}</Col>
-                    <Col span={5} style={{ color: '#cd703f' }}>昨日+{i.newCuredCase}</Col>
-                    <Col span={5} style={{ color: '#e2e7c4' }}>昨日+{i.newDeath}</Col>
+                    <Col span={3} offset={6} style={{ color: '' }}>昨日+{i.newtotalConfirmCase}</Col>
+                    <Col span={3} style={{ color: '#8f5558' }}>昨日+{i.newexistConfirmedCase}</Col>
+                    <Col span={3} style={{ color: '#cd703f' }}>昨日+{i.newCuredCase}</Col>
+                    <Col span={3} style={{ color: '#e2e7c4' }}>昨日+{i.newDeath}</Col>
                   </Row>
                 </>)()
               }
+            </Col>
+
+            <Col span={9}>
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
-              {virusGlobal && virusGlobal.data[1].data.sort((a, b) => b.totalConfirmCase - a.totalConfirmCase).map(i =>
+              {virusGlobal && virusGlobal.data[1].data.slice(-1)[0].sort((a, b) => b.existConfirmedCase - a.existConfirmedCase).map(i =>
                 <>
                   <Row gutter={2} style={{ backgroundColor: '#f7f7f7', borderRadius: '20px', paddingBottom: '5', lineHeight: '40px' }}>
                     <Col span={4} style={{ textAlign: 'center' }}>{i.continent}</Col>
@@ -602,7 +609,7 @@ const LearningContent = ({
               <p>说明：国际疫情数据总和不包含我国数据，亚洲疫情数据总和包含我国数据</p>
             </div>
             </Col>
-            <Col span={8}>
+            <Col span={7}>
             {virusGlobal && <VirusGlobalBarC data={virusGlobal.data}/>}
             </Col>
           </Row>
