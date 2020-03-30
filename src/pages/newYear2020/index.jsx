@@ -408,7 +408,7 @@ const LearningContent = ({
         top: 20,
       },
       angleAxis: {
-        max: 330000,
+        max: 400000,
         show: false,
       },
       radiusAxis: {
@@ -580,10 +580,10 @@ const LearningContent = ({
                     <Col span={3} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
                   </Row>
                   <Row gutter={2} style={{ marginBottom: '15', fontSize: 12, textAlign: 'center' }}>
-                    <Col span={3} offset={6} style={{ color: '' }}>昨日+{i.newtotalConfirmCase}</Col>
-                    <Col span={3} style={{ color: '#8f5558' }}>昨日+{i.newexistConfirmedCase}</Col>
-                    <Col span={3} style={{ color: '#cd703f' }}>昨日+{i.newCuredCase}</Col>
-                    <Col span={3} style={{ color: '#e2e7c4' }}>昨日+{i.newDeath}</Col>
+                    <Col span={3} offset={6} style={{ color: '' }}>昨日+{i.totalConfirmCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalConfirmCase}</Col>
+                    <Col span={3} style={{ color: '#8f5558' }}>昨日+{i.existConfirmedCase - virusGlobal.data[2].data.slice(-2, -1)[0].existConfirmedCase}</Col>
+                    <Col span={3} style={{ color: '#cd703f' }}>昨日+{i.totalCuredCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalCuredCase}</Col>
+                    <Col span={3} style={{ color: '#e2e7c4' }}>昨日+{i.totalDeath - virusGlobal.data[2].data.slice(-2, -1)[0].totalDeath}</Col>
                   </Row>
                 </>)()
               }
