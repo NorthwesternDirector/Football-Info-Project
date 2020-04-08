@@ -667,6 +667,16 @@ const LearningContent = ({
     xoffset = 0,
     chartHeight = 500,
   }) => {
+    const randomColor = () => {
+      const map = { 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F' }
+      let color = '#'
+      for (let i = 0; i < 6; i += 1) {
+        let num = Math.floor(Math.random() * 16)
+        num = num > 9 ? map[num] : num
+        color += num
+      }
+      return color
+    }
     const option = {
       title: {
         top: 0,
@@ -705,7 +715,7 @@ const LearningContent = ({
         name: i[0].country,
         data: i.map(item => item.existConfirmedCase),
         type: 'line',
-        color: '#6495ED',
+        color: randomColor(),
         symbol: 'none',
         smooth: true,
         lineStyle: {
