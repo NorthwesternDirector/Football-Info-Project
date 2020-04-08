@@ -660,6 +660,66 @@ const LearningContent = ({
     }
     return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
+
+  const VirusGlobalLineCity = ({
+    data,
+    title,
+    xoffset = 0,
+    chartHeight = 500,
+  }) => {
+    const option = {
+      title: {
+        top: 0,
+        text: title,
+        left: 'center',
+      },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(245, 245, 245, 0.8)',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        textStyle: {
+            color: '#000',
+        },
+      },
+      legend: {
+        data: ['意大利', '美国', '加拿大', '西班牙', '德国', '伊朗', '法国', '韩国', '瑞士', '英国', '比利时', '土耳其', '荷兰'],
+        top: 20,
+        selected: {
+          美国: false,
+        },
+        type: 'scroll',
+      },
+      xAxis: {
+          type: 'category',
+          data: data[0].data[0].map(item => item.date.slice(-5)),
+          offset: xoffset,
+      },
+      yAxis: {
+        type: 'value',
+        scale: true,
+        name: '现有确诊人数/个',
+      },
+      series: data[0].data.map(i => ({
+        name: i[0].country,
+        data: i.map(item => item.existConfirmedCase),
+        type: 'line',
+        color: '#6495ED',
+        symbol: 'none',
+        smooth: true,
+        lineStyle: {
+          width: 3,
+        },
+      })),
+      grid: {
+        left: '70',
+        top: '100',
+        right: '0',
+      },
+    }
+    return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
   // #endregion
 
   return (
@@ -783,6 +843,10 @@ const LearningContent = ({
               <p>说明：柱状体总高度即代表‘累计确诊’值，‘累计确诊’= ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’；美国数据不在此图中展示</p>
             </div>
             </Col>
+            <Col span={16}>
+              {virusGlobal && <VirusGlobalLineCity data={virusGlobal.data}/>}
+            </Col>
+
           </Row>
         </Card>
       </Col>
