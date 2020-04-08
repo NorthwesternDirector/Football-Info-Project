@@ -332,12 +332,14 @@ const LearningContent = ({
   }
   // #endregion
 
-  // #region 全球疫情极坐标系统计图
+  // #region 全球疫情统计图
   const VirusGlobalBar = ({
     data,
     chartHeight = 500,
   }) => {
-    const hh = data && data[0].data.map(i => i.slice(-1)[0]).sort((a, b) => b.existConfirmedCase - a.existConfirmedCase)
+    const hh = data && data[0].data.map(i =>
+      i.slice(-1)[0]).sort((a, b) => b.existConfirmedCase - a.existConfirmedCase,
+    )
     const option = {
       angleAxis: {
           type: 'category',
@@ -400,7 +402,9 @@ const LearningContent = ({
     data,
     chartHeight = 400,
   }) => {
-    const orderData = data[1].data.slice(-1)[0].sort((a, b) => a.existConfirmedCase - b.existConfirmedCase)
+    const orderData = data[1].data.map(i =>
+      i.slice(-1)[0]).sort((a, b) => a.existConfirmedCase - b.existConfirmedCase,
+    )
     const option = {
       title: {
         subtext: '现有确诊人数',
@@ -408,7 +412,7 @@ const LearningContent = ({
         top: 20,
       },
       angleAxis: {
-        max: 400000,
+        max: 600000,
         show: false,
       },
       radiusAxis: {
@@ -489,14 +493,124 @@ const LearningContent = ({
           },
         }
       }),
-      // legend: {
-      //     show: true,
-      //     data: orderData.map(i => i.continent),
-      //     icon: 'circle',
-      //     top: 50,
-      // },
     };
     return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
+
+  const VirusGlobalLineContinent = ({
+    data,
+    title,
+    xoffset = 0,
+    chartHeight = 500,
+  }) => {
+    const option = {
+      title: {
+        top: 0,
+        text: title,
+        left: 'center',
+      },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(245, 245, 245, 0.8)',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        textStyle: {
+            color: '#000',
+        },
+      },
+      legend: {
+        data: ['亚洲', '欧洲', '北美洲', '南美洲', '非洲', '大洋洲'],
+        top: 50,
+        type: 'scroll',
+      },
+      xAxis: {
+          type: 'category',
+          data: data[1].data[0].map(item => item.date),
+          offset: xoffset,
+      },
+      yAxis: {
+        type: 'value',
+        scale: true,
+        name: '现有确诊人数/个',
+      },
+      series: [{
+        name: '亚洲',
+        data: data[1].data[0].map(item => item.existConfirmedCase),
+        type: 'line',
+        color: '#8f5558',
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '欧洲',
+        data: data[1].data[1].map(item => item.existConfirmedCase),
+        type: 'line',
+        color: '#e2e7c4',
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '北美洲',
+        data: data[1].data[2].map(item => item.existConfirmedCase),
+        type: 'line',
+        color: '#cd703f',
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '南美洲',
+        data: data[1].data[3].map(item => item.existConfirmedCase),
+        type: 'line',
+        color: '#e0b654',
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '非洲',
+        data: data[1].data[4].map(item => item.existConfirmedCase),
+        type: 'line',
+        smooth: true,
+        color: '#8f5558',
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '大洋洲',
+        data: data[1].data[5].map(item => item.existConfirmedCase),
+        type: 'line',
+        smooth: true,
+        color: '#e2e7c4',
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      },
+      ],
+      grid: {
+        left: '70',
+        top: '120',
+        right: '0',
+      },
+    }
+    return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
   // #endregion
 
@@ -556,43 +670,41 @@ const LearningContent = ({
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 550 }}>
           <Row gutter={24}>
-            <Col span={8}>
-              {virusGlobal && <VirusGlobalBar data={virusGlobal.data}/>}
-              <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
-              <p>说明：柱状体总高度即代表‘累计确诊’值，‘累计确诊’= ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
-            </div>
-            </Col>
-            <Col span={16}>
+
+            <Col span={24}>
               <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国际疫情发展情况</p>
               {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00</p>}
               { virusGlobal && ((i = virusGlobal.data[2].data.slice(-1)[0]) =>
                 <>
                   <Row gutter={2} style={{ marginBottom: '15', fontSize: 24, textAlign: 'center' }}>
-                    <Col span={3} offset={6} style={{ color: '' }}>{i.totalConfirmCase}</Col>
-                    <Col span={3} style={{ color: '#8f5558' }}>{i.existConfirmedCase}</Col>
-                    <Col span={3} style={{ color: '#cd703f' }}>{i.totalCuredCase}</Col>
-                    <Col span={3} style={{ color: '#e2e7c4' }}>{i.totalDeath}</Col>
+                    <Col span={2} offset={8} style={{ color: '' }}>{i.totalConfirmCase}</Col>
+                    <Col span={2} style={{ color: '#8f5558' }}>{i.existConfirmedCase}</Col>
+                    <Col span={2} style={{ color: '#cd703f' }}>{i.totalCuredCase}</Col>
+                    <Col span={2} style={{ color: '#e2e7c4' }}>{i.totalDeath}</Col>
                   </Row>
                   <Row gutter={2} style={{ marginBottom: '15', fontWeight: 'bolder' }}>
-                    <Col span={3} offset={6} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
-                    <Col span={3} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
-                    <Col span={3} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
-                    <Col span={3} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
+                    <Col span={2} offset={8} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
+                    <Col span={2} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
+                    <Col span={2} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
+                    <Col span={2} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
                   </Row>
                   <Row gutter={2} style={{ marginBottom: '15', fontSize: 12, textAlign: 'center' }}>
-                    <Col span={3} offset={6} style={{ color: '' }}>昨日+{i.totalConfirmCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalConfirmCase}</Col>
-                    <Col span={3} style={{ color: '#8f5558' }}>昨日+{i.existConfirmedCase - virusGlobal.data[2].data.slice(-2, -1)[0].existConfirmedCase}</Col>
-                    <Col span={3} style={{ color: '#cd703f' }}>昨日+{i.totalCuredCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalCuredCase}</Col>
-                    <Col span={3} style={{ color: '#e2e7c4' }}>昨日+{i.totalDeath - virusGlobal.data[2].data.slice(-2, -1)[0].totalDeath}</Col>
+                    <Col span={2} offset={8} style={{ color: '' }}>昨日+{i.totalConfirmCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalConfirmCase}</Col>
+                    <Col span={2} style={{ color: '#8f5558' }}>昨日+{i.existConfirmedCase - virusGlobal.data[2].data.slice(-2, -1)[0].existConfirmedCase}</Col>
+                    <Col span={2} style={{ color: '#cd703f' }}>昨日+{i.totalCuredCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalCuredCase}</Col>
+                    <Col span={2} style={{ color: '#e2e7c4' }}>昨日+{i.totalDeath - virusGlobal.data[2].data.slice(-2, -1)[0].totalDeath}</Col>
                   </Row>
                 </>)()
               }
             </Col>
-
+            <Col span={7}>
+            {virusGlobal && <VirusGlobalBarC data={virusGlobal.data}/>}
+            </Col>
             <Col span={9}>
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
-              {virusGlobal && virusGlobal.data[1].data.slice(-1)[0].sort((a, b) => b.existConfirmedCase - a.existConfirmedCase).map(i =>
+              {virusGlobal && virusGlobal.data[1].data.map(i =>
+                i.slice(-1)[0]).sort((a, b) => b.existConfirmedCase - a.existConfirmedCase).map(i =>
                 <>
                   <Row gutter={2} style={{ backgroundColor: '#f7f7f7', borderRadius: '20px', paddingBottom: '5', lineHeight: '40px' }}>
                     <Col span={4} style={{ textAlign: 'center' }}>{i.continent}</Col>
@@ -609,8 +721,20 @@ const LearningContent = ({
               <p>说明：国际疫情数据总和不包含我国数据，亚洲疫情数据总和包含我国数据</p>
             </div>
             </Col>
-            <Col span={7}>
-            {virusGlobal && <VirusGlobalBarC data={virusGlobal.data}/>}
+            <Col span={8}>
+              {virusGlobal && <VirusGlobalLineContinent data={virusGlobal.data}/>}
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+      <Col span={24} style={{ marginBottom: 24 }}>
+        <Card style={{ height: 550 }}>
+          <Row gutter={24}>
+            <Col span={8}>
+              {virusGlobal && <VirusGlobalBar data={virusGlobal.data}/>}
+              <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
+              <p>说明：柱状体总高度即代表‘累计确诊’值，‘累计确诊’= ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’；美国数据不在此图中展示</p>
+            </div>
             </Col>
           </Row>
         </Card>
