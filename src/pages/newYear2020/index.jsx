@@ -408,8 +408,8 @@ const LearningContent = ({
     const option = {
       title: {
         subtext: '现有确诊人数',
-        left: 40,
-        top: 20,
+        left: 20,
+        top: 35,
       },
       angleAxis: {
         max: 600000,
@@ -436,7 +436,7 @@ const LearningContent = ({
     },
       polar: {
         center: ['50%', '40%'],
-        radius: '80%',
+        radius: '90%',
       },
       tooltip: {
         backgroundColor: 'rgba(245, 245, 245, 0.8)',
@@ -501,7 +501,7 @@ const LearningContent = ({
     data,
     title,
     xoffset = 0,
-    chartHeight = 500,
+    chartHeight = 350,
   }) => {
     const option = {
       title: {
@@ -521,12 +521,12 @@ const LearningContent = ({
       },
       legend: {
         data: ['亚洲', '欧洲', '北美洲', '南美洲', '非洲', '大洋洲'],
-        top: 50,
+        top: 0,
         type: 'scroll',
       },
       xAxis: {
           type: 'category',
-          data: data[1].data[0].map(item => item.date),
+          data: data[1].data[0].map(item => item.date.slice(-5)),
           offset: xoffset,
       },
       yAxis: {
@@ -538,7 +538,8 @@ const LearningContent = ({
         name: '亚洲',
         data: data[1].data[0].map(item => item.existConfirmedCase),
         type: 'line',
-        color: '#8f5558',
+        color: '#6495ED',
+        symbol: 'none',
         lineStyle: {
           width: 3,
           shadowColor: 'rgba(0, 0, 0, 0.3)',
@@ -549,7 +550,8 @@ const LearningContent = ({
         name: '欧洲',
         data: data[1].data[1].map(item => item.existConfirmedCase),
         type: 'line',
-        color: '#e2e7c4',
+        color: '#FF69B4',
+        symbol: 'none',
         lineStyle: {
           width: 3,
           shadowColor: 'rgba(0, 0, 0, 0.3)',
@@ -560,7 +562,8 @@ const LearningContent = ({
         name: '北美洲',
         data: data[1].data[2].map(item => item.existConfirmedCase),
         type: 'line',
-        color: '#cd703f',
+        color: '#FD08AB',
+        symbol: 'none',
         lineStyle: {
           width: 3,
           shadowColor: 'rgba(0, 0, 0, 0.3)',
@@ -571,7 +574,8 @@ const LearningContent = ({
         name: '南美洲',
         data: data[1].data[3].map(item => item.existConfirmedCase),
         type: 'line',
-        color: '#e0b654',
+        color: '#3CB371',
+        symbol: 'none',
         lineStyle: {
           width: 3,
           shadowColor: 'rgba(0, 0, 0, 0.3)',
@@ -583,7 +587,8 @@ const LearningContent = ({
         data: data[1].data[4].map(item => item.existConfirmedCase),
         type: 'line',
         smooth: true,
-        color: '#8f5558',
+        color: '#A9A9A9',
+        symbol: 'none',
         lineStyle: {
           width: 3,
           shadowColor: 'rgba(0, 0, 0, 0.3)',
@@ -595,7 +600,8 @@ const LearningContent = ({
         data: data[1].data[5].map(item => item.existConfirmedCase),
         type: 'line',
         smooth: true,
-        color: '#e2e7c4',
+        color: '#FFD700',
+        symbol: 'none',
         lineStyle: {
           width: 3,
           shadowColor: 'rgba(0, 0, 0, 0.3)',
@@ -606,7 +612,7 @@ const LearningContent = ({
       ],
       grid: {
         left: '70',
-        top: '120',
+        top: '60',
         right: '0',
       },
     }
@@ -697,10 +703,10 @@ const LearningContent = ({
                 </>)()
               }
             </Col>
-            <Col span={7}>
+            <Col span={6}>
             {virusGlobal && <VirusGlobalBarC data={virusGlobal.data}/>}
             </Col>
-            <Col span={9}>
+            <Col span={10}>
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
               {virusGlobal && virusGlobal.data[1].data.map(i =>
