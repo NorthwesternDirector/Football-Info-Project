@@ -335,7 +335,7 @@ const LearningContent = ({
   // #region 全球疫情统计图
   const VirusGlobalBar = ({
     data,
-    chartHeight = 500,
+    chartHeight = 430,
   }) => {
     const hh = data && data[0].data.map(i =>
       i.slice(-1)[0]).sort((a, b) => b.existConfirmedCase - a.existConfirmedCase,
@@ -348,14 +348,8 @@ const LearningContent = ({
       radiusAxis: {
       },
       polar: {
-        center: ['50%', '55%'],
+        center: ['50%', '50%'],
         radius: '70%',
-      },
-      title: {
-        top: 0,
-        text: '国外疫情 TOP N 国家',
-        subtext: `数据更新时间：${data[2].data.slice(-1)[0].date} 09:00`,
-        left: 'center',
       },
       tooltip: {
         trigger: 'item',
@@ -392,7 +386,7 @@ const LearningContent = ({
       legend: {
           show: true,
           data: ['现有确诊', '累计死亡', '累计治愈'],
-          top: 50,
+          top: 10,
       },
     };
     return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
@@ -665,7 +659,7 @@ const LearningContent = ({
     data,
     title,
     xoffset = 0,
-    chartHeight = 500,
+    chartHeight = 450,
   }) => {
     const randomColor = () => {
       const map = { 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F' }
@@ -695,7 +689,7 @@ const LearningContent = ({
       },
       legend: {
         data: ['意大利', '美国', '加拿大', '西班牙', '德国', '伊朗', '法国', '韩国', '瑞士', '英国', '比利时', '土耳其', '荷兰'],
-        top: 20,
+        top: 10,
         selected: {
           美国: false,
         },
@@ -724,7 +718,7 @@ const LearningContent = ({
       })),
       grid: {
         left: '70',
-        top: '100',
+        top: '80',
         right: '0',
       },
     }
@@ -846,6 +840,10 @@ const LearningContent = ({
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 550 }}>
+          <Row>
+          <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国外疫情 TOP N 国家</p>
+              {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00</p>}
+          </Row>
           <Row gutter={24}>
             <Col span={8}>
               {virusGlobal && <VirusGlobalBar data={virusGlobal.data}/>}
