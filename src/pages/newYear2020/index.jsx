@@ -409,7 +409,7 @@ const LearningContent = ({
       title: {
         subtext: '现有确诊人数',
         left: 20,
-        top: 35,
+        top: 65,
       },
       angleAxis: {
         max: 600000,
@@ -435,7 +435,7 @@ const LearningContent = ({
         z: 10,
     },
       polar: {
-        center: ['50%', '40%'],
+        center: ['50%', '50%'],
         radius: '90%',
       },
       tooltip: {
@@ -501,7 +501,7 @@ const LearningContent = ({
     data,
     title,
     xoffset = 0,
-    chartHeight = 350,
+    chartHeight = 400,
   }) => {
     const option = {
       title: {
@@ -521,7 +521,7 @@ const LearningContent = ({
       },
       legend: {
         data: ['亚洲', '欧洲', '北美洲', '南美洲', '非洲', '大洋洲'],
-        top: 0,
+        top: 20,
         type: 'scroll',
       },
       xAxis: {
@@ -540,11 +540,18 @@ const LearningContent = ({
         type: 'line',
         color: '#6495ED',
         symbol: 'none',
+        itemStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(
+              0.5, 0.5, 0.5, 1,
+              [
+                { offset: 0, color: data[1].data[0][0].color1 },
+                { offset: 1, color: data[1].data[0][0].color2 },
+              ],
+          ) },
+        },
         lineStyle: {
           width: 3,
-          shadowColor: 'rgba(0, 0, 0, 0.3)',
-          shadowBlur: 15,
-          shadowOffsetY: 20,
         },
       }, {
         name: '欧洲',
@@ -552,11 +559,18 @@ const LearningContent = ({
         type: 'line',
         color: '#FF69B4',
         symbol: 'none',
+        itemStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(
+              0.5, 0.5, 0.5, 1,
+              [
+                { offset: 0, color: data[1].data[1][0].color1 },
+                { offset: 1, color: data[1].data[1][0].color2 },
+              ],
+          ) },
+        },
         lineStyle: {
           width: 3,
-          shadowColor: 'rgba(0, 0, 0, 0.3)',
-          shadowBlur: 15,
-          shadowOffsetY: 20,
         },
       }, {
         name: '北美洲',
@@ -564,11 +578,18 @@ const LearningContent = ({
         type: 'line',
         color: '#FD08AB',
         symbol: 'none',
+        itemStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(
+              0.5, 0.5, 0.5, 1,
+              [
+                { offset: 0, color: data[1].data[2][0].color1 },
+                { offset: 1, color: data[1].data[2][0].color2 },
+              ],
+          ) },
+        },
         lineStyle: {
           width: 3,
-          shadowColor: 'rgba(0, 0, 0, 0.3)',
-          shadowBlur: 15,
-          shadowOffsetY: 20,
         },
       }, {
         name: '南美洲',
@@ -576,11 +597,18 @@ const LearningContent = ({
         type: 'line',
         color: '#3CB371',
         symbol: 'none',
+        itemStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(
+              0.5, 0.5, 0.5, 1,
+              [
+                { offset: 0, color: data[1].data[3][0].color1 },
+                { offset: 1, color: data[1].data[3][0].color2 },
+              ],
+          ) },
+        },
         lineStyle: {
           width: 3,
-          shadowColor: 'rgba(0, 0, 0, 0.3)',
-          shadowBlur: 15,
-          shadowOffsetY: 20,
         },
       }, {
         name: '非洲',
@@ -589,11 +617,18 @@ const LearningContent = ({
         smooth: true,
         color: '#A9A9A9',
         symbol: 'none',
+        itemStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(
+              0.5, 0.5, 0.5, 1,
+              [
+                { offset: 0, color: data[1].data[4][0].color1 },
+                { offset: 1, color: data[1].data[4][0].color2 },
+              ],
+          ) },
+        },
         lineStyle: {
           width: 3,
-          shadowColor: 'rgba(0, 0, 0, 0.3)',
-          shadowBlur: 15,
-          shadowOffsetY: 20,
         },
       }, {
         name: '大洋洲',
@@ -602,17 +637,24 @@ const LearningContent = ({
         smooth: true,
         color: '#FFD700',
         symbol: 'none',
+        itemStyle: {
+          normal: {
+            color: new echarts.graphic.LinearGradient(
+              0.5, 0.5, 0.5, 1,
+              [
+                { offset: 0, color: data[1].data[5][0].color1 },
+                { offset: 1, color: data[1].data[5][0].color2 },
+              ],
+          ) },
+        },
         lineStyle: {
           width: 3,
-          shadowColor: 'rgba(0, 0, 0, 0.3)',
-          shadowBlur: 15,
-          shadowOffsetY: 20,
         },
       },
       ],
       grid: {
         left: '70',
-        top: '60',
+        top: '100',
         right: '0',
       },
     }
@@ -676,37 +718,36 @@ const LearningContent = ({
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 550 }}>
           <Row gutter={24}>
-
             <Col span={24}>
               <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国际疫情发展情况</p>
               {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00</p>}
-              { virusGlobal && ((i = virusGlobal.data[2].data.slice(-1)[0]) =>
-                <>
-                  <Row gutter={2} style={{ marginBottom: '15', fontSize: 24, textAlign: 'center' }}>
-                    <Col span={2} offset={8} style={{ color: '' }}>{i.totalConfirmCase}</Col>
-                    <Col span={2} style={{ color: '#8f5558' }}>{i.existConfirmedCase}</Col>
-                    <Col span={2} style={{ color: '#cd703f' }}>{i.totalCuredCase}</Col>
-                    <Col span={2} style={{ color: '#e2e7c4' }}>{i.totalDeath}</Col>
-                  </Row>
-                  <Row gutter={2} style={{ marginBottom: '15', fontWeight: 'bolder' }}>
-                    <Col span={2} offset={8} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
-                    <Col span={2} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
-                    <Col span={2} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
-                    <Col span={2} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
-                  </Row>
-                  <Row gutter={2} style={{ marginBottom: '15', fontSize: 12, textAlign: 'center' }}>
-                    <Col span={2} offset={8} style={{ color: '' }}>昨日+{i.totalConfirmCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalConfirmCase}</Col>
-                    <Col span={2} style={{ color: '#8f5558' }}>昨日+{i.existConfirmedCase - virusGlobal.data[2].data.slice(-2, -1)[0].existConfirmedCase}</Col>
-                    <Col span={2} style={{ color: '#cd703f' }}>昨日+{i.totalCuredCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalCuredCase}</Col>
-                    <Col span={2} style={{ color: '#e2e7c4' }}>昨日+{i.totalDeath - virusGlobal.data[2].data.slice(-2, -1)[0].totalDeath}</Col>
-                  </Row>
-                </>)()
-              }
             </Col>
             <Col span={6}>
             {virusGlobal && <VirusGlobalBarC data={virusGlobal.data}/>}
             </Col>
             <Col span={10}>
+              { virusGlobal && ((i = virusGlobal.data[2].data.slice(-1)[0]) =>
+                <>
+                  <Row gutter={2} style={{ marginBottom: '15', fontSize: 24, textAlign: 'center' }}>
+                    <Col span={5} offset={4} style={{ color: '' }}>{i.totalConfirmCase}</Col>
+                    <Col span={5} style={{ color: '#8f5558' }}>{i.existConfirmedCase}</Col>
+                    <Col span={5} style={{ color: '#cd703f' }}>{i.totalCuredCase}</Col>
+                    <Col span={5} style={{ color: '#e2e7c4' }}>{i.totalDeath}</Col>
+                  </Row>
+                  <Row gutter={2} style={{ marginBottom: '15', fontWeight: 'bolder' }}>
+                    <Col span={5} offset={4} style={{ textAlign: 'center', color: '' }}>累计确诊</Col>
+                    <Col span={5} style={{ textAlign: 'center', color: '#8f5558' }}>现有确诊</Col>
+                    <Col span={5} style={{ textAlign: 'center', color: '#cd703f' }}>累计治愈</Col>
+                    <Col span={5} style={{ textAlign: 'center', color: '#e2e7c4' }}>累计死亡</Col>
+                  </Row>
+                  <Row gutter={2} style={{ marginBottom: '15', fontSize: 12, textAlign: 'center' }}>
+                    <Col span={5} offset={4} style={{ color: '' }}>昨日+{i.totalConfirmCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalConfirmCase}</Col>
+                    <Col span={5} style={{ color: '#8f5558' }}>昨日+{i.existConfirmedCase - virusGlobal.data[2].data.slice(-2, -1)[0].existConfirmedCase}</Col>
+                    <Col span={5} style={{ color: '#cd703f' }}>昨日+{i.totalCuredCase - virusGlobal.data[2].data.slice(-2, -1)[0].totalCuredCase}</Col>
+                    <Col span={5} style={{ color: '#e2e7c4' }}>昨日+{i.totalDeath - virusGlobal.data[2].data.slice(-2, -1)[0].totalDeath}</Col>
+                  </Row>
+                </>)()
+              }
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
               <Row style={{ lineHeight: '5px', color: '#FFF' }} >.</Row>
               {virusGlobal && virusGlobal.data[1].data.map(i =>
