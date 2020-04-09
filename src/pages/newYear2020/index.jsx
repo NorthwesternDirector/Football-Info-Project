@@ -210,6 +210,124 @@ const LearningContent = ({
     }
     return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
+
+  const VirusBarUSA = ({
+    data,
+    chartHeight = 550,
+    xoffset = 0,
+    title = '🇺🇸美国疫情发展',
+  }) => {
+    const subtext = `数据更新时间: ${data[0].data[0].slice(-1)[0].date} 09:00`
+    const option = {
+      title: {
+        top: 0,
+        text: title,
+        subtext,
+        left: 'center',
+      },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(245, 245, 245, 0.8)',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        textStyle: {
+            color: '#000',
+        },
+      },
+      toolbox: {
+        show: true,
+        feature: {
+          dataView: { readOnly: true },
+          saveAsImage: {},
+          restore: {},
+        },
+      },
+      legend: {
+        data: ['现有确诊', '累计确诊', '累计死亡', '累计治愈'],
+        top: 50,
+        type: 'scroll',
+      },
+      xAxis: {
+          type: 'category',
+          data: data[0].data[0].map(item => item.date.slice(-5)),
+          offset: xoffset,
+      },
+      yAxis: [{
+        type: 'value',
+        scale: true,
+        name: '人数/个(低)',
+      }, {
+        type: 'value',
+        scale: true,
+        name: '人数/个(高)',
+      }],
+      series: [{
+        name: '现有确诊',
+        data: data[0].data[0].map(item => item.existConfirmedCase),
+        type: 'line',
+        smooth: true,
+        color: '#f09b8c',
+        symbol: 'none',
+        yAxisIndex: 1,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '累计确诊',
+        data: data[0].data[0].map(item => item.totalConfirmCase),
+        type: 'line',
+        smooth: true,
+        color: '#d6433c',
+        symbol: 'none',
+        yAxisIndex: 1,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '累计死亡',
+        data: data[0].data[0].map(item => item.totalDeath),
+        type: 'line',
+        smooth: true,
+        color: '#4e5054',
+        symbol: 'none',
+        yAxisIndex: 0,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      }, {
+        name: '累计治愈',
+        data: data[0].data[0].map(item => item.totalCuredCase),
+        type: 'line',
+        smooth: true,
+        color: '#4facb3',
+        symbol: 'none',
+        yAxisIndex: 0,
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(0, 0, 0, 0.3)',
+          shadowBlur: 15,
+          shadowOffsetY: 20,
+        },
+      },
+      ],
+      grid: {
+        left: '80',
+        top: '100',
+        right: '80',
+      },
+    }
+    return <ReactEcharts theme="theme" option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
   // #endregion
 
   // #region 论文
@@ -339,7 +457,7 @@ const LearningContent = ({
   }) => {
     const hh = data && data[0].data.map(i =>
       i.slice(-1)[0]).sort((a, b) => b.existConfirmedCase - a.existConfirmedCase,
-    )
+    ).slice(1)
     const option = {
       angleAxis: {
           type: 'category',
@@ -397,16 +515,17 @@ const LearningContent = ({
     chartHeight = 400,
   }) => {
     const orderData = data[1].data.map(i =>
-      i.slice(-1)[0]).sort((a, b) => a.existConfirmedCase - b.existConfirmedCase,
+      i.slice(-1)[0]).sort((a, b) => a.totalDeath / a.totalConfirmCase - b.totalDeath / b.totalConfirmCase,
     )
     const option = {
       title: {
-        subtext: '现有确诊人数',
-        left: 20,
+        text: '病死率%',
+        subtext: '基准值(圆周)为10%',
+        left: -5,
         top: 65,
       },
       angleAxis: {
-        max: 600000,
+        max: 10,
         show: false,
       },
       radiusAxis: {
@@ -443,7 +562,7 @@ const LearningContent = ({
       },
       series: orderData.map((item, index) => {
         const dataSeries = [null, null, null, null, null, null]
-        dataSeries[index] = item.existConfirmedCase
+        dataSeries[index] = (item.totalDeath / item.totalConfirmCase * 100).toFixed(4)
         return index !== 5 ? {
           type: 'bar',
           data: dataSeries,
@@ -697,7 +816,7 @@ const LearningContent = ({
       },
       xAxis: {
           type: 'category',
-          data: data[0].data[0].map(item => item.date.slice(-5)),
+          data: data[0].data[1].map(item => item.date.slice(-5)),
           offset: xoffset,
       },
       yAxis: {
@@ -705,7 +824,7 @@ const LearningContent = ({
         scale: true,
         name: '现有确诊人数/个',
       },
-      series: data[0].data.map(i => ({
+      series: data[0].data.slice(1).map(i => ({
         name: i[0].country,
         data: i.map(item => item.existConfirmedCase),
         type: 'line',
@@ -837,6 +956,11 @@ const LearningContent = ({
             </Col>
           </Row>
         </Card>
+      </Col>
+      <Col span={24} style={{ marginBottom: 24 }}>
+      <Card style={{ height: 550 }} >
+        {virusGlobal && <VirusBarUSA data={virusGlobal.data}/>}
+      </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
         <Card style={{ height: 550 }}>
