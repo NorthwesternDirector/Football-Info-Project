@@ -10,6 +10,7 @@ import SpecialChart from '../../components/Charts/SpecialChart'
 import LiquidPaperBar from '../../components/Charts/LiquidBar'
 import TimeLineBar from '../../components/Charts/TimeLineBar'
 import MapChart from '../../components/Charts/MapChart'
+import MapChartUSA from '../../components/Charts/MapChartUSA'
 
 
 const LearningContent = ({
@@ -37,6 +38,7 @@ const LearningContent = ({
       type: 'newYear2020/fetchVirusGlobal',
     })
   }, [])
+
   // #region 新冠肺炎
   const VirusBar = ({
     data,
@@ -321,7 +323,7 @@ const LearningContent = ({
       },
       ],
       grid: {
-        left: '80',
+        left: '40',
         top: '100',
         right: '80',
       },
@@ -653,6 +655,7 @@ const LearningContent = ({
         type: 'line',
         color: '#6495ED',
         symbol: 'none',
+        smooth: true,
         itemStyle: {
           normal: {
             color: new echarts.graphic.LinearGradient(
@@ -672,6 +675,7 @@ const LearningContent = ({
         type: 'line',
         color: '#FF69B4',
         symbol: 'none',
+        smooth: true,
         itemStyle: {
           normal: {
             color: new echarts.graphic.LinearGradient(
@@ -691,6 +695,7 @@ const LearningContent = ({
         type: 'line',
         color: '#FD08AB',
         symbol: 'none',
+        smooth: true,
         itemStyle: {
           normal: {
             color: new echarts.graphic.LinearGradient(
@@ -710,6 +715,7 @@ const LearningContent = ({
         type: 'line',
         color: '#3CB371',
         symbol: 'none',
+        smooth: true,
         itemStyle: {
           normal: {
             color: new echarts.graphic.LinearGradient(
@@ -958,8 +964,18 @@ const LearningContent = ({
         </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
-      <Card style={{ height: 550 }} >
-        {virusGlobal && <VirusBarUSA data={virusGlobal.data}/>}
+      <Card style={{ height: 600 }} >
+        <Row gutter={2}>
+          <Col span={16}>
+            {virusGlobal && <VirusBarUSA data={virusGlobal.data}/>}
+            <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
+              <p>说明：1. ”死亡、治愈数据“参考(低)坐标轴；“确诊数据”参考(高)坐标轴</p>
+            </div>
+          </Col>
+          <Col span={8}>
+            <MapChartUSA />
+          </Col>
+        </Row>
       </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
