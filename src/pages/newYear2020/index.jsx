@@ -73,6 +73,15 @@ const LearningContent = ({
           restore: {},
         },
       },
+      dataZoom: [
+        {
+          type: 'slider',
+          show: true,
+          xAxisIndex: [0],
+          start: 60,
+          end: 100,
+        },
+      ],
       legend: {
         data: ['新增死亡', '新增治愈', '新增确诊', '新增疑似', '累计死亡', '累计治愈', '现有确诊', '现有疑似', '追踪密切接触者', '解除观察', '尚在医学观察者'],
         top: 50,
@@ -914,9 +923,9 @@ const LearningContent = ({
         {virus && <Row>
           <Col span={16}>
             <VirusBar data={virus.data} chartHeight={600} title="我国新型冠状病毒肺炎疫情通报"/>
-            <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
+            <div style={{ fontSize: 12, color: '#999', marginTop: 0, textAlign: 'center' }}>
               <p>说明：1. 所有“新增数据”参考(低)坐标轴；“累计（现有）数据”参考(高)坐标轴</p>
-              <p>2. 为了更加直观展示确诊人数，图中仅展示现有确诊人数不展示累计确诊人数，计算关系为：‘累计确诊’ = ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
+              <p style={{ marginTop: -10 }}>2. 为了更加直观展示确诊人数，图中仅展示现有确诊人数不展示累计确诊人数，计算关系为：‘累计确诊’ = ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’</p>
             </div>
           </Col>
           <Col span={8}>
