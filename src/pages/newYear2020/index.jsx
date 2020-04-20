@@ -323,7 +323,7 @@ const LearningContent = ({
       },
       ],
       grid: {
-        left: '40',
+        left: '50',
         top: '100',
         right: '80',
       },
@@ -413,6 +413,7 @@ const LearningContent = ({
         data: data.map(item => (item.repetitonS !== 100 ? item.repetitonS : null)),
         type: 'line',
         smooth: true,
+        symbol: 'none',
         symbolSize: 5,
         yAxisIndex: 1,
         itemStyle: {
@@ -459,7 +460,7 @@ const LearningContent = ({
   }) => {
     const hh = data && data[0].data.map(i =>
       i.slice(-1)[0]).sort((a, b) => b.existConfirmedCase - a.existConfirmedCase,
-    ).slice(1)
+    ).slice(1, 11)
     const option = {
       angleAxis: {
           type: 'category',
@@ -512,6 +513,60 @@ const LearningContent = ({
     return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
   }
 
+  const VirusGlobalBarDied = ({
+    data,
+    chartHeight = 430,
+  }) => {
+    const hh = data && data[0].data.map(i =>
+      i.slice(-1)[0]).sort((a, b) => b.totalDeath / b.totalConfirmCase - a.totalDeath / a.totalConfirmCase,
+    ).slice(1, 11)
+    const option = {
+      angleAxis: {
+          type: 'category',
+          data: hh.map(i => i.country),
+      },
+      radiusAxis: {
+      },
+      polar: {
+        center: ['50%', '50%'],
+        radius: '70%',
+      },
+      tooltip: {
+        trigger: 'item',
+        backgroundColor: 'rgba(245, 245, 245, 0.8)',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        textStyle: {
+            color: '#000',
+        },
+      },
+      series: [{
+          type: 'bar',
+          data: hh.map(i => i.totalDeath / i.totalConfirmCase),
+          coordinateSystem: 'polar',
+          name: '病死率',
+          stack: 'a',
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(
+                0.5, 0.5, 0.5, 1,
+                [
+                  { offset: 0, color: '#8f5558' },
+                  { offset: 1, color: '#000' },
+                ],
+            ) },
+          },
+      }],
+      legend: {
+          show: true,
+          data: ['病死率'],
+          top: 10,
+      },
+    };
+    return <ReactEcharts option={option} style={{ height: chartHeight }}></ReactEcharts>
+  }
+
   const VirusGlobalBarC = ({
     data,
     chartHeight = 400,
@@ -524,7 +579,7 @@ const LearningContent = ({
         text: '病死率%',
         subtext: '基准值(圆周)为10%',
         left: -5,
-        top: 65,
+        top: 25,
       },
       angleAxis: {
         max: 10,
@@ -813,7 +868,7 @@ const LearningContent = ({
         },
       },
       legend: {
-        data: ['意大利', '美国', '加拿大', '西班牙', '德国', '伊朗', '法国', '韩国', '瑞士', '英国', '比利时', '土耳其', '荷兰'],
+        data: ['意大利', '美国', '加拿大', '西班牙', '德国', '伊朗', '法国', '韩国', '瑞士', '英国', '比利时', '土耳其', '荷兰', '巴西'],
         top: 10,
         selected: {
           美国: false,
@@ -964,7 +1019,7 @@ const LearningContent = ({
         </Card>
       </Col>
       <Col span={24} style={{ marginBottom: 24 }}>
-      <Card style={{ height: 600 }} >
+        <Card style={{ height: 600 }} >
         <Row gutter={2}>
           <Col span={16}>
             {virusGlobal && <VirusBarUSA data={virusGlobal.data}/>}
@@ -973,6 +1028,52 @@ const LearningContent = ({
             </div>
           </Col>
           <Col span={8}>
+          {virusGlobal && <Row gutter={2} style={{ marginTop: 68 }}>
+              <Col span={6} >
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#f09b8c' }}>
+                    {virusGlobal.data[0].data[0].slice(-1)[0].existConfirmedCase}
+                  </p>
+                  <Tag style={{ margin: 0 }}>现有确诊</Tag>
+                  <p>昨日 <span style={{ color: '#f09b8c' }}>
+                    +{virusGlobal.data[0].data[0].slice(-1)[0].existConfirmedCase - virusGlobal.data[0].data[0].slice(-2, -1)[0].existConfirmedCase}
+                  </span></p>
+                </div>
+              </Col>
+              <Col span={6}>
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#d6433c' }}>
+                    {virusGlobal.data[0].data[0].slice(-1)[0].totalConfirmCase}
+                  </p>
+                  <Tag style={{ margin: 0 }}>累计确诊</Tag>
+                  <p>昨日 <span style={{ color: '#d6433c' }}>
+                    +{virusGlobal.data[0].data[0].slice(-1)[0].totalConfirmCase - virusGlobal.data[0].data[0].slice(-2, -1)[0].totalConfirmCase}
+                  </span></p>
+                </div>
+              </Col>
+              <Col span={6}>
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#4e5054' }}>
+                    {virusGlobal.data[0].data[0].slice(-1)[0].totalDeath}
+                  </p>
+                  <Tag style={{ margin: 0 }}>累计死亡</Tag>
+                  <p>昨日 <span style={{ color: '#4e5054' }}>
+                    +{virusGlobal.data[0].data[0].slice(-1)[0].totalDeath - virusGlobal.data[0].data[0].slice(-2, -1)[0].totalDeath}
+                  </span></p>
+                </div>
+              </Col>
+              <Col span={6}>
+                <div style={{ textAlign: 'center' }}>
+                  <p style={{ fontSize: 24, margin: '10px 0px 0px', color: '#4facb3' }}>
+                    {virusGlobal.data[0].data[0].slice(-1)[0].totalCuredCase}
+                  </p>
+                  <Tag style={{ margin: 0 }}>累计治愈</Tag>
+                  <p>昨日 <span style={{ color: '#4facb3' }}>
+                    +{virusGlobal.data[0].data[0].slice(-1)[0].totalCuredCase - virusGlobal.data[0].data[0].slice(-2, -1)[0].totalCuredCase}
+                  </span></p>
+                </div>
+              </Col>
+            </Row>}
             <MapChartUSA />
           </Col>
         </Row>
@@ -984,17 +1085,19 @@ const LearningContent = ({
           <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国外疫情 TOP N 国家</p>
               {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00</p>}
           </Row>
-          <Row gutter={24}>
-            <Col span={8}>
+          <Row gutter={2}>
+            <Col span={7}>
               {virusGlobal && <VirusGlobalBar data={virusGlobal.data}/>}
               <div style={{ fontSize: 12, color: '#999', marginTop: -20, textAlign: 'center' }}>
               <p>说明：柱状体总高度即代表‘累计确诊’值，‘累计确诊’= ‘现有确诊’ + ‘累计治愈’ + ‘累计死亡’；美国数据不在此图中展示</p>
             </div>
             </Col>
-            <Col span={16}>
+            <Col span={7}>
+              {virusGlobal && <VirusGlobalBarDied data={virusGlobal.data}/>}
+            </Col>
+            <Col span={10}>
               {virusGlobal && <VirusGlobalLineCity data={virusGlobal.data}/>}
             </Col>
-
           </Row>
         </Card>
       </Col>
