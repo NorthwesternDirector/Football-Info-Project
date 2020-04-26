@@ -46,7 +46,7 @@ const LearningContent = ({
     xoffset = 0,
     title,
   }) => {
-    const subtext = `信息来自国家卫生健康委员会官方网站 (http://www.nhc.gov.cn) , 数据更新时间: ${data.slice(-1)[0].updateTime} 09:00`
+    const subtext = `信息来自国家卫生健康委员会官方网站 (http://www.nhc.gov.cn) , 数据更新时间: ${data.slice(-1)[0].updateTime} 09:00/GMT+08:00`
     const option = {
       title: {
         top: 0,
@@ -228,7 +228,7 @@ const LearningContent = ({
     xoffset = 0,
     title = '🇺🇸美国疫情发展',
   }) => {
-    const subtext = `数据更新时间: ${data[0].data[0].slice(-1)[0].date} 09:00`
+    const subtext = `数据更新时间: ${data[0].data[0].slice(-1)[0].date} 09:00/GMT+08:00`
     const option = {
       title: {
         top: 0,
@@ -352,7 +352,7 @@ const LearningContent = ({
       title: {
         top: 0,
         text: title,
-        subtext: '2020.02.09-至今',
+        subtext: '2020.02.09-2020.04.25（完）',
         left: 'center',
       },
       tooltip: {
@@ -440,6 +440,7 @@ const LearningContent = ({
         data: data.map(item => (item.repetitonT !== 100 ? item.repetitonT : null)),
         type: 'line',
         smooth: true,
+        symbol: 'none',
         symbolSize: 5,
         yAxisIndex: 1,
         color: '#FF4500',
@@ -552,7 +553,7 @@ const LearningContent = ({
       },
       series: [{
           type: 'bar',
-          data: hh.map(i => i.totalDeath / i.totalConfirmCase),
+          data: hh.map(i => (i.totalDeath / i.totalConfirmCase).toFixed(4)),
           coordinateSystem: 'polar',
           name: '病死率',
           stack: 'a',
@@ -973,7 +974,7 @@ const LearningContent = ({
           <Row gutter={24}>
             <Col span={24}>
               <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国际疫情发展情况</p>
-              {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00</p>}
+              {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00/GMT+08:00</p>}
             </Col>
             <Col span={6}>
             {virusGlobal && <VirusGlobalBarC data={virusGlobal.data}/>}
@@ -1092,7 +1093,7 @@ const LearningContent = ({
         <Card style={{ height: 550 }}>
           <Row>
           <p style={{ fontSize: 19, fontWeight: 'bolder', color: '#333', textAlign: 'center', marginBottom: 5 }}>国外疫情 TOP N 国家</p>
-              {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00</p>}
+              {virusGlobal && <p style={{ fontSize: 12, color: '#bbb', textAlign: 'center', marginBottom: 5 }}>数据更新时间：{virusGlobal.data[2].data.slice(-1)[0].date} 09:00/GMT+08:00</p>}
           </Row>
           <Row gutter={2}>
             <Col span={7}>
