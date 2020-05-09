@@ -108,6 +108,7 @@ export default {
     { id: 105, date: '2020-05-05', updateTime: '2020-05-06', newConfirmedCase: 2, newDeath: 0, newCuredCase: 58, newSuspectedCase: 3, totalConfirmedCase: 339, totalDeath: 4633, totalCuredCase: 77911, totalSuspectedCase: 5, watch: 6973, remove: 517, touch: 735577 },
     { id: 106, date: '2020-05-06', updateTime: '2020-05-07', newConfirmedCase: 2, newDeath: 0, newCuredCase: 46, newSuspectedCase: 2, totalConfirmedCase: 295, totalDeath: 4633, totalCuredCase: 77957, totalSuspectedCase: 4, watch: 6537, remove: 627, touch: 735737 },
     { id: 107, date: '2020-05-07', updateTime: '2020-05-08', newConfirmedCase: 1, newDeath: 0, newCuredCase: 36, newSuspectedCase: 3, totalConfirmedCase: 260, totalDeath: 4633, totalCuredCase: 77993, totalSuspectedCase: 6, watch: 6167, remove: 645, touch: 736010 },
+    { id: 108, date: '2020-05-08', updateTime: '2020-05-09', newConfirmedCase: 1, newDeath: 0, newCuredCase: 53, newSuspectedCase: 2, totalConfirmedCase: 208, totalDeath: 4633, totalCuredCase: 78046, totalSuspectedCase: 8, watch: 5859, remove: 670, touch: 736372 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -174,6 +175,7 @@ export default {
           { id: 58, date: '2020-05-06', country: '美国', existConfirmedCase: 963387, totalConfirmCase: 1234592, totalDeath: 72054, totalCuredCase: 199151 },
           { id: 59, date: '2020-05-07', country: '美国', existConfirmedCase: 981593, totalConfirmCase: 1262692, totalDeath: 74791, totalCuredCase: 206308 },
           { id: 60, date: '2020-05-08', country: '美国', existConfirmedCase: 998279, totalConfirmCase: 1291719, totalDeath: 76913, totalCuredCase: 216527 },
+          { id: 61, date: '2020-05-09', country: '美国', existConfirmedCase: 1019656, totalConfirmCase: 1321468, totalDeath: 78581, totalCuredCase: 223231 },
 
         ], [
           { id: 1, date: '2020-03-27', country: '加拿大', existConfirmedCase: null },
@@ -219,6 +221,7 @@ export default {
           { id: 41, date: '2020-05-06', country: '加拿大', existConfirmedCase: 31448, totalConfirmCase: 63496, totalDeath: 4232, totalCuredCase: 27816 },
           { id: 42, date: '2020-05-07', country: '加拿大', existConfirmedCase: 31448, totalConfirmCase: 63496, totalDeath: 4232, totalCuredCase: 27816 },
           { id: 43, date: '2020-05-08', country: '加拿大', existConfirmedCase: 31632, totalConfirmCase: 65012, totalDeath: 4408, totalCuredCase: 28972 },
+          { id: 44, date: '2020-05-09', country: '加拿大', existConfirmedCase: 32605, totalConfirmCase: 66434, totalDeath: 4569, totalCuredCase: 29260 },
 
         ], [
           { id: 1, date: '2020-03-27', country: '意大利', existConfirmedCase: 62013, totalConfirmCase: 80539, totalDeath: 8165, totalCuredCase: 10361 },
@@ -1148,6 +1151,7 @@ export default {
         { id: 48, date: '2020-05-06', totalConfirmCase: 3577697, existConfirmedCase: 2205522, totalDeath: 252564, totalCuredCase: 1119611 },
         { id: 49, date: '2020-05-07', totalConfirmCase: 3669373, existConfirmedCase: 2247464, totalDeath: 259142, totalCuredCase: 1162767 },
         { id: 50, date: '2020-05-08', totalConfirmCase: 3829990, existConfirmedCase: 2298821, totalDeath: 265861, totalCuredCase: 1265308 },
+        { id: 51, date: '2020-05-09', totalConfirmCase: 3927260, existConfirmedCase: 2352509, totalDeath: 271560, totalCuredCase: 1303191 },
 
       ],
     },
@@ -1284,7 +1288,8 @@ export default {
         { id: 126, date: '2020-05-05', workTime: ['', '', 0], sleepTime: ['23:43', 7.58, 1.27], walkingSteps: 19225, physicalExercise: [10, 0, 0, 0] },
         { id: 127, date: '2020-05-06', workTime: ['', '', 0], sleepTime: ['23:44', 7.77, 2.45], walkingSteps: 4601, physicalExercise: [10, 0, 0, 0] },
         { id: 128, date: '2020-05-07', workTime: ['', '', 0], sleepTime: ['23:56', 10.27, 2.65], walkingSteps: 6666, physicalExercise: [10, 0, 0, 0] },
-        { id: 129, date: '2020-05-08', workTime: ['', '', 0], sleepTime: ['23:55', 9.50, 1.45], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 129, date: '2020-05-08', workTime: ['', '', 0], sleepTime: ['23:55', 9.50, 1.45], walkingSteps: 1325, physicalExercise: [10, 0, 0, 0] },
+        { id: 130, date: '2020-05-09', workTime: ['', '', 0], sleepTime: ['00:00', 7.20, 2.05], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
