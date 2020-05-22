@@ -119,6 +119,9 @@ export default {
     { id: 116, date: '2020-05-16', updateTime: '2020-05-17', newConfirmedCase: 5, newDeath: 0, newCuredCase: 8, newSuspectedCase: 2, totalConfirmedCase: 86, totalDeath: 4634, totalCuredCase: 78227, totalSuspectedCase: 4, watch: 4724, remove: 633, touch: 739545 },
     { id: 117, date: '2020-05-17', updateTime: '2020-05-18', newConfirmedCase: 7, newDeath: 0, newCuredCase: 11, newSuspectedCase: 1, totalConfirmedCase: 82, totalDeath: 4634, totalCuredCase: 78238, totalSuspectedCase: 4, watch: 4970, remove: 246, touch: 740054 },
     { id: 118, date: '2020-05-18', updateTime: '2020-05-19', newConfirmedCase: 6, newDeath: 0, newCuredCase: 3, newSuspectedCase: 1, totalConfirmedCase: 85, totalDeath: 4634, totalCuredCase: 78241, totalSuspectedCase: 3, watch: 5054, remove: 292, touch: 740428 },
+    { id: 119, date: '2020-05-20', updateTime: '2020-05-21', newConfirmedCase: 5, newDeath: 0, newCuredCase: 3, newSuspectedCase: 3, totalConfirmedCase: 87, totalDeath: 4634, totalCuredCase: 78244, totalSuspectedCase: 7, watch: 4893, remove: 328, touch: 740614 },
+    { id: 119, date: '2020-05-20', updateTime: '2020-05-21', newConfirmedCase: 2, newDeath: 0, newCuredCase: 5, newSuspectedCase: 1, totalConfirmedCase: 84, totalDeath: 4634, totalCuredCase: 78249, totalSuspectedCase: 7, watch: 4864, remove: 308, touch: 740967 },
+    { id: 119, date: '2020-05-21', updateTime: '2020-05-22', newConfirmedCase: 4, newDeath: 0, newCuredCase: 6, newSuspectedCase: 1, totalConfirmedCase: 82, totalDeath: 4634, totalCuredCase: 78255, totalSuspectedCase: 7, watch: 4958, remove: 255, touch: 741344 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -195,7 +198,10 @@ export default {
           { id: 68, date: '2020-05-16', country: '美国', existConfirmedCase: 1071284, totalConfirmCase: 1481916, totalDeath: 88404, totalCuredCase: 322228 },
           { id: 69, date: '2020-05-17', country: '美国', existConfirmedCase: 1077686, totalConfirmCase: 1505033, totalDeath: 89511, totalCuredCase: 337836 },
           { id: 70, date: '2020-05-18', country: '美国', existConfirmedCase: 1090297, totalConfirmCase: 1527664, totalDeath: 90978, totalCuredCase: 343389 },
-          { id: 70, date: '2020-05-19', country: '美国', existConfirmedCase: 1102774, totalConfirmCase: 1548381, totalDeath: 91857, totalCuredCase: 353750 },
+          { id: 71, date: '2020-05-19', country: '美国', existConfirmedCase: 1102774, totalConfirmCase: 1548381, totalDeath: 91857, totalCuredCase: 353750 },
+          { id: 72, date: '2020-05-20', country: '美国', existConfirmedCase: 1109876, totalConfirmCase: 1569345, totalDeath: 93321, totalCuredCase: 361654 },
+          { id: 73, date: '2020-05-21', country: '美国', existConfirmedCase: 1126107, totalConfirmCase: 1590597, totalDeath: 94890, totalCuredCase: 369600 },
+          { id: 73, date: '2020-05-22', country: '美国', existConfirmedCase: 1140811, totalConfirmCase: 1618820, totalDeath: 96226, totalCuredCase: 381783 },
 
         ], [
           { id: 1, date: '2020-03-27', country: '加拿大', existConfirmedCase: null },
@@ -894,6 +900,9 @@ export default {
           { id: 1, date: '2020-05-17', continent: '亚洲', existConfirmedCase: 306526, totalConfirmCase: 772170, totalDeath: 24185, totalCuredCase: 441459, color1: '#4195d0', color2: '#bfddcb' },
           { id: 1, date: '2020-05-18', continent: '亚洲', existConfirmedCase: 314615, totalConfirmCase: 797439, totalDeath: 24730, totalCuredCase: 458094, color1: '#4195d0', color2: '#bfddcb' },
           { id: 1, date: '2020-05-19', continent: '亚洲', existConfirmedCase: 323319, totalConfirmCase: 817876, totalDeath: 25109, totalCuredCase: 469448, color1: '#4195d0', color2: '#bfddcb' },
+          { id: 1, date: '2020-05-20', continent: '亚洲', existConfirmedCase: 330651, totalConfirmCase: 834521, totalDeath: 25467, totalCuredCase: 484111, color1: '#4195d0', color2: '#bfddcb' },
+          { id: 1, date: '2020-05-21', continent: '亚洲', existConfirmedCase: 337465, totalConfirmCase: 862262, totalDeath: 25844, totalCuredCase: 498953, color1: '#4195d0', color2: '#bfddcb' },
+          { id: 1, date: '2020-05-22', continent: '亚洲', existConfirmedCase: 346195, totalConfirmCase: 886015, totalDeath: 26241, totalCuredCase: 498953, color1: '#4195d0', color2: '#bfddcb' },
 
         ],
         [
@@ -952,6 +961,9 @@ export default {
           { id: 2, date: '2020-05-17', continent: '欧洲', existConfirmedCase: 843297, totalConfirmCase: 1762912, totalDeath: 161708, totalCuredCase: 757907, color1: '#cb452b', color2: '#fef452' },
           { id: 2, date: '2020-05-18', continent: '欧洲', existConfirmedCase: 846091, totalConfirmCase: 1782697, totalDeath: 162965, totalCuredCase: 773641, color1: '#cb452b', color2: '#fef452' },
           { id: 2, date: '2020-05-19', continent: '欧洲', existConfirmedCase: 852149, totalConfirmCase: 1798977, totalDeath: 163701, totalCuredCase: 783127, color1: '#cb452b', color2: '#fef452' },
+          { id: 2, date: '2020-05-20', continent: '欧洲', existConfirmedCase: 851032, totalConfirmCase: 1816543, totalDeath: 164324, totalCuredCase: 798977, color1: '#cb452b', color2: '#fef452' },
+          { id: 2, date: '2020-05-21', continent: '欧洲', existConfirmedCase: 850200, totalConfirmCase: 1832205, totalDeath: 165887, totalCuredCase: 816118, color1: '#cb452b', color2: '#fef452' },
+          { id: 2, date: '2020-05-22', continent: '欧洲', existConfirmedCase: 853471, totalConfirmCase: 1849898, totalDeath: 166889, totalCuredCase: 829538, color1: '#cb452b', color2: '#fef452' },
 
         ],
         [
@@ -1010,6 +1022,9 @@ export default {
           { id: 3, date: '2020-05-17', continent: '北美洲', existConfirmedCase: 1138874, totalConfirmCase: 1659535, totalDeath: 101168, totalCuredCase: 419493, color1: '#322470', color2: '#b3879a' },
           { id: 3, date: '2020-05-18', continent: '北美洲', existConfirmedCase: 1151767, totalConfirmCase: 1688993, totalDeath: 103171, totalCuredCase: 434055, color1: '#322470', color2: '#b3879a' },
           { id: 3, date: '2020-05-19', continent: '北美洲', existConfirmedCase: 1164503, totalConfirmCase: 1711453, totalDeath: 104122, totalCuredCase: 442828, color1: '#322470', color2: '#b3879a' },
+          { id: 3, date: '2020-05-20', continent: '北美洲', existConfirmedCase: 1177654, totalConfirmCase: 1737654, totalDeath: 105998, totalCuredCase: 463721, color1: '#322470', color2: '#b3879a' },
+          { id: 3, date: '2020-05-21', continent: '北美洲', existConfirmedCase: 1190705, totalConfirmCase: 1763346, totalDeath: 107884, totalCuredCase: 464757, color1: '#322470', color2: '#b3879a' },
+          { id: 3, date: '2020-05-22', continent: '北美洲', existConfirmedCase: 1205573, totalConfirmCase: 1795640, totalDeath: 109778, totalCuredCase: 480289, color1: '#322470', color2: '#b3879a' },
 
         ],
         [
@@ -1068,6 +1083,9 @@ export default {
           { id: 4, date: '2020-05-17', continent: '南美洲', existConfirmedCase: 254712, totalConfirmCase: 424333, totalDeath: 22420, totalCuredCase: 147201, color1: '#41914c', color2: '#bedcca' },
           { id: 4, date: '2020-05-18', continent: '南美洲', existConfirmedCase: 263959, totalConfirmCase: 440630, totalDeath: 23135, totalCuredCase: 153536, color1: '#41914c', color2: '#bedcca' },
           { id: 4, date: '2020-05-19', continent: '南美洲', existConfirmedCase: 273347, totalConfirmCase: 460133, totalDeath: 24068, totalCuredCase: 162718, color1: '#41914c', color2: '#bedcca' },
+          { id: 4, date: '2020-05-20', continent: '南美洲', existConfirmedCase: 285543, totalConfirmCase: 490003, totalDeath: 25342, totalCuredCase: 177381, color1: '#41914c', color2: '#bedcca' },
+          { id: 4, date: '2020-05-21', continent: '南美洲', existConfirmedCase: 297949, totalConfirmCase: 518390, totalDeath: 26604, totalCuredCase: 193837, color1: '#41914c', color2: '#bedcca' },
+          { id: 4, date: '2020-05-22', continent: '南美洲', existConfirmedCase: 322593, totalConfirmCase: 547898, totalDeath: 28057, totalCuredCase: 197248, color1: '#41914c', color2: '#bedcca' },
 
         ],
         [
@@ -1126,6 +1144,9 @@ export default {
           { id: 5, date: '2020-01-17', continent: '非洲', existConfirmedCase: 46431, totalConfirmCase: 79081, totalDeath: 2642, totalCuredCase: 30008, color1: '#faf553', color2: '#c0dc85' },
           { id: 5, date: '2020-01-18', continent: '非洲', existConfirmedCase: 49421, totalConfirmCase: 85033, totalDeath: 2759, totalCuredCase: 30008, color1: '#faf553', color2: '#c0dc85' },
           { id: 5, date: '2020-01-19', continent: '非洲', existConfirmedCase: 51411, totalConfirmCase: 88659, totalDeath: 2830, totalCuredCase: 34418, color1: '#faf553', color2: '#c0dc85' },
+          { id: 5, date: '2020-01-20', continent: '非洲', existConfirmedCase: 52943, totalConfirmCase: 92312, totalDeath: 2912, totalCuredCase: 36544, color1: '#faf553', color2: '#c0dc85' },
+          { id: 5, date: '2020-01-21', continent: '非洲', existConfirmedCase: 54328, totalConfirmCase: 95922, totalDeath: 2993, totalCuredCase: 38601, color1: '#faf553', color2: '#c0dc85' },
+          { id: 5, date: '2020-01-22', continent: '非洲', existConfirmedCase: 57598, totalConfirmCase: 100956, totalDeath: 3085, totalCuredCase: 40273, color1: '#faf553', color2: '#c0dc85' },
 
         ], [
           { id: 6, date: '2020-03-26', continent: '大洋洲', existConfirmedCase: 2408, totalConfirmCase: 2557, totalDeath: 8, totalCuredCase: 141, color1: '#FFD700', color2: '#FFFACD' },
@@ -1183,6 +1204,9 @@ export default {
           { id: 6, date: '2020-05-17', continent: '大洋洲', existConfirmedCase: 1286, totalConfirmCase: 10051, totalDeath: 140, totalCuredCase: 8625, color1: '#904e77', color2: '#e6a0bc' },
           { id: 6, date: '2020-05-18', continent: '大洋洲', existConfirmedCase: 1334, totalConfirmCase: 10153, totalDeath: 143, totalCuredCase: 8676, color1: '#904e77', color2: '#e6a0bc' },
           { id: 6, date: '2020-05-19', continent: '大洋洲', existConfirmedCase: 643, totalConfirmCase: 8817, totalDeath: 125, totalCuredCase: 8049, color1: '#904e77', color2: '#e6a0bc' },
+          { id: 6, date: '2020-05-20', continent: '大洋洲', existConfirmedCase: 621, totalConfirmCase: 8824, totalDeath: 125, totalCuredCase: 8087, color1: '#904e77', color2: '#e6a0bc' },
+          { id: 6, date: '2020-05-21', continent: '大洋洲', existConfirmedCase: 606, totalConfirmCase: 8840, totalDeath: 126, totalCuredCase: 8108, color1: '#904e77', color2: '#e6a0bc' },
+          { id: 6, date: '2020-05-22', continent: '大洋洲', existConfirmedCase: 575, totalConfirmCase: 8842, totalDeath: 126, totalCuredCase: 8141, color1: '#904e77', color2: '#e6a0bc' },
 
         ],
       ],
@@ -1248,6 +1272,9 @@ export default {
         { id: 59, date: '2020-05-17', totalConfirmCase: 4624314, existConfirmedCase: 2591018, totalDeath: 307632, totalCuredCase: 1725664 },
         { id: 60, date: '2020-05-18', totalConfirmCase: 4721163, existConfirmedCase: 2627087, totalDeath: 312271, totalCuredCase: 1781805 },
         { id: 61, date: '2020-05-19', totalConfirmCase: 4802124, existConfirmedCase: 2665268, totalDeath: 315323, totalCuredCase: 1821533 },
+        { id: 62, date: '2020-05-20', totalConfirmCase: 4901234, existConfirmedCase: 2697643, totalDeath: 319989, totalCuredCase: 1887196 },
+        { id: 63, date: '2020-05-21', totalConfirmCase: 4997079, existConfirmedCase: 2731112, totalDeath: 324705, totalCuredCase: 1941262 },
+        { id: 64, date: '2020-05-22', totalConfirmCase: 5105441, existConfirmedCase: 2785912, totalDeath: 329544, totalCuredCase: 1989985 },
 
       ],
     },
@@ -1395,7 +1422,8 @@ export default {
         { id: 137, date: '2020-05-16', workTime: ['', '', 0], sleepTime: ['00:35', 6.80, 0.89], walkingSteps: 8776, physicalExercise: [10, 0, 0, 0] },
         { id: 138, date: '2020-05-17', workTime: ['', '', 0], sleepTime: ['23:45', 8.14, 1.05], walkingSteps: 1543, physicalExercise: [30, 0, 0, 0] },
         { id: 139, date: '2020-05-18', workTime: ['', '', 0], sleepTime: ['23:50', 7.56, 1.32], walkingSteps: 2543, physicalExercise: [10, 0, 0, 0] },
-        { id: 139, date: '2020-05-19', workTime: ['', '', 0], sleepTime: ['23:55', 8.01, 1.02], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 140, date: '2020-05-19', workTime: ['', '', 0], sleepTime: ['23:55', 8.01, 1.02], walkingSteps: 9164, physicalExercise: [30, 0, 0, 0] },
+        { id: 141, date: '2020-05-20', workTime: ['', '', 0], sleepTime: ['23:19', 10.50, 1.25], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
