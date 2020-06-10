@@ -138,6 +138,8 @@ export default {
     { id: 135, date: '2020-06-05', updateTime: '2020-06-06', newConfirmedCase: 3, newDeath: 0, newCuredCase: 2, newSuspectedCase: 1, totalConfirmedCase: 67, totalDeath: 4634, totalCuredCase: 78329, totalSuspectedCase: 2, watch: 3890, remove: 488, touch: 746611 },
     { id: 136, date: '2020-06-06', updateTime: '2020-06-07', newConfirmedCase: 6, newDeath: 0, newCuredCase: 3, newSuspectedCase: 2, totalConfirmedCase: 70, totalDeath: 4634, totalCuredCase: 78332, totalSuspectedCase: 3, watch: 3389, remove: 633, touch: 746744 },
     { id: 137, date: '2020-06-07', updateTime: '2020-06-08', newConfirmedCase: 4, newDeath: 0, newCuredCase: 9, newSuspectedCase: 1, totalConfirmedCase: 65, totalDeath: 4634, totalCuredCase: 78341, totalSuspectedCase: 4, watch: 3232, remove: 479, touch: 747066 },
+    { id: 138, date: '2020-06-08', updateTime: '2020-06-09', newConfirmedCase: 3, newDeath: 0, newCuredCase: 10, newSuspectedCase: 0, totalConfirmedCase: 58, totalDeath: 4634, totalCuredCase: 78351, totalSuspectedCase: 1, watch: 2971, remove: 396, touch: 747232 },
+    { id: 139, date: '2020-06-09', updateTime: '2020-06-10', newConfirmedCase: 3, newDeath: 0, newCuredCase: 6, newSuspectedCase: 1, totalConfirmedCase: 55, totalDeath: 4634, totalCuredCase: 78357, totalSuspectedCase: 2, watch: 2892, remove: 527, touch: 747680 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -236,6 +238,7 @@ export default {
           { id: 90, date: '2020-06-07', country: '美国', existConfirmedCase: 1123286, totalConfirmCase: 1973883, totalDeath: 111599, totalCuredCase: 738998 },
           { id: 91, date: '2020-06-08', country: '美国', existConfirmedCase: 1130819, totalConfirmCase: 1995854, totalDeath: 112187, totalCuredCase: 752848 },
           { id: 92, date: '2020-06-09', country: '美国', existConfirmedCase: 1137669, totalConfirmCase: 2012001, totalDeath: 112596, totalCuredCase: 761736 },
+          { id: 93, date: '2020-06-10', country: '美国', existConfirmedCase: 1143360, totalConfirmCase: 2030323, totalDeath: 113267, totalCuredCase: 773696 },
 
         ], [
           { id: 1, date: '2020-03-27', country: '加拿大', existConfirmedCase: null },
@@ -1486,7 +1489,8 @@ export default {
         { id: 158, date: '2020-06-06', workTime: ['', '', 0], sleepTime: ['23:21', 9.31, 1.43], walkingSteps: 13272, physicalExercise: [30, 0, 0, 0] },
         { id: 159, date: '2020-06-07', workTime: ['', '', 0], sleepTime: ['23:39', 9.15, 1.23], walkingSteps: 5391, physicalExercise: [10, 0, 0, 0] },
         { id: 160, date: '2020-06-08', workTime: ['', '', 0], sleepTime: ['00:01', 8.98, 1.21], walkingSteps: 1824, physicalExercise: [30, 0, 0, 0] },
-        { id: 161, date: '2020-06-09', workTime: ['', '', 0], sleepTime: ['23:49', 8.75, 1.03], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 161, date: '2020-06-09', workTime: ['', '', 0], sleepTime: ['23:49', 8.75, 1.03], walkingSteps: 1522, physicalExercise: [10, 0, 0, 0] },
+        { id: 162, date: '2020-06-10', workTime: ['', '', 0], sleepTime: ['23:07', 8.73, 1.51], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
