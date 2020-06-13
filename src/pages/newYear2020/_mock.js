@@ -1492,7 +1492,9 @@ export default {
         { id: 160, date: '2020-06-08', workTime: ['', '', 0], sleepTime: ['00:01', 8.98, 1.21], walkingSteps: 1824, physicalExercise: [30, 0, 0, 0] },
         { id: 161, date: '2020-06-09', workTime: ['', '', 0], sleepTime: ['23:49', 8.75, 1.03], walkingSteps: 1522, physicalExercise: [10, 0, 0, 0] },
         { id: 162, date: '2020-06-10', workTime: ['', '', 0], sleepTime: ['23:07', 8.73, 1.51], walkingSteps: 2090, physicalExercise: [30, 0, 0, 0] },
-        { id: 163, date: '2020-06-11', workTime: ['', '', 0], sleepTime: ['23:12', 10.26, 1.01], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 163, date: '2020-06-11', workTime: ['', '', 0], sleepTime: ['23:12', 10.26, 1.01], walkingSteps: 8012, physicalExercise: [10, 0, 0, 0] },
+        { id: 164, date: '2020-06-12', workTime: ['', '', 0], sleepTime: ['23:30', 7.98, 0.63], walkingSteps: 11296, physicalExercise: [10, 0, 0, 0] },
+        { id: 165, date: '2020-06-13', workTime: ['', '', 0], sleepTime: ['23:34', 9.50, 1.90], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
