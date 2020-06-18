@@ -145,6 +145,9 @@ export default {
     { id: 142, date: '2020-06-12', updateTime: '2020-06-13', newConfirmedCase: 11, newDeath: 0, newCuredCase: 2, newSuspectedCase: 0, totalConfirmedCase: 74, totalDeath: 4634, totalCuredCase: 78367, totalSuspectedCase: 1, watch: 3197, remove: 635, touch: 751383 },
     { id: 143, date: '2020-06-13', updateTime: '2020-06-14', newConfirmedCase: 57, newDeath: 0, newCuredCase: 2, newSuspectedCase: 1, totalConfirmedCase: 129, totalDeath: 4634, totalCuredCase: 78369, totalSuspectedCase: 2, watch: 3358, remove: 542, touch: 752087 },
     { id: 144, date: '2020-06-14', updateTime: '2020-06-15', newConfirmedCase: 49, newDeath: 0, newCuredCase: 1, newSuspectedCase: 1, totalConfirmedCase: 177, totalDeath: 4634, totalCuredCase: 78370, totalSuspectedCase: 3, watch: 3852, remove: 392, touch: 752978 },
+    { id: 145, date: '2020-06-15', updateTime: '2020-06-16', newConfirmedCase: 40, newDeath: 0, newCuredCase: 7, newSuspectedCase: 3, totalConfirmedCase: 210, totalDeath: 4634, totalCuredCase: 78377, totalSuspectedCase: 4, watch: 4340, remove: 225, touch: 753836 },
+    { id: 146, date: '2020-06-16', updateTime: '2020-06-17', newConfirmedCase: 44, newDeath: 0, newCuredCase: 2, newSuspectedCase: 3, totalConfirmedCase: 252, totalDeath: 4634, totalCuredCase: 78379, totalSuspectedCase: 7, watch: 4683, remove: 116, touch: 754269 },
+    { id: 147, date: '2020-06-17', updateTime: '2020-06-18', newConfirmedCase: 28, newDeath: 0, newCuredCase: 15, newSuspectedCase: 3, totalConfirmedCase: 265, totalDeath: 4634, totalCuredCase: 78394, totalSuspectedCase: 7, watch: 5220, remove: 153, touch: 754966 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -244,6 +247,14 @@ export default {
           { id: 91, date: '2020-06-08', country: '美国', existConfirmedCase: 1130819, totalConfirmCase: 1995854, totalDeath: 112187, totalCuredCase: 752848 },
           { id: 92, date: '2020-06-09', country: '美国', existConfirmedCase: 1137669, totalConfirmCase: 2012001, totalDeath: 112596, totalCuredCase: 761736 },
           { id: 93, date: '2020-06-10', country: '美国', existConfirmedCase: 1143360, totalConfirmCase: 2030323, totalDeath: 113267, totalCuredCase: 773696 },
+          { id: 94, date: '2020-06-11', country: '美国', existConfirmedCase: 1149468, totalConfirmCase: 2052816, totalDeath: 114379, totalCuredCase: 788969 },
+          { id: 95, date: '2020-06-12', country: '美国', existConfirmedCase: 1148427, totalConfirmCase: 2072274, totalDeath: 115291, totalCuredCase: 808556 },
+          { id: 96, date: '2020-06-13', country: '美国', existConfirmedCase: 1160893, totalConfirmCase: 2094368, totalDeath: 116138, totalCuredCase: 817337 },
+          { id: 97, date: '2020-06-14', country: '美国', existConfirmedCase: 1163821, totalConfirmCase: 2123102, totalDeath: 116952, totalCuredCase: 842329 },
+          { id: 98, date: '2020-06-15', country: '美国', existConfirmedCase: 1177999, totalConfirmCase: 2150245, totalDeath: 117587, totalCuredCase: 854659 },
+          { id: 99, date: '2020-06-16', country: '美国', existConfirmedCase: 1178703, totalConfirmCase: 2166685, totalDeath: 117902, totalCuredCase: 870080 },
+          { id: 100, date: '2020-06-17', country: '美国', existConfirmedCase: 1178643, totalConfirmCase: 2188198, totalDeath: 118487, totalCuredCase: 891068 },
+          { id: 101, date: '2020-06-18', country: '美国', existConfirmedCase: 1193135, totalConfirmCase: 2215580, totalDeath: 119269, totalCuredCase: 903176 },
 
         ], [
           { id: 1, date: '2020-03-27', country: '加拿大', existConfirmedCase: null },
@@ -1501,6 +1512,9 @@ export default {
         { id: 165, date: '2020-06-13', workTime: ['', '', 0], sleepTime: ['23:34', 9.50, 1.90], walkingSteps: 3504, physicalExercise: [10, 0, 0, 0] },
         { id: 166, date: '2020-06-14', workTime: ['', '', 0], sleepTime: ['23:30', 9.01, 1.24], walkingSteps: 4088, physicalExercise: [10, 0, 0, 0] },
         { id: 167, date: '2020-06-15', workTime: ['', '', 0], sleepTime: ['23:43', 9.10, 1.73], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 168, date: '2020-06-16', workTime: ['', '', 0], sleepTime: ['23:43', 9.10, 1.73], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 169, date: '2020-06-17', workTime: ['', '', 0], sleepTime: ['23:43', 9.10, 1.73], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 170, date: '2020-06-18', workTime: ['', '', 0], sleepTime: ['23:45', 9.10, 1.73], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
