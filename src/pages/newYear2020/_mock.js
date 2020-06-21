@@ -150,6 +150,7 @@ export default {
     { id: 147, date: '2020-06-17', updateTime: '2020-06-18', newConfirmedCase: 28, newDeath: 0, newCuredCase: 15, newSuspectedCase: 3, totalConfirmedCase: 265, totalDeath: 4634, totalCuredCase: 78394, totalSuspectedCase: 7, watch: 5220, remove: 153, touch: 754966 },
     { id: 148, date: '2020-06-18', updateTime: '2020-06-19', newConfirmedCase: 32, newDeath: 0, newCuredCase: 4, newSuspectedCase: 2, totalConfirmedCase: 293, totalDeath: 4634, totalCuredCase: 78398, totalSuspectedCase: 7, watch: 5856, remove: 227, touch: 755832 },
     { id: 149, date: '2020-06-19', updateTime: '2020-06-20', newConfirmedCase: 27, newDeath: 0, newCuredCase: 12, newSuspectedCase: 4, totalConfirmedCase: 308, totalDeath: 4634, totalCuredCase: 78410, totalSuspectedCase: 11, watch: 6023, remove: 232, touch: 756223 },
+    { id: 150, date: '2020-06-20', updateTime: '2020-06-21', newConfirmedCase: 26, newDeath: 0, newCuredCase: 3, newSuspectedCase: 3, totalConfirmedCase: 331, totalDeath: 4634, totalCuredCase: 78413, totalSuspectedCase: 13, watch: 6339, remove: 397, touch: 756965 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -1518,7 +1519,8 @@ export default {
         { id: 169, date: '2020-06-17', workTime: ['', '', 0], sleepTime: ['23:33', 8.15, 1.63], walkingSteps: 7437, physicalExercise: [10, 0, 0, 0] },
         { id: 170, date: '2020-06-18', workTime: ['', '', 0], sleepTime: ['23:35', 9.62, 1.43], walkingSteps: 5819, physicalExercise: [10, 0, 0, 0] },
         { id: 171, date: '2020-06-19', workTime: ['', '', 0], sleepTime: ['23:38', 7.33, 1.33], walkingSteps: 6342, physicalExercise: [10, 0, 0, 0] },
-        { id: 172, date: '2020-06-20', workTime: ['', '', 0], sleepTime: ['23:27', 9.10, 1.66], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
+        { id: 172, date: '2020-06-20', workTime: ['', '', 0], sleepTime: ['23:27', 9.10, 1.66], walkingSteps: 2440, physicalExercise: [30, 0, 0, 0] },
+        { id: 173, date: '2020-06-21', workTime: ['', '', 0], sleepTime: ['00:00', 9.30, 2.22], walkingSteps: 0, physicalExercise: [10, 0, 0, 0] },
 
       ],
     },
