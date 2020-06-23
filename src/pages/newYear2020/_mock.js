@@ -151,6 +151,8 @@ export default {
     { id: 148, date: '2020-06-18', updateTime: '2020-06-19', newConfirmedCase: 32, newDeath: 0, newCuredCase: 4, newSuspectedCase: 2, totalConfirmedCase: 293, totalDeath: 4634, totalCuredCase: 78398, totalSuspectedCase: 7, watch: 5856, remove: 227, touch: 755832 },
     { id: 149, date: '2020-06-19', updateTime: '2020-06-20', newConfirmedCase: 27, newDeath: 0, newCuredCase: 12, newSuspectedCase: 4, totalConfirmedCase: 308, totalDeath: 4634, totalCuredCase: 78410, totalSuspectedCase: 11, watch: 6023, remove: 232, touch: 756223 },
     { id: 150, date: '2020-06-20', updateTime: '2020-06-21', newConfirmedCase: 26, newDeath: 0, newCuredCase: 3, newSuspectedCase: 3, totalConfirmedCase: 331, totalDeath: 4634, totalCuredCase: 78413, totalSuspectedCase: 13, watch: 6339, remove: 397, touch: 756965 },
+    { id: 151, date: '2020-06-21', updateTime: '2020-06-22', newConfirmedCase: 18, newDeath: 0, newCuredCase: 0, newSuspectedCase: 2, totalConfirmedCase: 349, totalDeath: 4634, totalCuredCase: 78413, totalSuspectedCase: 15, watch: 7236, remove: 144, touch: 758023 },
+    { id: 152, date: '2020-06-22', updateTime: '2020-06-23', newConfirmedCase: 22, newDeath: 0, newCuredCase: 12, newSuspectedCase: 2, totalConfirmedCase: 359, totalDeath: 4634, totalCuredCase: 78425, totalSuspectedCase: 15, watch: 7591, remove: 328, touch: 758718 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -1521,7 +1523,8 @@ export default {
         { id: 171, date: '2020-06-19', workTime: ['', '', 0], sleepTime: ['23:38', 7.33, 1.33], walkingSteps: 6342, physicalExercise: [10, 0, 0, 0] },
         { id: 172, date: '2020-06-20', workTime: ['', '', 0], sleepTime: ['23:27', 9.10, 1.66], walkingSteps: 2440, physicalExercise: [30, 0, 0, 0] },
         { id: 173, date: '2020-06-21', workTime: ['', '', 0], sleepTime: ['00:00', 9.30, 2.22], walkingSteps: 17952, physicalExercise: [30, 0, 0, 0] },
-        { id: 174, date: '2020-06-22', workTime: ['', '', 0], sleepTime: ['00:55', 8.60, 2.10], walkingSteps: 0, physicalExercise: [30, 0, 0, 0] },
+        { id: 174, date: '2020-06-22', workTime: ['', '', 0], sleepTime: ['00:55', 8.60, 2.10], walkingSteps: 3178, physicalExercise: [30, 0, 0, 0] },
+        { id: 175, date: '2020-06-23', workTime: ['', '', 0], sleepTime: ['00:21', 7.98, 2.15], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
 
       ],
     },
