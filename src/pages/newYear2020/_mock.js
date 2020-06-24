@@ -153,6 +153,7 @@ export default {
     { id: 150, date: '2020-06-20', updateTime: '2020-06-21', newConfirmedCase: 26, newDeath: 0, newCuredCase: 3, newSuspectedCase: 3, totalConfirmedCase: 331, totalDeath: 4634, totalCuredCase: 78413, totalSuspectedCase: 13, watch: 6339, remove: 397, touch: 756965 },
     { id: 151, date: '2020-06-21', updateTime: '2020-06-22', newConfirmedCase: 18, newDeath: 0, newCuredCase: 0, newSuspectedCase: 2, totalConfirmedCase: 349, totalDeath: 4634, totalCuredCase: 78413, totalSuspectedCase: 15, watch: 7236, remove: 144, touch: 758023 },
     { id: 152, date: '2020-06-22', updateTime: '2020-06-23', newConfirmedCase: 22, newDeath: 0, newCuredCase: 12, newSuspectedCase: 2, totalConfirmedCase: 359, totalDeath: 4634, totalCuredCase: 78425, totalSuspectedCase: 15, watch: 7591, remove: 328, touch: 758718 },
+    { id: 153, date: '2020-06-23', updateTime: '2020-06-24', newConfirmedCase: 12, newDeath: 0, newCuredCase: 3, newSuspectedCase: 4, totalConfirmedCase: 368, totalDeath: 4634, totalCuredCase: 78428, totalSuspectedCase: 18, watch: 7557, remove: 584, touch: 759279 },
 
   ]),
   '/api/virusGlobal': mockData([
