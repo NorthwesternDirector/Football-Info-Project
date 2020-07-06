@@ -164,6 +164,8 @@ export default {
     { id: 161, date: '2020-07-01', updateTime: '2020-07-02', newConfirmedCase: 3, newDeath: 0, newCuredCase: 8, newSuspectedCase: 0, totalConfirmedCase: 416, totalDeath: 4634, totalCuredCase: 78487, totalSuspectedCase: 5, watch: 5910, remove: 754, touch: 762940 },
     { id: 162, date: '2020-07-02', updateTime: '2020-07-03', newConfirmedCase: 5, newDeath: 0, newCuredCase: 12, newSuspectedCase: 1, totalConfirmedCase: 409, totalDeath: 4634, totalCuredCase: 78499, totalSuspectedCase: 6, watch: 5589, remove: 453, touch: 763077 },
     { id: 163, date: '2020-07-03', updateTime: '2020-07-04', newConfirmedCase: 3, newDeath: 0, newCuredCase: 10, newSuspectedCase: 2, totalConfirmedCase: 402, totalDeath: 4634, totalCuredCase: 78509, totalSuspectedCase: 7, watch: 4993, remove: 794, touch: 763277 },
+    { id: 164, date: '2020-07-04', updateTime: '2020-07-05', newConfirmedCase: 8, newDeath: 0, newCuredCase: 7, newSuspectedCase: 1, totalConfirmedCase: 403, totalDeath: 4634, totalCuredCase: 78509, totalSuspectedCase: 7, watch: 4201, remove: 1072, touch: 763557 },
+    { id: 165, date: '2020-07-05', updateTime: '2020-07-06', newConfirmedCase: 4, newDeath: 0, newCuredCase: 2, newSuspectedCase: 0, totalConfirmedCase: 405, totalDeath: 4634, totalCuredCase: 78518, totalSuspectedCase: 7, watch: 3988, remove: 455, touch: 763810 },
 
   ]),
   '/api/virusGlobal': mockData([
