@@ -174,6 +174,7 @@ export default {
     { id: 171, date: '2020-07-11', updateTime: '2020-07-12', newConfirmedCase: 7, newDeath: 0, newCuredCase: 11, newSuspectedCase: 0, totalConfirmedCase: 326, totalDeath: 4634, totalCuredCase: 78634, totalSuspectedCase: 7, watch: 3739, remove: 235, touch: 766329 },
     { id: 172, date: '2020-07-12', updateTime: '2020-07-13', newConfirmedCase: 8, newDeath: 0, newCuredCase: 14, newSuspectedCase: 0, totalConfirmedCase: 320, totalDeath: 4634, totalCuredCase: 78648, totalSuspectedCase: 7, watch: 3494, remove: 538, touch: 766622 },
     { id: 173, date: '2020-07-13', updateTime: '2020-07-14', newConfirmedCase: 3, newDeath: 0, newCuredCase: 26, newSuspectedCase: 0, totalConfirmedCase: 297, totalDeath: 4634, totalCuredCase: 78674, totalSuspectedCase: 5, watch: 3267, remove: 508, touch: 766903 },
+    { id: 174, date: '2020-07-14', updateTime: '2020-07-15', newConfirmedCase: 6, newDeath: 0, newCuredCase: 19, newSuspectedCase: 0, totalConfirmedCase: 284, totalDeath: 4634, totalCuredCase: 78693, totalSuspectedCase: 3, watch: 3577, remove: 219, touch: 767432 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -1566,7 +1567,8 @@ export default {
         { id: 193, date: '2020-07-11', workTime: ['', '', 0], sleepTime: ['00:50', 7.48, 2.10], walkingSteps: 11716, physicalExercise: [0, 0, 0, 0] },
         { id: 194, date: '2020-07-12', workTime: ['', '', 0], sleepTime: ['23:29', 9.68, 2.83], walkingSteps: 7594, physicalExercise: [0, 0, 0, 0] },
         { id: 195, date: '2020-07-13', workTime: ['', '', 0], sleepTime: ['00:39', 7.85, 2.06], walkingSteps: 8843, physicalExercise: [0, 0, 0, 0] },
-        { id: 196, date: '2020-07-14', workTime: ['', '', 0], sleepTime: ['23:34', 8.80, 1.75], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
+        { id: 196, date: '2020-07-14', workTime: ['', '', 0], sleepTime: ['23:34', 8.80, 1.75], walkingSteps: 7715, physicalExercise: [0, 0, 0, 0] },
+        { id: 197, date: '2020-07-15', workTime: ['08:40:00', '21:10:00', 0], sleepTime: ['23:34', 7.41, 2.23], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
 
       ],
     },
