@@ -190,9 +190,10 @@ export default {
     { id: 187, date: '2020-07-27', updateTime: '2020-07-28', newConfirmedCase: 68, newDeath: 0, newCuredCase: 16, newSuspectedCase: 0, totalConfirmedCase: 391, totalDeath: 4634, totalCuredCase: 78934, totalSuspectedCase: 1, watch: 14590, remove: 184, touch: 782284 },
     { id: 188, date: '2020-07-28', updateTime: '2020-07-29', newConfirmedCase: 101, newDeath: 0, newCuredCase: 10, newSuspectedCase: 0, totalConfirmedCase: 482, totalDeath: 4634, totalCuredCase: 78944, totalSuspectedCase: 1, watch: 15034, remove: 325, touch: 783053 },
     { id: 189, date: '2020-07-29', updateTime: '2020-07-30', newConfirmedCase: 105, newDeath: 0, newCuredCase: 13, newSuspectedCase: 1, totalConfirmedCase: 574, totalDeath: 4634, totalCuredCase: 78957, totalSuspectedCase: 2, watch: 18353, remove: 584, touch: 786957 },
-    { id: 189, date: '2020-07-30', updateTime: '2020-07-31', newConfirmedCase: 127, newDeath: 0, newCuredCase: 17, newSuspectedCase: 1, totalConfirmedCase: 684, totalDeath: 4634, totalCuredCase: 78974, totalSuspectedCase: 2, watch: 18461, remove: 279, touch: 787335 },
-    { id: 189, date: '2020-07-31', updateTime: '2020-08-01', newConfirmedCase: 45, newDeath: 0, newCuredCase: 15, newSuspectedCase: 1, totalConfirmedCase: 714, totalDeath: 4634, totalCuredCase: 78989, totalSuspectedCase: 2, watch: 20279, remove: 589, touch: 789742 },
-    { id: 189, date: '2020-08-01', updateTime: '2020-08-02', newConfirmedCase: 49, newDeath: 0, newCuredCase: 14, newSuspectedCase: 0, totalConfirmedCase: 748, totalDeath: 4634, totalCuredCase: 79003, totalSuspectedCase: 2, watch: 21445, remove: 145, touch: 791054 },
+    { id: 190, date: '2020-07-30', updateTime: '2020-07-31', newConfirmedCase: 127, newDeath: 0, newCuredCase: 17, newSuspectedCase: 1, totalConfirmedCase: 684, totalDeath: 4634, totalCuredCase: 78974, totalSuspectedCase: 2, watch: 18461, remove: 279, touch: 787335 },
+    { id: 191, date: '2020-07-31', updateTime: '2020-08-01', newConfirmedCase: 45, newDeath: 0, newCuredCase: 15, newSuspectedCase: 1, totalConfirmedCase: 714, totalDeath: 4634, totalCuredCase: 78989, totalSuspectedCase: 2, watch: 20279, remove: 589, touch: 789742 },
+    { id: 192, date: '2020-08-01', updateTime: '2020-08-02', newConfirmedCase: 49, newDeath: 0, newCuredCase: 14, newSuspectedCase: 0, totalConfirmedCase: 748, totalDeath: 4634, totalCuredCase: 79003, totalSuspectedCase: 2, watch: 21445, remove: 145, touch: 791054 },
+    { id: 193, date: '2020-08-02', updateTime: '2020-08-03', newConfirmedCase: 43, newDeath: 0, newCuredCase: 10, newSuspectedCase: 3, totalConfirmedCase: 781, totalDeath: 4634, totalCuredCase: 79013, totalSuspectedCase: 4, watch: 21585, remove: 560, touch: 791776 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -1604,7 +1605,8 @@ export default {
         { id: 212, date: '2020-07-30', workTime: ['08:35:00', '21:05:00', 10.00], sleepTime: ['23:46', 7.38, 2.40], walkingSteps: 8230, physicalExercise: [0, 0, 0, 0] },
         { id: 213, date: '2020-07-31', workTime: ['08:30:00', '19:00:00', 8.50], sleepTime: ['23:53', 7.30, 1.77], walkingSteps: 10699, physicalExercise: [0, 0, 0, 0] },
         { id: 214, date: '2020-08-01', workTime: ['', '', 0], sleepTime: ['23:18', 7.58, 2.11], walkingSteps: 5351, physicalExercise: [0, 0, 0, 0] },
-        { id: 215, date: '2020-08-02', workTime: ['', '', 0], sleepTime: ['23:45', 7.48, 1.60], walkingSteps: 10699, physicalExercise: [0, 0, 0, 0] },
+        { id: 215, date: '2020-08-02', workTime: ['', '', 0], sleepTime: ['23:45', 7.48, 1.60], walkingSteps: 3591, physicalExercise: [0, 0, 0, 0] },
+        { id: 216, date: '2020-08-03', workTime: ['08:30:00', '', 0], sleepTime: ['23:40', 7.51, 1.63], walkingSteps: 10699, physicalExercise: [0, 0, 0, 0] },
 
       ],
     },
