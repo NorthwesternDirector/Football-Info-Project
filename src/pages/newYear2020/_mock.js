@@ -197,6 +197,10 @@ export default {
     { id: 194, date: '2020-08-03', updateTime: '2020-08-04', newConfirmedCase: 36, newDeath: 0, newCuredCase: 17, newSuspectedCase: 1, totalConfirmedCase: 800, totalDeath: 4634, totalCuredCase: 79030, totalSuspectedCase: 5, watch: 21743, remove: 547, touch: 792481 },
     { id: 195, date: '2020-08-04', updateTime: '2020-08-05', newConfirmedCase: 27, newDeath: 0, newCuredCase: 17, newSuspectedCase: 0, totalConfirmedCase: 810, totalDeath: 4634, totalCuredCase: 79047, totalSuspectedCase: 3, watch: 23018, remove: 408, touch: 794165 },
     { id: 196, date: '2020-08-05', updateTime: '2020-08-06', newConfirmedCase: 37, newDeath: 0, newCuredCase: 10, newSuspectedCase: 0, totalConfirmedCase: 837, totalDeath: 4634, totalCuredCase: 79057, totalSuspectedCase: 2, watch: 23985, remove: 474, touch: 795607 },
+    { id: 197, date: '2020-08-06', updateTime: '2020-08-07', newConfirmedCase: 37, newDeath: 0, newCuredCase: 31, newSuspectedCase: 2, totalConfirmedCase: 843, totalDeath: 4634, totalCuredCase: 79088, totalSuspectedCase: 3, watch: 26499, remove: 313, touch: 798436 },
+    { id: 198, date: '2020-08-07', updateTime: '2020-08-08', newConfirmedCase: 31, newDeath: 0, newCuredCase: 35, newSuspectedCase: 5, totalConfirmedCase: 839, totalDeath: 4634, totalCuredCase: 79123, totalSuspectedCase: 7, watch: 27357, remove: 407, touch: 799701 },
+    { id: 199, date: '2020-08-08', updateTime: '2020-08-09', newConfirmedCase: 23, newDeath: 0, newCuredCase: 45, newSuspectedCase: 0, totalConfirmedCase: 817, totalDeath: 4634, totalCuredCase: 79168, totalSuspectedCase: 6, watch: 25822, remove: 2102, touch: 800268 },
+    { id: 200, date: '2020-08-09', updateTime: '2020-08-10', newConfirmedCase: 49, newDeath: 0, newCuredCase: 64, newSuspectedCase: 1, totalConfirmedCase: 802, totalDeath: 4634, totalCuredCase: 79232, totalSuspectedCase: 7, watch: 24055, remove: 2305, touch: 800809 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -1612,7 +1616,11 @@ export default {
         { id: 216, date: '2020-08-03', workTime: ['08:30:00', '21:10:00', 10.17], sleepTime: ['23:40', 7.51, 1.63], walkingSteps: 10699, physicalExercise: [0, 0, 0, 0] },
         { id: 217, date: '2020-08-04', workTime: ['08:25:00', '21:25:00', 10.50], sleepTime: ['23:13', 7.93, 2.25], walkingSteps: 10710, physicalExercise: [0, 0, 0, 0] },
         { id: 218, date: '2020-08-05', workTime: ['08:35:00', '21:45:00', 10.67], sleepTime: ['23:37', 7.51, 2.00], walkingSteps: 11786, physicalExercise: [0, 0, 0, 0] },
-        { id: 219, date: '2020-08-06', workTime: ['08:30:00', '18:30:00', 7.50], sleepTime: ['23:45', 7.12, 1.98], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
+        { id: 219, date: '2020-08-06', workTime: ['08:30:00', '18:30:00', 7.50], sleepTime: ['23:45', 7.12, 1.98], walkingSteps: 8373, physicalExercise: [0, 0, 0, 0] },
+        { id: 220, date: '2020-08-07', workTime: ['08:25:00', '18:30:00', 7.58], sleepTime: ['00:00', 6.88, 1.51], walkingSteps: 10894, physicalExercise: [0, 0, 0, 0] },
+        { id: 221, date: '2020-08-08', workTime: ['', '', 0], sleepTime: ['23:19', 6.51, 1.10], walkingSteps: 7753, physicalExercise: [0, 0, 0, 0] },
+        { id: 222, date: '2020-08-09', workTime: ['', '', 0], sleepTime: ['00:03', 7.40, 1.98], walkingSteps: 5547, physicalExercise: [0, 0, 0, 0] },
+        { id: 223, date: '2020-08-10', workTime: ['08:25:00', '', 0], sleepTime: ['23:00', 8.33, 2.03], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
 
       ],
     },
