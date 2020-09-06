@@ -227,6 +227,7 @@ export default {
     { id: 224, date: '2020-09-02', updateTime: '2020-09-03', newConfirmedCase: 11, newDeath: 0, newCuredCase: 17, newSuspectedCase: 0, totalConfirmedCase: 192, totalDeath: 4634, totalCuredCase: 80251, totalSuspectedCase: 0, watch: 7259, remove: 889, touch: 816868 },
     { id: 225, date: '2020-09-03', updateTime: '2020-09-04', newConfirmedCase: 25, newDeath: 0, newCuredCase: 12, newSuspectedCase: 0, totalConfirmedCase: 205, totalDeath: 4634, totalCuredCase: 80263, totalSuspectedCase: 0, watch: 7610, remove: 477, touch: 817696 },
     { id: 226, date: '2020-09-04', updateTime: '2020-09-05', newConfirmedCase: 10, newDeath: 0, newCuredCase: 21, newSuspectedCase: 0, totalConfirmedCase: 194, totalDeath: 4634, totalCuredCase: 80284, totalSuspectedCase: 0, watch: 7180, remove: 931, touch: 818203 },
+    { id: 227, date: '2020-09-05', updateTime: '2020-09-06', newConfirmedCase: 10, newDeath: 0, newCuredCase: 18, newSuspectedCase: 2, totalConfirmedCase: 186, totalDeath: 4634, totalCuredCase: 80302, totalSuspectedCase: 2, watch: 6110, remove: 1445, touch: 818580 },
 
   ]),
   '/api/virusGlobal': mockData([
@@ -1672,7 +1673,8 @@ export default {
         { id: 246, date: '2020-09-02', workTime: ['08:30:00', '21:05:00', 10.00], sleepTime: ['23:34', 7.52, 1.86], walkingSteps: 12569, physicalExercise: [0, 0, 0, 0] },
         { id: 247, date: '2020-09-03', workTime: ['08:25:00', '21:35:00', 10.67], sleepTime: ['23:14', 7.95, 1.88], walkingSteps: 9413, physicalExercise: [0, 0, 0, 0] },
         { id: 248, date: '2020-09-04', workTime: ['08:35:00', '21:55:00', 10.83], sleepTime: ['23:52', 7.33, 1.73], walkingSteps: 7618, physicalExercise: [0, 0, 0, 0] },
-        { id: 249, date: '2020-09-05', workTime: ['', '', 0], sleepTime: ['00:32', 8.99, 1.73], walkingSteps: 0, physicalExercise: [0, 0, 0, 0] },
+        { id: 249, date: '2020-09-05', workTime: ['', '', 0], sleepTime: ['00:32', 8.99, 1.73], walkingSteps: 6803, physicalExercise: [0, 0, 0, 0] },
+        { id: 250, date: '2020-09-06', workTime: ['', '', 0], sleepTime: ['00:16', 8.68, 1.89], walkingSteps: 29938, physicalExercise: [0, 90, 0, 0] },
 
       ],
     },
